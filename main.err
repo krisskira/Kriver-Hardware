@@ -1,0 +1,6 @@
+>>> Warning 203 "D:\DAVID\Documents\GitHub\Kriver-Hardware\header\func_menu_setup.h" Line 12(1,1): Condition always TRUE
+>>> Warning 203 "main.c" Line 42(1,1): Condition always TRUE
+>>> Warning 202 "main.c" Line 15(5,14): Variable never used:   optSelect
+      Memory usage:   ROM=27%      RAM=15% - 22%
+      0 Errors,  3 Warnings.
+Build Successful.

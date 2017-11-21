@@ -1,0 +1,186 @@
+004-005 @READ_PROGRAM_MEMORY8.P1
+004-005 @WRITE_PROGRAM_MEMORY8.P2
+015     CCP_1
+015     CCP_1_LOW
+016     CCP_1_HIGH
+01B     CCP_2_LOW
+01B     CCP_2
+01C     CCP_2_HIGH
+020-02F PIN_OUT
+030-031 strtok.save
+032-049 FreqNota
+04A     countOptMenuStart
+04B     countOptMenuSetup
+04C     countOptMenuOn
+04D     countOptMenuOff
+04E     menuActive
+04F     optSelect
+050     getMenuSetup.optSelected
+050     getMenuStart.optSelected
+050     getMenuOff.optSelected
+050     getMenuOn.optSelected
+050-053 atan2.y
+050     lcd_init.i
+050     MAIN.@SCRATCH1
+051     getMenuOff.exit
+051     getMenuStart.exit
+051     getMenuSetup.exit
+051-054 lcd_init.LCD_INIT_STRING
+051     getMenuOn.exit
+052-053 Sound.frecuencia
+052     executeSetup.optSelect
+052     @MUL88.P1
+052     getMenuStart.@SCRATCH1
+052     getMenuOn.@SCRATCH1
+052     getMenuOff.@SCRATCH1
+052     getMenuSetup.@SCRATCH1
+053     @MUL88.P1
+053     pressOk.@SCRATCH1
+053     @PSTRINGC7_891.@SCRATCH1
+053     @PSTRINGC_891.@SCRATCH1
+053     getMenuOn.@SCRATCH2
+053     getMenuOff.@SCRATCH2
+054     @WRITEBITA.P1
+054-057 atan2.x
+054-055 Sound.duracion
+054     @PSTRINGC7_891.@SCRATCH2
+054     @PSTRINGC_891.@SCRATCH2
+055     @WRITEBITA.P1
+055     lcd_init.@SCRATCH1
+055     @PSTRINGC7_891.@SCRATCH3
+056-057 @WRITEBITA.P1
+056     lcd_putc.c
+056-057 Sound.mS_Transcurridos
+056     @PSTRINGC7_891.@SCRATCH4
+057     @delay_ms1.P1
+057     lcd_gotoxy.x
+058-05B atan2.z
+058-059 Sound.CiclosL
+058     lcd_gotoxy.y
+059     lcd_gotoxy.address
+05A-05B Sound.uS
+05A     lcd_gotoxy.@SCRATCH1
+05B     lcd_send_byte.address
+05C-05F Sound.tmp
+05C     lcd_send_byte.n
+05C.0   atan2.sign
+05D     atan2.quad
+05D     lcd_read_byte.low
+05D     lcd_send_byte.@SCRATCH1
+05E     lcd_send_nibble.n
+05E     lcd_read_byte.high
+05F     lcd_read_nibble.n
+05F     lcd_read_byte.@SCRATCH1
+060-063 @DIV3232.P1
+060-063 @MUL3232.P2
+060     lcd_read_nibble.@SCRATCH1
+060     Sound.@SCRATCH1
+061     @delay_us1.P1
+064-067 @MUL3232.P1
+064-067 @DIV3232.P2
+068     @DIV3232.@SCRATCH1
+068     @MUL3232.@SCRATCH1
+069     @DIV3232.@SCRATCH2
+069     @MUL3232.@SCRATCH2
+06A     @DIV3232.@SCRATCH3
+06A     @MUL3232.@SCRATCH3
+06B     @DIV3232.@SCRATCH4
+06B     @MUL3232.@SCRATCH4
+06C     @DIV3232.@SCRATCH5
+06C     @MUL3232.@SCRATCH5
+077     @SCRATCH
+078     @SCRATCH
+078     _RETURN_
+079     @SCRATCH
+07A     @SCRATCH
+107.6   C1OUT
+108.6   C2OUT
+10D-10E @WRITE_PROGRAM_MEMORY8.P1
+10D-10E @READ_PROGRAM_MEMORY8.P2
+
+ROM Allocation:
+000004  @const927.call
+00000B  @const929.call
+000012  @const930.call
+000017  @const931.call
+00001E  @const932.call
+000023  @const933.call
+00002A  @const934.call
+000031  @const935.call
+000038  @const936.call
+000040  optMenuStart.call
+000040  optMenuStart.data
+000080  optMenuOn.call
+000080  optMenuOn.data
+000116  optMenuOff.call
+000116  optMenuOff.data
+0001B6  optMenuSetup.call
+0001B6  optMenuSetup.data
+00022D  @delay_ms1
+000241  lcd_send_nibble
+000271  lcd_read_nibble
+0002A2  lcd_send_byte
+0002AA  lcd_read_byte
+000300  lcd_init
+000346  lcd_gotoxy
+000358  lcd_putc
+000384  @PSTRINGC_891
+0003B0  @delay_us1
+0003BF  Sound
+0003EA  @DIV3232
+00044D  @MUL3232
+0004D8  getMenuStart
+00053F  @MUL88
+000564  @WRITEBITA
+000584  getMenuOn
+000609  getMenuOff
+00068B  @PSTRINGC7_891
+0006E1  pressOk
+0006F0  executeSetup
+000765  @goto11722
+00076F  getMenuSetup
+000800  MAIN
+000800  @cinit1
+000823  @cinit2
+0008A1  @goto11908
+
+Project Directory:
+    D:\DAVID\Documents\GitHub\Kriver-Hardware\
+
+Project Files:
+    main.c                                                  [21-nov.-17 00:51  CRC=44E0C59F]
+    header\config.h                                         [21-nov.-17 00:49  CRC=1A785AB1]
+    C:\Program Files (x86)\PICC\Devices\16F887.h            [12-nov.-13 14:35  CRC=6CB1A611]
+    C:\Program Files (x86)\PICC\Drivers\string.h            [14-jul.-11 10:13  CRC=23EDEC8F]
+    C:\Program Files (x86)\PICC\Drivers\stddef.h            [16-jul.-10 09:27  CRC=897CEC6C]
+    C:\Program Files (x86)\PICC\Drivers\ctype.h             [03-ene.-08 13:55  CRC=2D1F019F]
+    C:\Program Files (x86)\PICC\Drivers\math.h              [28-sept.-12 11:35  CRC=546412C9]
+    C:\Program Files (x86)\PICC\Drivers\lcd.c               [19-sept.-13 15:38  CRC=D1A6378A]
+    header\sound.h                                          [21-nov.-17 00:50  CRC=CE566254]
+    header\func_menu_setup.h                                [20-nov.-17 23:39  CRC=9CD9A2EC]
+    header\menu.h                                           [21-nov.-17 00:50  CRC=CD1B67B4]
+
+Source signature=D205BFF6
+
+Units:
+    main (main)
+
+Compiler Settings:
+    Processor:      PIC16F887
+    Pointer Size:   16
+    ADC Range:      0-65535
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    XREF file:   main.xsym
+    Errors:      main.err
+    Ext Symbols: main.esym
+    INHX8:       main.hex
+    Symbols:     main.sym
+    List:        main.lst
+    Debug/COFF:  main.cof
+    Project:     main.ccspjt
+    Call Tree:   main.tre
+    Statistics:  main.STA
