@@ -17,9 +17,16 @@ Type=4
 2=header\config.h
 3=header\sound.h
 4=header\menu.h
-5=
+5=header\func_menu_setup.h
+6=header\esp8266.h
+7=C:\Program Files (x86)\PICC\Drivers\lcd.c
+8=
 [main.c]
 Type=4
+[ExtraIncludes]
+Count=1
+1=main=d:\david\documents\github\kriver-hardware\header\esp8266.h
+2=main=d:\david\documents\github\kriver-hardware\header\esp8266.h
 [Units]
 Count=1
 1=main (main)

@@ -1,12 +1,12 @@
 #include "header/config.h"
 #include <string.h>
+#include <stdlib.h>
 #include <math.h>
 #include <lcd.c>
 #include "header/sound.h"
 #include "header/func_menu_setup.h"
 #include "header/menu.h"
-
-
+#include "header/esp8266.h"
 /** VARIABLES GLOBALS **/
 
 // Menu seleccionado, Inicia en el menuStart(0)
@@ -17,12 +17,12 @@ int optSelect  = 0;
 /** INTERRUPCIONES **/
 
 //@hint: se dispara cuando se detectan datos de llegada al puerto serie portWF
-/*
 #INT_RDA
 void  RDA_isr(void) 
 {
-
-}*/
+   //buffer = strcat (buffer,getchar());
+   //buffer = getchar();
+}
 
 /** INIT **/
 
@@ -32,11 +32,15 @@ void  RDA_isr(void)
       port_b_pullups(0b00110000);
       set_tris_b(0b00110010);
       
+      enable_interrupts(INT_RDA); 
+      enable_interrupts(GLOBAL); 
+    
       // Inicializa la lcd
       lcd_init();
-      
+      output_high(LCD_LIGHT_PIN);
+      fprintf(console,"Start%c%c",NL,CR);
       //Estabiliza el inicio del programa
-      delay_ms(1000);
+      delay_ms(500);
       
       // Ciclo infinito para mantener el programa activo
       while(1)

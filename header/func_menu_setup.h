@@ -8,15 +8,105 @@
 #define OPT_BACKLIGH    4
 #define OPT_EXIT        5
 
-void pressOk(void){
+//Flag, Modo Cliente(1), Access Point(2), Cliente + AP (3)
+#define MODE_CLIENT     0
+#define MODE_AP         1
+#define MODE_CLIENT_AP  2
+
+int8 countOptMenuModo = 3;
+
+//Contiene las opciones del menu optMenuModo[pos][lenString]
+const char  optMenuModo[5][13]    =  { {"Cliente     "},
+                                       {"Access Point"},
+                                       {"Cliente + AP"},
+                                       {"SALIR       "}
+                                     };
+
+/***************************************************
+Pausa el programa hasta que se presione OK
+***************************************************/
+void pressExit(void){
+   lcd_gotoxy(12,2);
+   printf(lcd_putc, "SALIR");
    while(1){
+         
       if(input(KEY_OK)==0){
             // Elimina el rebote
             delay_ms(500);
             break;
       }
    }
+   fprintf(console,"%s",buffer);
 }
+
+void showBottonMenu(void){
+   lcd_gotoxy(1,2);
+   printf(lcd_putc, "[SIG]      [ENT]");
+}
+/***************************************************
+Despliega el menu MODE
+***************************************************/
+void setMenuModo(void){
+   int optSelected = 0;
+   int exit = 0;
+
+   // Muestra la primera opcion del menu
+   printf(lcd_putc, "\f%s",optMenuModo[optSelected]);
+   showBottonMenu();
+   
+   while(!exit){
+      // TECLA SIGUIENTE: hace la navegacion entre las opciones del menu
+      if(input(KEY_NEXT)==0)
+      { 
+         // Elimina el rebote
+         delay_ms(500);
+         BEEP;
+         // incrementa la opcion seleccionada para mover el menu
+         optSelected++;
+         // Si la opcion seleccionada esta en el limite de las opciones 
+         // entonces regresa a la primera posicion del menu
+         if(optSelected > countOptMenuModo){
+            optSelected = 0;
+         }
+         // Muestra la opcion seleccionada
+         printf(lcd_putc, "\f%s",optMenuModo[optSelected]);
+         showBottonMenu();
+      } // Fin KEY_NEXT
+      
+      // Finaliza la funcion y retorna la opcion del menu seleccionada
+      if(input(KEY_OK)==0)
+      { 
+         // Elimina el rebote
+         delay_ms(500);
+         BEEP;
+         
+         // Si optSelected = countOptMenuModo entonces esta en la pos SALIR
+         if(optSelected == countOptMenuModo){
+            exit = 1;
+         }else{
+            switch(optSelected){
+               case MODE_CLIENT:
+                  fprintf(ESP8266,"AT+CWMODE_DEF=1%c%c",NL,CR);
+                  printf(lcd_putc, "\fConfig Cliente");
+                  break;
+               case MODE_AP:
+                  fprintf(ESP8266,"AT+CWMODE_DEF=2%c%c",NL,CR);
+                  printf(lcd_putc, "\fConfig AP");
+                  break;
+               case MODE_CLIENT_AP:
+                  fprintf(ESP8266,"AT+CWMODE_DEF=3%c%c",NL,CR);
+                  printf(lcd_putc, "\fConfig ClienteAP");
+                  break;
+            }
+            pressExit();
+            // Muestra la ultima opcion del menu seleccionada
+            printf(lcd_putc, "\f%s",optMenuModo[optSelected]);
+            showBottonMenu();
+         }
+      } // Fin KEY_OK
+   } // FIN While Infinito
+} // Fin funcion setMenuModo
+
 /***************************************************
 Dispacher function MENU_SETUP
 ***************************************************/
@@ -25,35 +115,31 @@ void executeSetup(int optSelect){
    switch(optSelect){
       
       case OPT_SHOW_IP:
+         fprintf(console,"192.168.0.1");
          printf(lcd_putc, "\f192.168.0.1");
-         lcd_gotoxy(1,2);
-         printf(lcd_putc, "OK para SALIR");
-         pressOk();
+         pressExit();
          break;
       case OPT_SHOW_SSID:
-         lcd_gotoxy(1,2);
+         fprintf(console,"C0G3_UNE");
          printf(lcd_putc, "\fC0G3_UNE");
-         lcd_gotoxy(1,2);
-         printf(lcd_putc, "OK para SALIR");
-         pressOk();         
+         pressExit();         
          break;
       case OPT_SHOW_KEY:
+         fprintf(console,"1234Az!");
          printf(lcd_putc, "\f1234Az!");
-         lcd_gotoxy(1,2);
-         printf(lcd_putc, "OK para SALIR");
-         pressOk(); 
+         pressExit();
          break;
       case OPT_MODE_AP:
-         lcd_gotoxy(1,2);
-         printf(lcd_putc, "\fDisable Mode");
-         lcd_gotoxy(1,2);
-         printf(lcd_putc, "OK para SALIR");
-         pressOk();
+         setMenuModo();
          break;
       case OPT_BACKLIGH:
          output_toggle(LCD_LIGHT_PIN);
-         printf(lcd_putc, "\fOK para SALIR");
-         pressOk();
+         if(input_state(LCD_LIGHT_PIN)==1){
+            printf(lcd_putc, "\fBacklight On");
+         }else{
+            printf(lcd_putc, "\fBacklight Off");
+         }
+         pressExit();
          break;
       case OPT_EXIT:
          break;

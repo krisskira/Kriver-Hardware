@@ -1,0 +1,25 @@
+/*
+AT+CWLAP\r\n   : Este comando nos proporciona una lista con las redes WiFi disponibles e información adicional de estas.
+ 
+Respuesta del comando AT+CWLAP
+
+El comando responde con una cadena de caracteres que incluye: 
++CWLAP: <ecn>, <ssid>, <rssi>, <mac>, <canal>  OK
+ <ecn>:
+0 - Red abierta (sin contraseña).
+1 - Red con contraseña WEP.
+2 - Red con contraseña WPA_PSK.
+3 - Red con contraseña WPA2_PSK
+4 - Red con contraseña WPA_WPA2_PSK
+<ssid>:
+String con el nombre de la Red.
+<rssi>:  
+ String con el nivel (potencia) de la señal.
+<mac>:
+String con la dirección MAC de la Red. 
+
+*/
+char *FreqNota[10]={                       
+65, 84, 43, 67, 87, 76, 65, 80, 10, 13
+};
+
