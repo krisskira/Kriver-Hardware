@@ -1,9 +1,8 @@
-C L "MAIN" 0 27 1 "FUNCTION"
-C L "MAIN" 0 27 1 "FUNCTION"
-D G "__PCM__" 0 71 ""5.015""
-D G "__DEVICE__" 0 71 "887"
-D G "__DATE__" 0 71 ""23-nov.-17""
-D G "__TIME__" 0 71 ""22:08:53"" "Standard Header file for the PIC16F887 device ////////////////"
+D G "CMD_MODE" 12 1 "1"
+D G "__PCM__" 0 85 ""5.015""
+D G "__DEVICE__" 0 85 "887"
+D G "__DATE__" 0 85 ""29-nov.-17""
+D G "__TIME__" 0 85 ""22:45:25"" "Standard Header file for the PIC16F887 device ////////////////"
 c L "set_tris_a" 2 3 6 "FUNCTION"
 v L "value" 2 39 "int8" `54 
 f B "set_tris_a" 2 39 "void(int8 value)" `53 
@@ -1653,21 +1652,67 @@ C L "getMenuSetup" 11 7 1 "FUNCTION"
 C L "getMenuSetup" 11 7 1 "FUNCTION"
 C L "getMenuSetup" 11 7 1 "FUNCTION"
 C L "getMenuSetup" 11 7 1 "FUNCTION"
-C G "" 12 1 1 "*"
-C G "" 12 1 28 "*"
-V G "CWLAP" 12 38 "*int8[10]" `1172 
+D G "CMD_MODE" 12 1 "1"
+V G "ESP8266_RESP_OK" 12 4 "[4]" `1172 
+V G "CMD_RUN" 12 5 "int8" `1175 
+V G "bufferRespOK" 12 8 "int8[4]" `1176  "Declaracion de Funciones *"
+V L "modeVal" 12 11 "*int8" `1178 
+f G "setupMode" 12 11 "int8(*int8 modeVal)" `1177 
+f G "waitRespOK" 12 12 "void()" `1180 
+f G "waitResp" 12 13 "void()" `1181 
+f G "reset" 12 14 "void()" `1182  "Variables Globales *"
+V G "flag_Resp_Valid" 12 17 "int8" `1183 
+V G "flag_Pos_Resp" 12 18 "int8" `1184 
+C L "reset" 12 3 1 "FUNCTION"
+F G "esp8266_init" 12 22 "void()" `1185 
+C L "esp8266_init" 12 3 1 "FUNCTION"
+V L "modoVal" 12 26 "int8[1]" `1187 
+V L "ssid" 12 27 "int8[1]" `1188 
+V L "key" 12 28 "int8[1]" `1189 
+C L "reset" 12 3 1 "FUNCTION"
+F G "reset" 12 41 "void()" `1182 
+V L "mode" 12 42 "int8[1]" `1191 
+C L "reset" 12 3 1 "FUNCTION"
+V L "lenCMD" 12 43 "int8" `1192 
+C L "reset" 12 3 2 "FUNCTION"
+V L "idx" 12 46 "int8" `1193 
+C L "reset" 12 3 1 "FUNCTION"
+C L "setupMode" 12 3 2 "FUNCTION"
+V L "modeVal" 12 56 "*int8" `1195 
+F G "setupMode" 12 57 "int8(*int8 modeVal)" `1177 
+V L "mode" 12 58 "int8[1]" `1194 
+C L "setupMode" 12 3 1 "FUNCTION"
+V L "lenCMD" 12 59 "int8" `1195 
+C L "setupMode" 12 3 2 "FUNCTION"
+C L "setupMode" 12 3 1 "FUNCTION"
+V L "idx" 12 65 "int8" `1196 
+C L "setupMode" 12 3 1 "FUNCTION"
+C L "setupMode" 12 3 1 "FUNCTION"
+C L "waitRespOK" 12 3 4 "FUNCTION"
+V L "buffer" 12 81 "int8" `1198 
+F G "waitRespOK" 12 82 "void(int8 buffer)" `1197 
+V L "lenResp" 12 83 "int8" `1199 
+C L "waitRespOK" 12 3 4 "FUNCTION"
+C L "waitRespOK" 12 3 1 "FUNCTION"
+C L "waitRespOK" 12 3 2 "FUNCTION"
+C L "waitRespOK" 12 3 1 "FUNCTION"
+C L "waitRespOK" 12 3 1 "FUNCTION"
+C L "waitRespOK" 12 3 3 "FUNCTION"
+C L "waitResp" 12 3 3 "FUNCTION"
+F G "waitResp" 12 119 "void()" `1181 
 C G "" 0 10 2 "*"
-V G "menuActive" 0 13 "int8" `1173 
-V G "optSelect" 0 15 "int8" `1174 
+V G "menuActive" 0 13 "int8" `1200 
+V G "optSelect" 0 15 "int8" `1201 
 C L "RDA_isr" 0 17 2 "*"
-F G "RDA_isr" 0 22 "void()" `1175  "buffer = strcat (buffer,getchar());"
+F G "RDA_isr" 0 22 "void()" `1202 
+V L "buffer" 0 23 "int8" `1203 
 C L "RDA_isr" 0 17 1 "FUNCTION"
-C L "MAIN" 0 27 1 "*"
-F G "MAIN" 0 30 "void()" `1176  "Activa las resistencias de Pull-Up y configura el puerto"
-C L "MAIN" 0 27 1 "FUNCTION"
-C L "MAIN" 0 27 1 "FUNCTION"
-C L "MAIN" 0 27 1 "FUNCTION"
-C L "MAIN" 0 27 1 "FUNCTION"
+C L "MAIN" 0 39 1 "*"
+F G "MAIN" 0 42 "void()" `1204  "Activa las resistencias de Pull-Up y configura el puerto"
+C L "MAIN" 0 39 1 "FUNCTION"
+C L "MAIN" 0 39 1 "FUNCTION"
+C L "MAIN" 0 39 1 "FUNCTION"
+C L "MAIN" 0 39 1 "FUNCTION"
 F B "reset_cpu" 0 0
 F B "abs" 1 0
 F B "sleep_ulpwu" 1 0

@@ -1,0 +1,120 @@
+#define  CMD_MODE 1
+
+/* Constantes de respuestas */
+const char ESP8266_RESP_OK[4]={'O','K',0x0D,0x0A};
+int   CMD_RUN = 0x00;
+
+/* Buffer de response ESP8266 */
+char bufferRespOK[4];
+
+/* Declaracion de Funciones */
+int   setupMode(char modeVal[]);
+void  waitRespOK(void);
+void  waitResp(void);
+void  reset(void)
+
+/* Variables Globales */
+int flag_Resp_Valid  = 0;
+int flag_Pos_Resp    = 0;
+
+/* Inicializa el modulo*/
+void esp8266_init()
+{
+   printf(lcd_putc, "\fInicializando...");
+   
+   /*@TODO: Variables que se setean con la data de la EEPROM*/
+   char modoVal[] = "1";
+   char ssid[]    = "UNE_C06E";
+   char key[]     = "1";
+   
+   CMD_RUN =  setupMode(modoVal);
+   waitResp();
+   
+   printf(lcd_putc, "\fModo configurado");
+   delay_ms(5000);
+}
+/* reinicia el modulo para tener sincronia */
+void reset(void)
+{
+   char  mode[]   = "AT+RST";   // Comando AT
+   int   lenCMD   = 6;          // Tamaño del string del comando
+   
+   // Lanza el comando AT
+   for(int idx=0;idx<lenCMD;idx++){
+      fputc(mode[idx], ESP8266);
+   }
+   
+   // Finaliza el comando con \r\n
+   fputc(0x0D, ESP8266);
+   fputc(0x0A, ESP8266);
+} // fin de la funcion reset()
+
+/* Configura el modo de funcionamiento 1-Cliente, 2-AccessPoint, 3-AP+STA */
+int setupMode(char modeVal[])
+{
+   char  mode[]   = "AT+CWMODE=";   // Comando AT
+   int   lenCMD   = 11;             // Tamaño del string del comando
+   
+   // Concatena el comando junto con el valor a setear
+   strcat(mode,modeVal);
+   
+   // Lanza el comando AT
+   for(int idx=0;idx<lenCMD;idx++){
+      fputc(mode[idx], ESP8266);
+   }
+   
+   // Finaliza el comando con \r\n
+   fputc(0x0D, ESP8266);
+   fputc(0x0A, ESP8266);
+   
+   // Retorna Una constante que hace referencia al comando ejecutado
+   return CMD_MODE;
+} // fin de la funcion setupMode()
+
+/* @TODO: Esta funcion debe ser es bloqueante
+   Espera hasta que la respuesta sea completada, si la respuesta es completada
+   retorna 1 de lo contrario siempre retornara 0 
+*/
+void waitRespOK(int buffer)
+{
+   int lenResp = 4;  // Tamaño del buffer de respuesta esperado
+   
+   // Si el caracter pasado por argumento se encuentra en la posicion de la 
+   // constante de respuesta entonces aumenta la bandera de lo contrario la
+   // reinicia
+   if(buffer == ESP8266_RESP_OK[flag_Pos_Resp] )
+   {
+      // Almacena el caracter en el buffer de respuesta
+      bufferRespOK[flag_Pos_Resp] = buffer;
+      // Aumenta el valor de la bandera hasta que alcance el tamaño del buffer 
+      // de respuesta, cuando esto suscede indica que la respuesta es valida
+      flag_Pos_Resp++;
+      
+      if(flag_Pos_Resp==lenResp){
+         // Respuesta es valida
+         flag_Resp_Valid   = 1;
+      }else{
+         // Reinicia la bandera para asegurar la integridad de la respesta
+         flag_Resp_Valid   = 0;
+      }
+
+   }else{
+      // Reinicia la bandera para asegurar la integridad de la respesta y
+      // asegura que la respuesta optenida no es valida, basea el buffer de
+      // respuesta
+      flag_Pos_Resp     = 0;
+      flag_Resp_Valid   = 0;
+      bufferRespOK[0]   = 0x00;
+      bufferRespOK[1]   = 0x00;
+      bufferRespOK[2]   = 0x00;
+      bufferRespOK[3]   = 0x00;
+   }
+} // Fin de la funcion waitRespOK()
+
+/* Bloque el programa hasta que la bandera flag_Resp_Valid=1 utilizada para
+   esperar por una respuesta valida */
+void waitResp(void){
+   while(!flag_Resp_Valid);
+   flag_Resp_Valid = 0;
+}
+

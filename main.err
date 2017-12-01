@@ -1,100 +1,13 @@
-*** Error 1 "C:\Program Files (x86)\PICC\Drivers\lcd.c" Line 135(1,2): Illegal C character in input file  0x00
-*** Error 58 "C:\Program Files (x86)\PICC\Drivers\lcd.c" Line 135(1,2): Expecting a close paren
-*** Error 1 "C:\Program Files (x86)\PICC\Drivers\lcd.c" Line 136(3,4): Illegal C character in input file  0x00
-*** Error 1 "C:\Program Files (x86)\PICC\Drivers\lcd.c" Line 136(3,4): Illegal C character in input file  0x00
-*** Error 1 "C:\Program Files (x86)\PICC\Drivers\lcd.c" Line 136(3,4): Illegal C character in input file  0xFF
-*** Error 1 "C:\Program Files (x86)\PICC\Drivers\lcd.c" Line 136(3,4): Illegal C character in input file  0xFF
-*** Error 1 "C:\Program Files (x86)\PICC\Drivers\lcd.c" Line 136(3,4): Illegal C character in input file  0xFF
-*** Error 1 "C:\Program Files (x86)\PICC\Drivers\lcd.c" Line 136(3,4): Illegal C character in input file  0x00
-*** Error 1 "C:\Program Files (x86)\PICC\Drivers\lcd.c" Line 136(3,4): Illegal C character in input file  0x07
-*** Error 1 "C:\Program Files (x86)\PICC\Drivers\lcd.c" Line 136(3,4): Illegal C character in input file  0x00
-*** Error 1 "C:\Program Files (x86)\PICC\Drivers\lcd.c" Line 136(3,4): Illegal C character in input file  0x00
-*** Error 1 "C:\Program Files (x86)\PICC\Drivers\lcd.c" Line 136(3,4): Illegal C character in input file  0x00
-*** Error 1 "C:\Program Files (x86)\PICC\Drivers\lcd.c" Line 136(3,4): Illegal C character in input file  0x00
-*** Error 1 "C:\Program Files (x86)\PICC\Drivers\lcd.c" Line 136(3,4): Illegal C character in input file  0x00
-*** Error 1 "C:\Program Files (x86)\PICC\Drivers\lcd.c" Line 136(3,4): Illegal C character in input file  0x00
-*** Error 1 "C:\Program Files (x86)\PICC\Drivers\lcd.c" Line 136(3,4): Illegal C character in input file  0x00
-*** Error 43 "C:\Program Files (x86)\PICC\Drivers\lcd.c" Line 136(3,4): Expecting a declaration
-*** Error 1 "C:\Program Files (x86)\PICC\Drivers\lcd.c" Line 136(8,9): Illegal C character in input file  0xDF
-*** Error 1 "C:\Program Files (x86)\PICC\Drivers\lcd.c" Line 136(10,11): Illegal C character in input file  0x92
-*** Error 48 "C:\Program Files (x86)\PICC\Drivers\lcd.c" Line 136(8,9): Expecting a (
-*** Error 43 "C:\Program Files (x86)\PICC\Drivers\lcd.c" Line 136(12,13): Expecting a declaration
-*** Error 1 "C:\Program Files (x86)\PICC\Drivers\lcd.c" Line 136(13,14): Illegal C character in input file  0xF5
-*** Error 1 "C:\Program Files (x86)\PICC\Drivers\lcd.c" Line 136(13,14): Illegal C character in input file  0xA2
-*** Error 1 "C:\Program Files (x86)\PICC\Drivers\lcd.c" Line 136(13,14): Illegal C character in input file  0xDD
-*** Error 1 "C:\Program Files (x86)\PICC\Drivers\lcd.c" Line 136(13,14): Illegal C character in input file  0x06
-*** Error 1 "C:\Program Files (x86)\PICC\Drivers\lcd.c" Line 136(13,14): Illegal C character in input file  0xE5
-*** Error 1 "C:\Program Files (x86)\PICC\Drivers\lcd.c" Line 136(13,14): Illegal C character in input file  0x40
-*** Error 1 "C:\Program Files (x86)\PICC\Drivers\lcd.c" Line 136(13,14): Illegal C character in input file  0x98
-*** Error 1 "C:\Program Files (x86)\PICC\Drivers\lcd.c" Line 136(18,19): Illegal C character in input file  0x00
-*** Error 1 "C:\Program Files (x86)\PICC\Drivers\lcd.c" Line 136(18,19): Illegal C character in input file  0x00
-*** Error 1 "C:\Program Files (x86)\PICC\Drivers\lcd.c" Line 136(18,19): Illegal C character in input file  0xB0
-*** Error 1 "C:\Program Files (x86)\PICC\Drivers\lcd.c" Line 136(18,19): Illegal C character in input file  0xD7
-*** Error 1 "C:\Program Files (x86)\PICC\Drivers\lcd.c" Line 136(18,19): Illegal C character in input file  0x01
-*** Error 1 "C:\Program Files (x86)\PICC\Drivers\lcd.c" Line 136(18,19): Illegal C character in input file  0x00
-*** Error 1 "C:\Program Files (x86)\PICC\Drivers\lcd.c" Line 136(18,19): Illegal C character in input file  0x80
-*** Error 1 "C:\Program Files (x86)\PICC\Drivers\lcd.c" Line 136(18,19): Illegal C character in input file  0x00
-*** Error 1 "C:\Program Files (x86)\PICC\Drivers\lcd.c" Line 136(18,19): Illegal C character in input file  0x00
-*** Error 1 "C:\Program Files (x86)\PICC\Drivers\lcd.c" Line 136(18,19): Illegal C character in input file  0x00
-*** Error 1 "C:\Program Files (x86)\PICC\Drivers\lcd.c" Line 136(18,19): Illegal C character in input file  0x00
-*** Error 1 "C:\Program Files (x86)\PICC\Drivers\lcd.c" Line 136(18,19): Illegal C character in input file  0x00
-*** Error 1 "C:\Program Files (x86)\PICC\Drivers\lcd.c" Line 136(18,19): Illegal C character in input file  0x00
-*** Error 1 "C:\Program Files (x86)\PICC\Drivers\lcd.c" Line 136(18,19): Illegal C character in input file  0x00
-*** Error 1 "C:\Program Files (x86)\PICC\Drivers\lcd.c" Line 136(18,19): Illegal C character in input file  0x00
-*** Error 1 "C:\Program Files (x86)\PICC\Drivers\lcd.c" Line 136(18,19): Illegal C character in input file  0x00
-*** Error 1 "C:\Program Files (x86)\PICC\Drivers\lcd.c" Line 136(18,19): Illegal C character in input file  0x00
-*** Error 1 "C:\Program Files (x86)\PICC\Drivers\lcd.c" Line 136(18,19): Illegal C character in input file  0x00
-*** Error 1 "C:\Program Files (x86)\PICC\Drivers\lcd.c" Line 136(18,19): Illegal C character in input file  0xF0
-*** Error 1 "C:\Program Files (x86)\PICC\Drivers\lcd.c" Line 136(18,19): Illegal C character in input file  0xE5
-*** Error 1 "C:\Program Files (x86)\PICC\Drivers\lcd.c" Line 136(18,19): Illegal C character in input file  0x01
-*** Error 1 "C:\Program Files (x86)\PICC\Drivers\lcd.c" Line 136(18,19): Illegal C character in input file  0x08
-*** Error 1 "C:\Program Files (x86)\PICC\Drivers\lcd.c" Line 136(18,19): Illegal C character in input file  0x40
-*** Error 43 "C:\Program Files (x86)\PICC\Drivers\lcd.c" Line 136(18,19): Expecting a declaration
-*** Error 1 "C:\Program Files (x86)\PICC\Drivers\lcd.c" Line 136(26,27): Illegal C character in input file  0xDE
-*** Error 1 "C:\Program Files (x86)\PICC\Drivers\lcd.c" Line 136(26,27): Illegal C character in input file  0x07
-*** Error 1 "C:\Program Files (x86)\PICC\Drivers\lcd.c" Line 136(26,27): Illegal C character in input file  0xD0
-*** Error 43 "C:\Program Files (x86)\PICC\Drivers\lcd.c" Line 136(26,27): Expecting a declaration
-*** Error 1 "C:\Program Files (x86)\PICC\Drivers\lcd.c" Line 136(29,30): Illegal C character in input file  0xDE
-*** Error 1 "C:\Program Files (x86)\PICC\Drivers\lcd.c" Line 136(29,30): Illegal C character in input file  0x07
-*** Error 1 "C:\Program Files (x86)\PICC\Drivers\lcd.c" Line 136(29,30): Illegal C character in input file  0x00
-*** Error 1 "C:\Program Files (x86)\PICC\Drivers\lcd.c" Line 136(29,30): Illegal C character in input file  0x00
-*** Error 1 "C:\Program Files (x86)\PICC\Drivers\lcd.c" Line 136(29,30): Illegal C character in input file  0x00
-*** Error 1 "C:\Program Files (x86)\PICC\Drivers\lcd.c" Line 136(29,30): Illegal C character in input file  0x00
-*** Error 1 "C:\Program Files (x86)\PICC\Drivers\lcd.c" Line 136(29,30): Illegal C character in input file  0x90
-*** Error 43 "C:\Program Files (x86)\PICC\Drivers\lcd.c" Line 136(29,30): Expecting a declaration
-*** Error 1 "C:\Program Files (x86)\PICC\Drivers\lcd.c" Line 136(32,33): Illegal C character in input file  0xDE
-*** Error 1 "C:\Program Files (x86)\PICC\Drivers\lcd.c" Line 136(32,33): Illegal C character in input file  0x07
-*** Error 1 "C:\Program Files (x86)\PICC\Drivers\lcd.c" Line 136(32,33): Illegal C character in input file  0x00
-*** Error 1 "C:\Program Files (x86)\PICC\Drivers\lcd.c" Line 136(32,33): Illegal C character in input file  0x00
-*** Error 1 "C:\Program Files (x86)\PICC\Drivers\lcd.c" Line 136(32,33): Illegal C character in input file  0x00
-*** Error 1 "C:\Program Files (x86)\PICC\Drivers\lcd.c" Line 136(32,33): Illegal C character in input file  0x00
-*** Error 1 "C:\Program Files (x86)\PICC\Drivers\lcd.c" Line 136(32,33): Illegal C character in input file  0x00
-*** Error 1 "C:\Program Files (x86)\PICC\Drivers\lcd.c" Line 136(32,33): Illegal C character in input file  0x00
-*** Error 1 "C:\Program Files (x86)\PICC\Drivers\lcd.c" Line 136(32,33): Illegal C character in input file  0x00
-*** Error 1 "C:\Program Files (x86)\PICC\Drivers\lcd.c" Line 136(32,33): Illegal C character in input file  0x00
-*** Error 1 "C:\Program Files (x86)\PICC\Drivers\lcd.c" Line 136(32,33): Illegal C character in input file  0x00
-*** Error 1 "C:\Program Files (x86)\PICC\Drivers\lcd.c" Line 136(32,33): Illegal C character in input file  0x00
-*** Error 1 "C:\Program Files (x86)\PICC\Drivers\lcd.c" Line 136(32,33): Illegal C character in input file  0x00
-*** Error 1 "C:\Program Files (x86)\PICC\Drivers\lcd.c" Line 136(32,33): Illegal C character in input file  0x00
-*** Error 1 "C:\Program Files (x86)\PICC\Drivers\lcd.c" Line 136(32,33): Illegal C character in input file  0x00
-*** Error 1 "C:\Program Files (x86)\PICC\Drivers\lcd.c" Line 136(32,33): Illegal C character in input file  0x00
-*** Error 1 "C:\Program Files (x86)\PICC\Drivers\lcd.c" Line 136(32,33): Illegal C character in input file  0x00
-*** Error 1 "C:\Program Files (x86)\PICC\Drivers\lcd.c" Line 136(32,33): Illegal C character in input file  0x00
-*** Error 1 "C:\Program Files (x86)\PICC\Drivers\lcd.c" Line 136(32,33): Illegal C character in input file  0x00
-*** Error 1 "C:\Program Files (x86)\PICC\Drivers\lcd.c" Line 136(32,33): Illegal C character in input file  0x00
-*** Error 1 "C:\Program Files (x86)\PICC\Drivers\lcd.c" Line 136(32,33): Illegal C character in input file  0x00
-*** Error 1 "C:\Program Files (x86)\PICC\Drivers\lcd.c" Line 136(32,33): Illegal C character in input file  0x00
-*** Error 1 "C:\Program Files (x86)\PICC\Drivers\lcd.c" Line 136(32,33): Illegal C character in input file  0x00
-*** Error 1 "C:\Program Files (x86)\PICC\Drivers\lcd.c" Line 136(32,33): Illegal C character in input file  0x00
-*** Error 1 "C:\Program Files (x86)\PICC\Drivers\lcd.c" Line 136(32,33): Illegal C character in input file  0x00
-*** Error 1 "C:\Program Files (x86)\PICC\Drivers\lcd.c" Line 136(32,33): Illegal C character in input file  0x00
-*** Error 1 "C:\Program Files (x86)\PICC\Drivers\lcd.c" Line 136(32,33): Illegal C character in input file  0x00
-*** Error 1 "C:\Program Files (x86)\PICC\Drivers\lcd.c" Line 136(32,33): Illegal C character in input file  0x00
-*** Error 1 "C:\Program Files (x86)\PICC\Drivers\lcd.c" Line 136(32,33): Illegal C character in input file  0x00
-*** Error 1 "C:\Program Files (x86)\PICC\Drivers\lcd.c" Line 136(32,33): Illegal C character in input file  0x00
-*** Error 1 "C:\Program Files (x86)\PICC\Drivers\lcd.c" Line 136(32,33): Illegal C character in input file  0x00
-*** Error 1 "C:\Program Files (x86)\PICC\Drivers\lcd.c" Line 136(32,33): Illegal C character in input file  0x00
-*** Error 1 "C:\Program Files (x86)\PICC\Drivers\lcd.c" Line 136(32,33): Illegal C character in input file  0x00
-*** Error 1 "C:\Program Files (x86)\PICC\Drivers\lcd.c" Line 136(32,33): Illegal C character in input file  0x00
-*** Error 48 "C:\Program Files (x86)\PICC\Drivers\lcd.c" Line 136(32,33): Expecting a (
-*** Error 1 "C:\Program Files (x86)\PICC\Drivers\lcd.c" Line 136(35,36): Illegal C character in input file  0x50 after \
+>>> Warning 225 "D:\DAVID\Documents\GitHub\Kriver-Hardware\header\config.h" Line 29(13,30): Duplicate #define
+>>> Warning 225 "D:\DAVID\Documents\GitHub\Kriver-Hardware\header\config.h" Line 30(14,30): Duplicate #define
+*** Error 58 "C:\Program Files (x86)\PICC\Drivers\lcd.c" Line 94(54,55): Expecting a close paren   use_portb_lcd
+*** Error 43 "C:\Program Files (x86)\PICC\Drivers\lcd.c" Line 94(55,56): Expecting a declaration
+*** Error 21 "C:\Program Files (x86)\PICC\Drivers\lcd.c" Line 455(0,1): #ENDIF with no corresponding #IF
+*** Error 12 "D:\DAVID\Documents\GitHub\Kriver-Hardware\header\func_menu_setup.h" Line 39(25,31): Undefined identifier   buffer
+*** Error 12 "D:\DAVID\Documents\GitHub\Kriver-Hardware\header\func_menu_setup.h" Line 89(57,59): Undefined identifier   NL
+*** Error 12 "D:\DAVID\Documents\GitHub\Kriver-Hardware\header\func_menu_setup.h" Line 93(57,59): Undefined identifier   NL
+*** Error 12 "D:\DAVID\Documents\GitHub\Kriver-Hardware\header\func_menu_setup.h" Line 97(57,59): Undefined identifier   NL
+*** Error 5 "D:\DAVID\Documents\GitHub\Kriver-Hardware\header\esp8266.h" Line 29(28,29): Character constant constructed incorrectly
+*** Error 36 "D:\DAVID\Documents\GitHub\Kriver-Hardware\header\esp8266.h" Line 30(25,26): Expecting a ; or ,
+*** Error 12 "D:\DAVID\Documents\GitHub\Kriver-Hardware\header\esp8266.h" Line 46(26,27): Undefined identifier  -- doConnected
+*** Error 12 "D:\DAVID\Documents\GitHub\Kriver-Hardware\header\esp8266.h" Line 112(19,26): Undefined identifier   modeVal

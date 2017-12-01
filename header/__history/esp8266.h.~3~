@@ -1,6 +1,0 @@
-
-char *FreqNota[12]={  // retardos entre estado alto
-                      // y bajo para generar las notas
-65, 84, 43, 67, 87, 76, 65, 80
-};
-

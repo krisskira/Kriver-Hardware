@@ -15,12 +15,13 @@ Type=4
 [Opened Files]
 1=main.c
 2=header\config.h
-3=header\sound.h
-4=header\menu.h
-5=header\func_menu_setup.h
-6=header\esp8266.h
-7=C:\Program Files (x86)\PICC\Drivers\lcd.c
-8=
+3=header\menu.h
+4=header\func_menu_setup.h
+5=header\esp8266.h
+6=
+7=
+8=Hardware\Test\FirmwareTest\Test.c
+9=
 [main.c]
 Type=4
 [ExtraIncludes]

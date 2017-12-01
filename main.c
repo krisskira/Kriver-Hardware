@@ -20,8 +20,9 @@ int optSelect  = 0;
 #INT_RDA
 void  RDA_isr(void) 
 {
-   //buffer = strcat (buffer,getchar());
-   //buffer = getchar();
+   int buffer = getc();
+   
+   ESP8266_PROCCESS_RESPONSE(buffer);
 }
 
 /** INIT **/
@@ -34,13 +35,15 @@ void  RDA_isr(void)
       
       enable_interrupts(INT_RDA); 
       enable_interrupts(GLOBAL); 
-    
+
       // Inicializa la lcd
       lcd_init();
       output_high(LCD_LIGHT_PIN);
-      fprintf(console,"Start%c%c",NL,CR);
+
       //Estabiliza el inicio del programa
       delay_ms(500);
+      
+      esp8266_init();
       
       // Ciclo infinito para mantener el programa activo
       while(1)
