@@ -14,9 +14,9 @@ Type=4
 1=main.c
 [Opened Files]
 1=main.c
-2=header\config.h
-3=header\menu.h
-4=header\func_menu_setup.h
+2=header\func_menu_setup.h
+3=header\config.h
+4=
 5=header\esp8266.h
 6=
 7=

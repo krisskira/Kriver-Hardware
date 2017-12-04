@@ -28,7 +28,7 @@ int16 FreqNota[12]={  // retardos entre estado alto
 8580,  // LA#
 8099   // SI
 };
-
+/*
 void Play(int nota, int octava, int16 duracion){
  int16 fn;
 
@@ -61,7 +61,7 @@ do{
  }while (duracion>mS_Transcurridos); // Repite el bucle hasta que haya
                                      // pasado el tiempo indicado.
 }
-
+*/
 void Sound(int16 frecuencia, int16 duracion){
    
    int16 mS_Transcurridos=0;

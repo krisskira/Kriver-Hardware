@@ -1,9 +1,8 @@
 <?xml version='1.0' encoding='UTF-8' standalone='yes'?>
 <WORKSPACE>
  <FRAME activewindow="0">
-  <PLACEMENT>2c00000002000000020000000083ffff0083fffffffffffffffffffff2070000090000000e0c0000a0020000</PLACEMENT>
+  <PLACEMENT>2c00000002000000030000000083ffff0083ffffffffffffffffffff00000000140000002a0600000a040000</PLACEMENT>
   <WINDOW type="default" module="ISIS"/>
-  <WINDOW type="default" module="ARES"/>
  </FRAME>
  <MODULE name="VSMDEBUG">
   <PWI>
@@ -16,27 +15,38 @@
      <ITEM name="Version">100</ITEM>
     </PROPERTIES>
    </POPUP>
-   <POPUP w="350" x="58" flags="00000032" y="149" h="200" pid="1" iid="-1">
+   <POPUP w="480" x="2401" flags="00000033" y="266" h="246" pid="1" iid="-1">
     <PROPERTIES>
-     <ITEM name="Address Column Width">83</ITEM>
+     <ITEM name="Address Column Width">54</ITEM>
      <ITEM name="AutoResize">No</ITEM>
      <ITEM name="Gridlines">Yes</ITEM>
-     <ITEM name="Name Column Width">83</ITEM>
+     <ITEM name="Item 0">"CMD_RUN","0x005F",00000001,00000004,95,1,6,00000002,0,00000000,00000000</ITEM>
+     <ITEM name="Item 1">"flag_Resp_Valid","0x0074",00000001,00000004,116,1,6,00000002,0,00000000,00000000</ITEM>
+     <ITEM name="Item 10">"bufferRespOK","0x0060",00000001,00000004,96,4,-1,C40B0000,0,00000000,00000000</ITEM>
+     <ITEM name="Item 2">"ret","0x00CF",00000001,00000004,207,1,6,00000002,0,00000000,00000000</ITEM>
+     <ITEM name="Item 3">"flag_Resp_NoAp","0x0075",00000001,00000004,117,1,6,00000002,0,00000000,00000000</ITEM>
+     <ITEM name="Item 4">"flag_Pos_Resp_NoAp","0x007E",00000001,00000004,126,1,6,00000002,0,00000000,00000000</ITEM>
+     <ITEM name="Item 5">"flag_Resp_CWJAP","0x0076",00000001,00000004,118,1,6,00000002,0,00000000,00000000</ITEM>
+     <ITEM name="Item 6">"flag_Pos_Resp_CWJAP","0x00A9",00000001,00000004,169,1,6,00000002,0,00000000,00000000</ITEM>
+     <ITEM name="Item 7">"flag_Pos_Resp_NoAp","0x007E",00000001,00000004,126,1,6,00000002,0,00000000,00000000</ITEM>
+     <ITEM name="Item 8">"flag_Resp_CWJAP","0x0076",00000001,00000004,118,1,6,00000002,0,00000000,00000000</ITEM>
+     <ITEM name="Item 9">"flag_Pos_Resp_CWJAP","0x00A9",00000001,00000004,169,1,6,00000002,0,00000000,00000000</ITEM>
+     <ITEM name="Name Column Width">179</ITEM>
      <ITEM name="ShowAddresses">Yes</ITEM>
      <ITEM name="ShowPreviousValues">No</ITEM>
      <ITEM name="ShowTypes">No</ITEM>
      <ITEM name="ShowWatchPoint">Yes</ITEM>
      <ITEM name="TriggerMode">0</ITEM>
-     <ITEM name="Value Column Width">83</ITEM>
+     <ITEM name="Value Column Width">72</ITEM>
      <ITEM name="Version">100</ITEM>
-     <ITEM name="Watch Expression Column Width">83</ITEM>
-     <ITEM name="nItems">0</ITEM>
+     <ITEM name="Watch Expression Column Width">86</ITEM>
+     <ITEM name="nItems">7</ITEM>
     </PROPERTIES>
    </POPUP>
-   <POPUP w="450" x="155" flags="00000023" y="108" h="250" pid="0" iid="2">
+   <POPUP w="454" x="1946" flags="00000023" y="265" h="250" pid="0" iid="2">
     <PROPERTIES>
      <ITEM name="AutoEcho">0</ITEM>
-     <ITEM name="HexMode">1</ITEM>
+     <ITEM name="HexMode">0</ITEM>
     </PROPERTIES>
    </POPUP>
    <POPUP w="52" x="98" flags="00000008" y="189" h="13" pid="3" iid="1">
@@ -85,11 +95,11 @@
      <ITEM name="TopLineAddress">00000000</ITEM>
     </PROPERTIES>
    </POPUP>
-   <POPUP w="856" x="1064" flags="0000002b" y="552" h="488" pid="1" iid="1">
+   <POPUP w="1227" x="148" flags="0000002b" y="-13" h="1061" pid="1" iid="1">
     <PROPERTIES>
-     <ITEM name="Breakpoint 0">"",030C,0000,CED5,1E00,1
+     <ITEM name="Breakpoint 0">"",0394,0000,5EEB,1E00,1
 </ITEM>
-     <ITEM name="Breakpoint 1">"",0314,0000,6D91,1E00,1
+     <ITEM name="Breakpoint 1">"",0800,0000,CED5,844F,1
 </ITEM>
      <ITEM name="Breakpoint 10">"",0110,0000,D23D,2DB9,1
 </ITEM>
@@ -99,37 +109,38 @@
 </ITEM>
      <ITEM name="Breakpoint 13">"",0123,0000,94FA,2DB9,1
 </ITEM>
-     <ITEM name="Breakpoint 2">"",0315,0000,ADA9,1E00,1
+     <ITEM name="Breakpoint 2">"",0AA9,0000,7F50,844F,1
 </ITEM>
-     <ITEM name="Breakpoint 3">"",0342,0000,B7A3,1E00,1
+     <ITEM name="Breakpoint 3">"",03F9,0000,37E0,844F,1
 </ITEM>
-     <ITEM name="Breakpoint 4">"",032A,0000,5380,844F,1
+     <ITEM name="Breakpoint 4">"",03D7,0000,CED5,844F,1
 </ITEM>
-     <ITEM name="Breakpoint 5">"",0330,0000,7982,844F,1
+     <ITEM name="Breakpoint 5">"",03E4,0000,A675,844F,1
 </ITEM>
-     <ITEM name="Breakpoint 6">"",0333,0000,B9D3,844F,1
+     <ITEM name="Breakpoint 6">"",03E7,0000,3B53,844F,1
 </ITEM>
-     <ITEM name="Breakpoint 7">"",0105,0000,2185,2DB9,1
+     <ITEM name="Breakpoint 7">"",08C8,0000,FB13,844F,1
 </ITEM>
-     <ITEM name="Breakpoint 8">"",010B,0000,3B0D,2DB9,1
+     <ITEM name="Breakpoint 8">"",08CA,0000,2856,844F,1
 </ITEM>
-     <ITEM name="Breakpoint 9">"",010D,0000,A5FD,2DB9,1
+     <ITEM name="Breakpoint 9">"",0348,0000,21FD,844F,1
 </ITEM>
      <ITEM name="CaseSensitive">No</ITEM>
      <ITEM name="DISPADDRS">Yes</ITEM>
-     <ITEM name="DISPLNUMS">No</ITEM>
+     <ITEM name="DISPLNUMS">Yes</ITEM>
      <ITEM name="DISPOPCODES">No</ITEM>
      <ITEM name="FIXUPBPTS">Yes</ITEM>
+     <ITEM name="FindText0">flag_Resp_CWJAP   = TRUE;</ITEM>
      <ITEM name="WordsOnly">No</ITEM>
-     <ITEM name="nBreakpoints">7</ITEM>
+     <ITEM name="nBreakpoints">9</ITEM>
     </PROPERTIES>
    </POPUP>
-   <POPUP w="1117" x="770" flags="0000800b" y="157" h="828" pid="2" iid="1">
+   <POPUP w="697" x="1396" flags="0000000b" y="38" h="1085" pid="2" iid="1">
     <PROPERTIES>
      <ITEM name="Address Column Width">94</ITEM>
      <ITEM name="AutoResize">No</ITEM>
      <ITEM name="Gridlines">Yes</ITEM>
-     <ITEM name="Name Column Width">152</ITEM>
+     <ITEM name="Name Column Width">235</ITEM>
      <ITEM name="ShowAddresses">Yes</ITEM>
      <ITEM name="ShowGlobals">Yes</ITEM>
      <ITEM name="ShowPreviousValues">No</ITEM>
@@ -147,9 +158,15 @@
      <ITEM name="HexMode">0</ITEM>
     </PROPERTIES>
    </POPUP>
-   <POPUP w="450" x="1470" flags="00000023" y="392" h="250" pid="0" iid="7">
+   <POPUP w="456" x="1947" flags="00000023" y="17" h="250" pid="0" iid="7">
     <PROPERTIES>
      <ITEM name="AutoEcho">1</ITEM>
+     <ITEM name="HexMode">0</ITEM>
+    </PROPERTIES>
+   </POPUP>
+   <POPUP w="772" x="2397" flags="00008023" y="19" h="628" pid="0" iid="6">
+    <PROPERTIES>
+     <ITEM name="AutoEcho">0</ITEM>
      <ITEM name="HexMode">0</ITEM>
     </PROPERTIES>
    </POPUP>

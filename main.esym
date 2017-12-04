@@ -1,8 +1,9 @@
-D G "CMD_MODE" 12 1 "1"
-D G "__PCM__" 0 85 ""5.015""
-D G "__DEVICE__" 0 85 "887"
-D G "__DATE__" 0 85 ""29-nov.-17""
-D G "__TIME__" 0 85 ""22:45:25"" "Standard Header file for the PIC16F887 device ////////////////"
+C L "MAIN" 0 24 1 "FUNCTION"
+C L "MAIN" 0 24 1 "FUNCTION"
+D G "__PCM__" 0 71 ""5.015""
+D G "__DEVICE__" 0 71 "887"
+D G "__DATE__" 0 71 ""03-dic.-17""
+D G "__TIME__" 0 71 ""19:27:09"" "Standard Header file for the PIC16F887 device ////////////////"
 c L "set_tris_a" 2 3 6 "FUNCTION"
 v L "value" 2 39 "int8" `54 
 f B "set_tris_a" 2 39 "void(int8 value)" `53 
@@ -860,19 +861,16 @@ D G "PIN_OUT_7" 1 23 "PIN_A2"
 D G "PIN_OUT_8" 1 24 "PIN_A3"
 D G "KEY_NEXT" 1 26 "PIN_B4"
 D G "KEY_OK" 1 27 "PIN_B5"
-V G "NL" 1 29 "int8" `626 
-V G "CR" 1 30 "int8" `627 
-C L "jump_to_irs" 1 10 12 "FUNCTION"
-V G "buffer" 1 45 "int8[1]" `628 
-V G "PIN_OUT" 1 46 "int16[8]" `629 
-D G "LCD_LIGHT_PIN" 1 58 "PIN_D3"
-D G "LCD_RS_PIN" 1 59 "PIN_D2"
-D G "LCD_RW_PIN" 1 60 "PIN_D1"
-D G "LCD_ENABLE_PIN" 1 61 "PIN_D0"
-D G "LCD_DATA4" 1 62 "PIN_D4"
-D G "LCD_DATA5" 1 63 "PIN_D5"
-D G "LCD_DATA6" 1 64 "PIN_D6"
-D G "LCD_DATA7" 1 65 "PIN_D7"
+C L "jump_to_irs" 1 10 2 "FUNCTION"
+V G "PIN_OUT" 1 32 "int16[8]" `626 
+D G "LCD_LIGHT_PIN" 1 44 "PIN_D3"
+D G "LCD_RS_PIN" 1 45 "PIN_D2"
+D G "LCD_RW_PIN" 1 46 "PIN_D1"
+D G "LCD_ENABLE_PIN" 1 47 "PIN_D0"
+D G "LCD_DATA4" 1 48 "PIN_D4"
+D G "LCD_DATA5" 1 49 "PIN_D5"
+D G "LCD_DATA6" 1 50 "PIN_D6"
+D G "LCD_DATA7" 1 51 "PIN_D7"
 D G "_STRING" 3 12 ""
 D G "_STDDEF" 4 13 ""
 D G "ptrdiff_t" 4 18 "unsigned int16"
@@ -893,165 +891,165 @@ D G "isprint" 5 22 "(x)  ((x)>=' ')"
 D G "isgraph" 5 23 "(x)  ((x)>' ')"
 D G "ispunct" 5 24 "(x)  (((x)>' ')&&!isalnum(x))"
 C L "jump_to_irs" 3 19 10 "FUNCTION"
-V L "s1" 3 34 "*int8" `631 
-V L "s2" 3 34 "*int8" `632 
-V L "n" 3 34 "int16" `633 
-F G "memmove" 3 35 "*int8(*int8 s1,*int8 s2,int16 n)" `630 
-V L "sc1" 3 36 "*int8" `634 
-V L "sc2" 3 37 "*int8" `635 
+V L "s1" 3 34 "*int8" `628 
+V L "s2" 3 34 "*int8" `629 
+V L "n" 3 34 "int16" `630 
+F G "memmove" 3 35 "*int8(*int8 s1,*int8 s2,int16 n)" `627 
+V L "sc1" 3 36 "*int8" `631 
+V L "sc2" 3 37 "*int8" `632 
 D G "strcopy" 3 54 "strcpy"
 C L "strncpy" 3 19 4 "FUNCTION"
-V L "s1" 3 61 "*int8" `637 
-V L "s2" 3 61 "*int8" `638 
-V L "n" 3 61 "int16" `639 
-F G "strncpy" 3 62 "*int8(*int8 s1,*int8 s2,int16 n)" `636 
-V L "s" 3 63 "*int8" `640 
+V L "s1" 3 61 "*int8" `634 
+V L "s2" 3 61 "*int8" `635 
+V L "n" 3 61 "int16" `636 
+F G "strncpy" 3 62 "*int8(*int8 s1,*int8 s2,int16 n)" `633 
+V L "s" 3 63 "*int8" `637 
 C L "strcat" 3 19 3 "FUNCTION"
-V L "s1" 3 78 "*int8" `642 
-V L "s2" 3 78 "*int8" `643 
-F G "strcat" 3 79 "*int8(*int8 s1,*int8 s2)" `641 
-V L "s" 3 80 "*int8" `644 
+V L "s1" 3 78 "*int8" `639 
+V L "s2" 3 78 "*int8" `640 
+F G "strcat" 3 79 "*int8(*int8 s1,*int8 s2)" `638 
+V L "s" 3 80 "*int8" `641 
 C L "strncat" 3 19 2 "FUNCTION"
-V L "s1" 3 96 "*int8" `646 
-V L "s2" 3 96 "*int8" `647 
-V L "n" 3 96 "int16" `648 
-F G "strncat" 3 97 "*int8(*int8 s1,*int8 s2,int16 n)" `645 
-V L "s" 3 98 "*int8" `649 
+V L "s1" 3 96 "*int8" `643 
+V L "s2" 3 96 "*int8" `644 
+V L "n" 3 96 "int16" `645 
+F G "strncat" 3 97 "*int8(*int8 s1,*int8 s2,int16 n)" `642 
+V L "s" 3 98 "*int8" `646 
 C L "memcmp" 3 19 3 "FUNCTION"
-V L "s1" 3 120 "*int8" `651 
-V L "s2" 3 120 "*int8" `652 
-V L "n" 3 120 "int16" `653 
-F G "memcmp" 3 121 "sint8(*int8 s1,*int8 s2,int16 n)" `650 
-V L "su1" 3 122 "*int8" `654 
-V L "su2" 3 122 "*int8" `655 
+V L "s1" 3 120 "*int8" `648 
+V L "s2" 3 120 "*int8" `649 
+V L "n" 3 120 "int16" `650 
+F G "memcmp" 3 121 "sint8(*int8 s1,*int8 s2,int16 n)" `647 
+V L "su1" 3 122 "*int8" `651 
+V L "su2" 3 122 "*int8" `652 
 C L "strcmp" 3 19 2 "FUNCTION"
-V L "s1" 3 134 "*int8" `657 
-V L "s2" 3 134 "*int8" `658 
-F G "strcmp" 3 135 "sint8(*int8 s1,*int8 s2)" `656 
+V L "s1" 3 134 "*int8" `654 
+V L "s2" 3 134 "*int8" `655 
+F G "strcmp" 3 135 "sint8(*int8 s1,*int8 s2)" `653 
 C L "strcoll" 3 19 2 "FUNCTION"
-V L "s1" 3 144 "*int8" `660 
-V L "s2" 3 144 "*int8" `661 
-F G "strcoll" 3 145 "sint8(*int8 s1,*int8 s2)" `659 
+V L "s1" 3 144 "*int8" `657 
+V L "s2" 3 144 "*int8" `658 
+F G "strcoll" 3 145 "sint8(*int8 s1,*int8 s2)" `656 
 C L "strncmp" 3 19 4 "FUNCTION"
-V L "s1" 3 157 "*int8" `663 
-V L "s2" 3 157 "*int8" `664 
-V L "n" 3 157 "int16" `665 
-F G "strncmp" 3 158 "sint8(*int8 s1,*int8 s2,int16 n)" `662 
+V L "s1" 3 157 "*int8" `660 
+V L "s2" 3 157 "*int8" `661 
+V L "n" 3 157 "int16" `662 
+F G "strncmp" 3 158 "sint8(*int8 s1,*int8 s2,int16 n)" `659 
 C L "strxfrm" 3 19 3 "FUNCTION"
-V L "s1" 3 169 "*int8" `667 
-V L "s2" 3 169 "*int8" `668 
-V L "n" 3 169 "int16" `669 
-F G "strxfrm" 3 170 "int16(*int8 s1,*int8 s2,int16 n)" `666 
-V L "s" 3 171 "*int8" `670 
-V L "n1" 3 172 "int8" `671 
+V L "s1" 3 169 "*int8" `664 
+V L "s2" 3 169 "*int8" `665 
+V L "n" 3 169 "int16" `666 
+F G "strxfrm" 3 170 "int16(*int8 s1,*int8 s2,int16 n)" `663 
+V L "s" 3 171 "*int8" `667 
+V L "n1" 3 172 "int8" `668 
 C L "memchr" 3 19 3 "FUNCTION"
-V L "s" 3 191 "*int8" `673 
-V L "c" 3 191 "int8" `674 
-V L "n" 3 191 "int16" `675 
-F G "memchr" 3 192 "*int8(*int8 s,int8 c,int16 n)" `672 
-V L "uc" 3 193 "int8" `676 
-V L "su" 3 194 "*int8" `677 
+V L "s" 3 191 "*int8" `670 
+V L "c" 3 191 "int8" `671 
+V L "n" 3 191 "int16" `672 
+F G "memchr" 3 192 "*int8(*int8 s,int8 c,int16 n)" `669 
+V L "uc" 3 193 "int8" `673 
+V L "su" 3 194 "*int8" `674 
 C L "strchr" 3 19 2 "FUNCTION"
-V L "s" 3 205 "*int8" `679 
-V L "c" 3 205 "int8" `680 
-F G "strchr" 3 206 "*int8(*int8 s,int8 c)" `678 
+V L "s" 3 205 "*int8" `676 
+V L "c" 3 205 "int8" `677 
+F G "strchr" 3 206 "*int8(*int8 s,int8 c)" `675 
 C L "strcspn" 3 19 4 "FUNCTION"
-V L "s1" 3 217 "*int8" `682 
-V L "s2" 3 217 "*int8" `683 
-F G "strcspn" 3 218 "int8(*int8 s1,*int8 s2)" `681 
-V L "sc1" 3 219 "*int8" `684 
-V L "sc2" 3 219 "*int8" `685 
+V L "s1" 3 217 "*int8" `679 
+V L "s2" 3 217 "*int8" `680 
+F G "strcspn" 3 218 "int8(*int8 s1,*int8 s2)" `678 
+V L "sc1" 3 219 "*int8" `681 
+V L "sc2" 3 219 "*int8" `682 
 C L "strpbrk" 3 19 4 "FUNCTION"
-V L "s1" 3 232 "*int8" `687 
-V L "s2" 3 232 "*int8" `688 
-F G "strpbrk" 3 233 "*int8(*int8 s1,*int8 s2)" `686 
-V L "sc1" 3 234 "*int8" `689 
-V L "sc2" 3 234 "*int8" `690 
+V L "s1" 3 232 "*int8" `684 
+V L "s2" 3 232 "*int8" `685 
+F G "strpbrk" 3 233 "*int8(*int8 s1,*int8 s2)" `683 
+V L "sc1" 3 234 "*int8" `686 
+V L "sc2" 3 234 "*int8" `687 
 C L "strrchr" 3 19 2 "FUNCTION"
-V L "s" 3 247 "*int8" `692 
-V L "c" 3 247 "int8" `693 
-F G "strrchr" 3 248 "*int8(*int8 s,int8 c)" `691 
-V L "p" 3 249 "*int8" `694 
+V L "s" 3 247 "*int8" `689 
+V L "c" 3 247 "int8" `690 
+F G "strrchr" 3 248 "*int8(*int8 s,int8 c)" `688 
+V L "p" 3 249 "*int8" `691 
 C L "strspn" 3 19 2 "FUNCTION"
-V L "s1" 3 262 "*int8" `696 
-V L "s2" 3 262 "*int8" `697 
-F G "strspn" 3 263 "int8(*int8 s1,*int8 s2)" `695 
-V L "sc1" 3 264 "*int8" `698 
-V L "sc2" 3 264 "*int8" `699 
+V L "s1" 3 262 "*int8" `693 
+V L "s2" 3 262 "*int8" `694 
+F G "strspn" 3 263 "int8(*int8 s1,*int8 s2)" `692 
+V L "sc1" 3 264 "*int8" `695 
+V L "sc2" 3 264 "*int8" `696 
 C L "strstr" 3 19 6 "FUNCTION"
-V L "s1" 3 281 "*int8" `701 
-V L "s2" 3 281 "*int8" `702 
-F G "strstr" 3 282 "*int8(*int8 s1,*int8 s2)" `700 
-V L "s" 3 283 "*int8" `703 
-V L "t" 3 283 "*int8" `704 
+V L "s1" 3 281 "*int8" `698 
+V L "s2" 3 281 "*int8" `699 
+F G "strstr" 3 282 "*int8(*int8 s1,*int8 s2)" `697 
+V L "s" 3 283 "*int8" `700 
+V L "t" 3 283 "*int8" `701 
 C L "strtok" 3 19 13 "FUNCTION"
-V L "s1" 3 320 "*int8" `706 
-V L "s2" 3 320 "*int8" `707 
-F G "strtok" 3 321 "*int8(*int8 s1,*int8 s2)" `705 
-V L "beg" 3 322 "*int8" `708 
-V L "end" 3 322 "*int8" `709 
-V L "save" 3 323 "*int8" `710 
+V L "s1" 3 320 "*int8" `703 
+V L "s2" 3 320 "*int8" `704 
+F G "strtok" 3 321 "*int8(*int8 s1,*int8 s2)" `702 
+V L "beg" 3 322 "*int8" `705 
+V L "end" 3 322 "*int8" `706 
+V L "save" 3 323 "*int8" `707 
 C L "strlen" 3 19 6 "FUNCTION"
-V L "s" 3 369 "*int8" `712 
-F G "strlen" 3 370 "int8(*int8 s)" `711 
-V L "sc" 3 371 "*int8" `713 
+V L "s" 3 369 "*int8" `709 
+F G "strlen" 3 370 "int8(*int8 s)" `708 
+V L "sc" 3 371 "*int8" `710 
 C L "stricmp" 3 19 2 "FUNCTION"
-V L "s1" 3 380 "*int8" `715 
-V L "s2" 3 380 "*int8" `716 
-F G "stricmp" 3 381 "sint8(*int8 s1,*int8 s2)" `714 
+V L "s1" 3 380 "*int8" `712 
+V L "s2" 3 380 "*int8" `713 
+F G "stricmp" 3 381 "sint8(*int8 s1,*int8 s2)" `711 
 C L "strlwr" 3 19 3 "FUNCTION"
-V L "s" 3 394 "*int8" `720 
-F G "strlwr" 3 395 "*int8(*int8 s)" `719 
-V L "p" 3 396 "*int8" `721 
+V L "s" 3 394 "*int8" `717 
+F G "strlwr" 3 395 "*int8(*int8 s)" `716 
+V L "p" 3 396 "*int8" `718 
 C L "strupr" 3 19 3 "FUNCTION"
-V L "s" 3 408 "*int8" `723 
-F G "strupr" 3 409 "*int8(*int8 s)" `722 
-V L "p" 3 410 "*int8" `724 
+V L "s" 3 408 "*int8" `720 
+F G "strupr" 3 409 "*int8(*int8 s)" `719 
+V L "p" 3 410 "*int8" `721 
 D G "_STDLIB" 6 12 ""
 D G "RAND_MAX" 6 19 "32767" "The value of which is the maximum value"
 D G "LONG_POINTERS" 6 25 "1"
-T G "div_t" 6 33 "{sint8 quot,sint8 rem}" `728 
-T G "ldiv_t" 6 38 "{sint16 quot,sint16 rem}" `732  "(C) Copyright 1996,2003 Custom Computer Services           ////"
+T G "div_t" 6 33 "{sint8 quot,sint8 rem}" `725 
+T G "ldiv_t" 6 38 "{sint16 quot,sint16 rem}" `729  "(C) Copyright 1996,2003 Custom Computer Services           ////"
 C L "atoi" 4 3 6 "FUNCTION"
 C L "atoi" 6 43 2 "FUNCTION"
 C L "atoi" 6 46 1 "*"
 C L "atoi" 6 46 1 "*"
-V L "s" 6 50 "*int8" `734 
-f G "atoi" 6 50 "sint8(*int8 s)" `733  "Syntax: signed int32  atoi32(char * s)"
-V L "s" 6 58 "*int8" `736 
-f G "atoi32" 6 58 "sint32(*int8 s)" `735  "Syntax: char *  itoa(signed int32 num, int8 base, char * s)"
+V L "s" 6 50 "*int8" `731 
+f G "atoi" 6 50 "sint8(*int8 s)" `730  "Syntax: signed int32  atoi32(char * s)"
+V L "s" 6 58 "*int8" `733 
+f G "atoi32" 6 58 "sint32(*int8 s)" `732  "Syntax: char *  itoa(signed int32 num, int8 base, char * s)"
 C L "atoi32" 6 46 2 "FUNCTION"
-V L "num" 6 79 "sint32" `738 
-V L "base" 6 79 "int8" `739 
-V L "s" 6 79 "*int8" `740 
-f G "itoa" 6 79 "*int8(sint32 num,int8 base,*int8 s)" `737  "Standard template: signed int16  atol(char * s)"
+V L "num" 6 79 "sint32" `735 
+V L "base" 6 79 "int8" `736 
+V L "s" 6 79 "*int8" `737 
+f G "itoa" 6 79 "*int8(sint32 num,int8 base,*int8 s)" `734  "Standard template: signed int16  atol(char * s)"
 C L "itoa" 6 81 1 "*"
 C L "itoa" 6 81 1 "*"
-V L "s" 6 85 "*int8" `742 
-f G "atol" 6 85 "sint16(*int8 s)" `741  "Standard template: int16 strtoul(char * s,char *endptr,signed int base)"
+V L "s" 6 85 "*int8" `739 
+f G "atol" 6 85 "sint16(*int8 s)" `738  "Standard template: int16 strtoul(char * s,char *endptr,signed int base)"
 C L "atol" 6 87 1 "*"
 C L "atol" 6 87 1 "*"
 C L "atol" 6 87 1 "*"
 C L "atol" 6 87 1 "*"
-V L "s" 6 93 "*int8" `744 
-V L "endptr" 6 93 "*int8" `745 
-V L "base" 6 93 "sint8" `746 
-f G "strtol" 6 93 "sint16(*int8 s,*int8 endptr,sint8 base)" `743  "Standard template: int16 strtoul(char * s,char *endptr,signed int base)"
+V L "s" 6 93 "*int8" `741 
+V L "endptr" 6 93 "*int8" `742 
+V L "base" 6 93 "sint8" `743 
+f G "strtol" 6 93 "sint16(*int8 s,*int8 endptr,sint8 base)" `740  "Standard template: int16 strtoul(char * s,char *endptr,signed int base)"
 C L "strtol" 6 95 1 "*"
 C L "strtol" 6 95 1 "*"
 C L "strtol" 6 95 1 "*"
 C L "strtol" 6 95 1 "*"
-V L "s" 6 101 "*int8" `748 
-V L "endptr" 6 101 "*int8" `749 
-V L "base" 6 101 "sint8" `750 
-f G "strtoul" 6 101 "int16(*int8 s,*int8 endptr,sint8 base)" `747  "Standart template: float strtof(char * s,char *endptr)"
+V L "s" 6 101 "*int8" `745 
+V L "endptr" 6 101 "*int8" `746 
+V L "base" 6 101 "sint8" `747 
+f G "strtoul" 6 101 "int16(*int8 s,*int8 endptr,sint8 base)" `744  "Standart template: float strtof(char * s,char *endptr)"
 C L "strtoul" 6 95 2 "FUNCTION"
 C L "strtoul" 6 103 1 "*"
 C L "strtoul" 6 103 1 "*"
 C L "strtoul" 6 103 1 "*"
-V L "s" 6 110 "*int8" `752 
-V L "endptr" 6 110 "*int8" `753 
-f G "strtof" 6 110 "float(*int8 s,*int8 endptr)" `751  "provided for compatibility"
+V L "s" 6 110 "*int8" `749 
+V L "endptr" 6 110 "*int8" `750 
+f G "strtof" 6 110 "float(*int8 s,*int8 endptr)" `748  "provided for compatibility"
 D G "strtof48" 6 116 "(s, e) strtof(s, e)"
 D G "strtod" 6 117 "(s, e) strtof(s, e)"
 C L "strtof" 6 103 1 "FUNCTION"
@@ -1061,15 +1059,15 @@ C L "strtof" 6 120 1 "FUNCTION"
 C L "strtof" 6 143 1 "*"
 C L "strtof" 6 143 1 "*"
 C L "strtof" 6 143 1 "*"
-V L "s" 6 149 "*int8" `755 
-f G "atoe" 6 149 "float(*int8 s)" `754  "Pseudo-random sequence generation functions"
+V L "s" 6 149 "*int8" `752 
+f G "atoe" 6 149 "float(*int8 s)" `751  "Pseudo-random sequence generation functions"
 C L "atoe" 6 143 1 "FUNCTION"
 C L "atoe" 6 160 1 "*"
 C L "atoe" 6 160 1 "*"
 C L "atoe" 6 160 1 "*"
 C L "atoe" 6 160 1 "*"
 C L "atoe" 6 160 1 "*"
-f G "rand" 6 169 "int16()" `756  "The srand function uses the argument as a seed for a new sequence of"
+f G "rand" 6 169 "int16()" `753  "The srand function uses the argument as a seed for a new sequence of"
 C L "rand" 6 171 1 "*"
 C L "rand" 6 171 1 "*"
 C L "rand" 6 171 1 "*"
@@ -1085,11 +1083,11 @@ C L "rand" 6 171 1 "*"
 C L "rand" 6 171 1 "*"
 C L "rand" 6 171 1 "*"
 C L "rand" 6 171 1 "*"
-V L "seed" 6 191 "int32" `758 
-f G "srand" 6 191 "void(int32 seed)" `757  "Memory management functions"
+V L "seed" 6 191 "int32" `755 
+f G "srand" 6 191 "void(int32 seed)" `754  "Memory management functions"
 C L "srand" 6 171 3 "FUNCTION"
-V L "string" 6 205 "*int8" `760 
-f G "system" 6 205 "sint8(*int8 string)" `759  "Searching and sorting utilities"
+V L "string" 6 205 "*int8" `757 
+f G "system" 6 205 "sint8(*int8 string)" `756  "Searching and sorting utilities"
 C L "system" 6 171 1 "FUNCTION"
 C L "system" 6 211 1 "*"
 C L "system" 6 211 1 "*"
@@ -1111,256 +1109,256 @@ C L "system" 6 229 1 "*"
 C L "system" 6 229 1 "*"
 C L "system" 6 229 1 "*"
 D G "labs" 6 249 "abs"
-V L "numer" 6 251 "sint8" `762 
-V L "denom" 6 251 "sint8" `763 
-f G "div" 6 251 "div_t(sint8 numer,sint8 denom)" `761 
-V L "numer" 6 252 "sint16" `765 
-V L "denom" 6 252 "sint16" `766 
-f G "ldiv" 6 252 "ldiv_t(sint16 numer,sint16 denom)" `764  "Multibyte character functions"
+V L "numer" 6 251 "sint8" `759 
+V L "denom" 6 251 "sint8" `760 
+f G "div" 6 251 "div_t(sint8 numer,sint8 denom)" `758 
+V L "numer" 6 252 "sint16" `762 
+V L "denom" 6 252 "sint16" `763 
+f G "ldiv" 6 252 "ldiv_t(sint16 numer,sint16 denom)" `761  "Multibyte character functions"
 C L "ldiv" 6 229 4 "FUNCTION"
 C L "ldiv" 4 2 7 "FUNCTION"
 C L "ldiv" 3 2 7 "FUNCTION"
-V L "numer" 6 274 "sint8" `762 
-V L "denom" 6 274 "sint8" `769 
-F G "div" 6 275 "div_t(sint8 numer,sint8 denom)" `761 
-V L "val" 6 276 "div_t" `767 
-V L "numer" 6 282 "sint16" `765 
-V L "denom" 6 282 "sint16" `776 
-F G "ldiv" 6 283 "ldiv_t(sint16 numer,sint16 denom)" `764 
-V L "val" 6 284 "ldiv_t" `774 
-V L "s" 6 361 "*int8" `782 
-F G "atoe" 6 362 "float(*int8 s)" `754 
-V L "pow10" 6 363 "float" `781 
-V L "result" 6 364 "float" `782 
-V L "sign" 6 365 "int8" `783 
-V L "expsign" 6 366 "int8" `784 
-V L "c" 6 367 "int8" `785 
-V L "ptr" 6 368 "int8" `786 
-V L "i" 6 369 "int8" `787 
-V L "exp" 6 370 "float" `788 
-V L "expcnt" 6 371 "int8" `789 
+V L "numer" 6 274 "sint8" `759 
+V L "denom" 6 274 "sint8" `766 
+F G "div" 6 275 "div_t(sint8 numer,sint8 denom)" `758 
+V L "val" 6 276 "div_t" `764 
+V L "numer" 6 282 "sint16" `762 
+V L "denom" 6 282 "sint16" `773 
+F G "ldiv" 6 283 "ldiv_t(sint16 numer,sint16 denom)" `761 
+V L "val" 6 284 "ldiv_t" `771 
+V L "s" 6 361 "*int8" `779 
+F G "atoe" 6 362 "float(*int8 s)" `751 
+V L "pow10" 6 363 "float" `778 
+V L "result" 6 364 "float" `779 
+V L "sign" 6 365 "int8" `780 
+V L "expsign" 6 366 "int8" `781 
+V L "c" 6 367 "int8" `782 
+V L "ptr" 6 368 "int8" `783 
+V L "i" 6 369 "int8" `784 
+V L "exp" 6 370 "float" `785 
+V L "expcnt" 6 371 "int8" `786 
 C L "atoe" 6 397 1 "FUNCTION"
-V L "s" 6 429 "*int8" `802 
-F G "atoi" 6 430 "sint8(*int8 s)" `733 
-V L "result" 6 431 "sint8" `801 
-V L "sign" 6 432 "int8" `802 
-V L "base" 6 432 "int8" `803 
-V L "index" 6 432 "int8" `804 
-V L "c" 6 433 "int8" `805 
+V L "s" 6 429 "*int8" `799 
+F G "atoi" 6 430 "sint8(*int8 s)" `730 
+V L "result" 6 431 "sint8" `798 
+V L "sign" 6 432 "int8" `799 
+V L "base" 6 432 "int8" `800 
+V L "index" 6 432 "int8" `801 
+V L "c" 6 433 "int8" `802 
 C L "atoi" 6 397 1 "FUNCTION"
 C L "atoi" 6 397 1 "FUNCTION"
 C L "atoi" 6 397 1 "FUNCTION"
 C L "atoi" 6 397 1 "FUNCTION"
 C L "atoi" 6 397 1 "FUNCTION"
 C L "atoi" 6 397 1 "FUNCTION"
-V L "s" 6 498 "*int8" `807 
-F G "atol" 6 499 "sint16(*int8 s)" `741 
-V L "result" 6 500 "sint16" `806 
-V L "sign" 6 501 "int8" `807 
-V L "base" 6 501 "int8" `808 
-V L "index" 6 501 "int8" `809 
-V L "c" 6 502 "int8" `810 
+V L "s" 6 498 "*int8" `804 
+F G "atol" 6 499 "sint16(*int8 s)" `738 
+V L "result" 6 500 "sint16" `803 
+V L "sign" 6 501 "int8" `804 
+V L "base" 6 501 "int8" `805 
+V L "index" 6 501 "int8" `806 
+V L "c" 6 502 "int8" `807 
 C L "atol" 6 397 1 "FUNCTION"
 C L "atol" 6 397 1 "FUNCTION"
 C L "atol" 6 397 1 "FUNCTION"
 C L "atol" 6 397 1 "FUNCTION"
 C L "mult_with10" 6 397 1 "FUNCTION"
-V L "num" 6 565 "int32" `812 
-F G "mult_with10" 6 566 "sint32(int32 num)" `811 
-V L "s" 6 571 "*int8" `814 
-F G "atoi32" 6 572 "sint32(*int8 s)" `735 
-V L "result" 6 573 "sint32" `813 
-V L "sign" 6 574 "int8" `814 
-V L "base" 6 574 "int8" `815 
-V L "index" 6 574 "int8" `816 
-V L "c" 6 575 "int8" `817 
+V L "num" 6 565 "int32" `809 
+F G "mult_with10" 6 566 "sint32(int32 num)" `808 
+V L "s" 6 571 "*int8" `811 
+F G "atoi32" 6 572 "sint32(*int8 s)" `732 
+V L "result" 6 573 "sint32" `810 
+V L "sign" 6 574 "int8" `811 
+V L "base" 6 574 "int8" `812 
+V L "index" 6 574 "int8" `813 
+V L "c" 6 575 "int8" `814 
 C L "atoi32" 6 397 1 "FUNCTION"
 C L "atoi32" 6 397 1 "FUNCTION"
 C L "atoi32" 6 397 1 "FUNCTION"
 C L "atoi32" 6 397 1 "FUNCTION"
 C L "atoi32" 6 397 1 "FUNCTION"
-V L "num" 6 770 "sint32" `738 
-V L "base" 6 770 "int8" `739 
-V L "s" 6 770 "*int8" `821 
-F G "itoa" 6 771 "*int8(sint32 num,int8 base,*int8 s)" `737 
-V L "temp" 6 772 "int32" `818 
-V L "i" 6 773 "int8" `819 
-V L "sign" 6 773 "int8" `820 
-V L "cnt" 6 773 "int8" `821 
-V L "c" 6 774 "int8" `822 
+V L "num" 6 770 "sint32" `735 
+V L "base" 6 770 "int8" `736 
+V L "s" 6 770 "*int8" `818 
+F G "itoa" 6 771 "*int8(sint32 num,int8 base,*int8 s)" `734 
+V L "temp" 6 772 "int32" `815 
+V L "i" 6 773 "int8" `816 
+V L "sign" 6 773 "int8" `817 
+V L "cnt" 6 773 "int8" `818 
+V L "c" 6 774 "int8" `819 
 C L "itoa" 6 397 1 "FUNCTION"
 C L "itoa" 6 397 1 "FUNCTION"
 C L "itoa" 6 397 1 "FUNCTION"
 C L "itoa" 6 397 1 "FUNCTION"
 C L "itoa" 6 397 1 "FUNCTION"
-V L "s" 6 885 "*int8" `752 
-V L "endptr" 6 885 "*int8" `831 
-F G "strtof" 6 886 "float(*int8 s,*int8 endptr)" `751 
-V L "pow10" 6 887 "float" `829 
-V L "result" 6 888 "float" `830 
-V L "skip" 6 889 "int1" `831 
-V L "sign" 6 889 "int1" `832 
-V L "point" 6 889 "int1" `833 
-V L "c" 6 890 "int8" `834 
-V L "ptr" 6 891 "int8" `835 
-V L "s" 6 1103 "*int8" `748 
-V L "endptr" 6 1103 "*int8" `749 
-V L "base" 6 1103 "sint8" `840 
-F G "strtoul" 6 1104 "int16(*int8 s,*int8 endptr,sint8 base)" `747 
-V L "sc" 6 1105 "*int8" `837 
-V L "s1" 6 1105 "*int8" `838 
-V L "sd" 6 1105 "*int8" `839 
-V L "x" 6 1106 "int16" `840 
-V L "sign" 6 1107 "int8" `841 
-V L "digits" 6 1108 "int8[1]" `842 
+V L "s" 6 885 "*int8" `749 
+V L "endptr" 6 885 "*int8" `828 
+F G "strtof" 6 886 "float(*int8 s,*int8 endptr)" `748 
+V L "pow10" 6 887 "float" `826 
+V L "result" 6 888 "float" `827 
+V L "skip" 6 889 "int1" `828 
+V L "sign" 6 889 "int1" `829 
+V L "point" 6 889 "int1" `830 
+V L "c" 6 890 "int8" `831 
+V L "ptr" 6 891 "int8" `832 
+V L "s" 6 1103 "*int8" `745 
+V L "endptr" 6 1103 "*int8" `746 
+V L "base" 6 1103 "sint8" `837 
+F G "strtoul" 6 1104 "int16(*int8 s,*int8 endptr,sint8 base)" `744 
+V L "sc" 6 1105 "*int8" `834 
+V L "s1" 6 1105 "*int8" `835 
+V L "sd" 6 1105 "*int8" `836 
+V L "x" 6 1106 "int16" `837 
+V L "sign" 6 1107 "int8" `838 
+V L "digits" 6 1108 "int8[1]" `839 
 C L "strtoul" 6 397 1 "FUNCTION"
 C L "strtoul" 6 397 1 "FUNCTION"
 C L "strtoul" 6 397 1 "FUNCTION"
-V L "s" 6 1165 "*int8" `744 
-V L "endptr" 6 1165 "*int8" `745 
-V L "base" 6 1165 "sint8" `847 
-F G "strtol" 6 1166 "sint16(*int8 s,*int8 endptr,sint8 base)" `743 
-V L "sc" 6 1167 "*int8" `844 
-V L "s1" 6 1167 "*int8" `845 
-V L "sd" 6 1167 "*int8" `846 
-V L "x" 6 1168 "sint16" `847 
-V L "sign" 6 1169 "int8" `848 
-V L "digits" 6 1170 "int8[1]" `849 
+V L "s" 6 1165 "*int8" `741 
+V L "endptr" 6 1165 "*int8" `742 
+V L "base" 6 1165 "sint8" `844 
+F G "strtol" 6 1166 "sint16(*int8 s,*int8 endptr,sint8 base)" `740 
+V L "sc" 6 1167 "*int8" `841 
+V L "s1" 6 1167 "*int8" `842 
+V L "sd" 6 1167 "*int8" `843 
+V L "x" 6 1168 "sint16" `844 
+V L "sign" 6 1169 "int8" `845 
+V L "digits" 6 1170 "int8[1]" `846 
 C L "strtol" 6 397 1 "FUNCTION"
 C L "strtol" 6 397 1 "FUNCTION"
 C L "strtol" 6 397 1 "FUNCTION"
-V L "string" 6 1228 "*int8" `852 
-F G "system" 6 1229 "sint8(*int8 string)" `759 
-V L "s" 6 1233 "*int8" `852 
-V L "n" 6 1233 "int16" `853 
-F G "mblen" 6 1234 "int8(*int8 s,int16 n)" `851 
-V L "pwc" 6 1238 "*int8" `855 
-V L "s" 6 1238 "*int8" `856 
-V L "n" 6 1238 "int16" `857 
-F G "mbtowc" 6 1239 "int8(*int8 pwc,*int8 s,int16 n)" `854 
-V L "s" 6 1244 "*int8" `859 
-V L "wchar" 6 1244 "int8" `860 
-F G "wctomb" 6 1245 "int8(*int8 s,int8 wchar)" `858 
-V L "pwcs" 6 1250 "*int8" `862 
-V L "s" 6 1250 "*int8" `863 
-V L "n" 6 1250 "int16" `864 
-F G "mbstowcs" 6 1251 "int16(*int8 pwcs,*int8 s,int16 n)" `861 
-V L "s" 6 1256 "*int8" `866 
-V L "pwcs" 6 1256 "*int8" `867 
-V L "n" 6 1256 "int16" `868 
-F G "wcstombs" 6 1257 "int16(*int8 s,*int8 pwcs,int16 n)" `865 
-V G "_Randseed" 6 1266 "int32" `869 
-F G "rand" 6 1269 "int16()" `756 
-V L "seed" 6 1274 "int32" `874 
-F G "srand" 6 1275 "void(int32 seed)" `757 
-V L "p1" 6 1284 "*int8" `874 
-V L "p2" 6 1284 "*int8" `875 
-T G "*_Cmpfun" 6 1284 "sint8(*int8 p1,*int8 p2)" `873 
-V L "qdata" 6 1291 "*int8" `878 
-V L "qitems" 6 1291 "int8" `879 
-V L "qsize" 6 1291 "int8" `880 
-V L "cmp" 6 1291 "_Cmpfun" `881 
-F G "qsort" 6 1291 "void(*int8 qdata,int8 qitems,int8 qsize,_Cmpfun cmp)" `877 
-V L "m" 6 1292 "int8" `882 
-V L "j" 6 1292 "int8" `883 
-V L "i" 6 1292 "int8" `884 
-V L "l" 6 1292 "int8" `885 
-V L "done" 6 1293 "int1" `886 
-V L "t" 6 1294 "int8[16]" `887 
-V L "key" 6 1319 "*int8" `890 
-V L "base" 6 1319 "*int8" `891 
-V L "num" 6 1319 "int16" `892 
-V L "width" 6 1319 "int16" `893 
-V L "cmp" 6 1319 "_Cmpfun" `894 
-F G "bsearch" 6 1320 "*int8(*int8 key,*int8 base,int16 num,int16 width,_Cmpfun cmp)" `889 
-V L "p" 6 1321 "*int8" `895 
-V L "q" 6 1321 "*int8" `896 
-V L "n" 6 1322 "int16" `897 
-V L "pivot" 6 1323 "int16" `898 
-V L "val" 6 1324 "sint8" `899 
+V L "string" 6 1228 "*int8" `849 
+F G "system" 6 1229 "sint8(*int8 string)" `756 
+V L "s" 6 1233 "*int8" `849 
+V L "n" 6 1233 "int16" `850 
+F G "mblen" 6 1234 "int8(*int8 s,int16 n)" `848 
+V L "pwc" 6 1238 "*int8" `852 
+V L "s" 6 1238 "*int8" `853 
+V L "n" 6 1238 "int16" `854 
+F G "mbtowc" 6 1239 "int8(*int8 pwc,*int8 s,int16 n)" `851 
+V L "s" 6 1244 "*int8" `856 
+V L "wchar" 6 1244 "int8" `857 
+F G "wctomb" 6 1245 "int8(*int8 s,int8 wchar)" `855 
+V L "pwcs" 6 1250 "*int8" `859 
+V L "s" 6 1250 "*int8" `860 
+V L "n" 6 1250 "int16" `861 
+F G "mbstowcs" 6 1251 "int16(*int8 pwcs,*int8 s,int16 n)" `858 
+V L "s" 6 1256 "*int8" `863 
+V L "pwcs" 6 1256 "*int8" `864 
+V L "n" 6 1256 "int16" `865 
+F G "wcstombs" 6 1257 "int16(*int8 s,*int8 pwcs,int16 n)" `862 
+V G "_Randseed" 6 1266 "int32" `866 
+F G "rand" 6 1269 "int16()" `753 
+V L "seed" 6 1274 "int32" `871 
+F G "srand" 6 1275 "void(int32 seed)" `754 
+V L "p1" 6 1284 "*int8" `871 
+V L "p2" 6 1284 "*int8" `872 
+T G "*_Cmpfun" 6 1284 "sint8(*int8 p1,*int8 p2)" `870 
+V L "qdata" 6 1291 "*int8" `875 
+V L "qitems" 6 1291 "int8" `876 
+V L "qsize" 6 1291 "int8" `877 
+V L "cmp" 6 1291 "_Cmpfun" `878 
+F G "qsort" 6 1291 "void(*int8 qdata,int8 qitems,int8 qsize,_Cmpfun cmp)" `874 
+V L "m" 6 1292 "int8" `879 
+V L "j" 6 1292 "int8" `880 
+V L "i" 6 1292 "int8" `881 
+V L "l" 6 1292 "int8" `882 
+V L "done" 6 1293 "int1" `883 
+V L "t" 6 1294 "int8[16]" `884 
+V L "key" 6 1319 "*int8" `887 
+V L "base" 6 1319 "*int8" `888 
+V L "num" 6 1319 "int16" `889 
+V L "width" 6 1319 "int16" `890 
+V L "cmp" 6 1319 "_Cmpfun" `891 
+F G "bsearch" 6 1320 "*int8(*int8 key,*int8 base,int16 num,int16 width,_Cmpfun cmp)" `886 
+V L "p" 6 1321 "*int8" `892 
+V L "q" 6 1321 "*int8" `893 
+V L "n" 6 1322 "int16" `894 
+V L "pivot" 6 1323 "int16" `895 
+V L "val" 6 1324 "sint8" `896 
 C L "bsearch" 6 397 1 "FUNCTION"
 D G "MATH_H" 7 30 ""
 D G "PI" 7 35 "3.1415926535897932"
 D G "SQRT2" 7 38 "1.4142135623730950"
 C L "CEIL_FLOOR" 7 2 3 "FUNCTION"
-V L "x" 7 45 "float" `904 
-V L "n" 7 45 "int8" `905 
-F G "CEIL_FLOOR" 7 46 "float(float x,int8 n)" `903 
-V L "y" 7 47 "float" `906 
-V L "res" 7 47 "float" `907 
-V L "l" 7 48 "int16" `908 
-V L "s" 7 49 "int1" `909 
+V L "x" 7 45 "float" `901 
+V L "n" 7 45 "int8" `902 
+F G "CEIL_FLOOR" 7 46 "float(float x,int8 n)" `900 
+V L "y" 7 47 "float" `903 
+V L "res" 7 47 "float" `904 
+V L "l" 7 48 "int16" `905 
+V L "s" 7 49 "int1" `906 
 C L "floor" 7 2 5 "FUNCTION"
-V L "x" 7 207 "float" `916 
-F G "floor" 7 208 "float(float x)" `915 
+V L "x" 7 207 "float" `913 
+F G "floor" 7 208 "float(float x)" `912 
 C L "ceil" 7 2 5 "FUNCTION"
-V L "x" 7 233 "float" `918 
-F G "ceil" 7 234 "float(float x)" `917 
+V L "x" 7 233 "float" `915 
+F G "ceil" 7 234 "float(float x)" `914 
 D G "fabs" 7 259 "abs"
 C L "fmod" 7 2 6 "FUNCTION"
-V L "x" 7 271 "float" `920 
-V L "y" 7 271 "float" `921 
-F G "fmod" 7 272 "float(float x,float y)" `919 
-V L "i" 7 273 "float" `922 
+V L "x" 7 271 "float" `917 
+V L "y" 7 271 "float" `918 
+F G "fmod" 7 272 "float(float x,float y)" `916 
+V L "i" 7 273 "float" `919 
 D G "LN2" 7 334 "0.6931471805599453"
 D G "LN2_INV" 7 335 "1.4426950408889634073"
-V G "pe" 7 337 "[6]" `923 
-V L "x" 7 341 "float" `927 
-F G "exp" 7 342 "float(float x)" `926 
-V L "y" 7 343 "float" `928 
-V L "res" 7 343 "float" `929 
-V L "r" 7 343 "float" `930 
-V L "n" 7 347 "sint8" `931 
-V L "s" 7 348 "int1" `932 
+V G "pe" 7 337 "[6]" `920 
+V L "x" 7 341 "float" `924 
+F G "exp" 7 342 "float(float x)" `923 
+V L "y" 7 343 "float" `925 
+V L "res" 7 343 "float" `926 
+V L "r" 7 343 "float" `927 
+V L "n" 7 347 "sint8" `928 
+V L "s" 7 348 "int1" `929 
 C L "exp" 7 2 1 "FUNCTION"
-V G "pl" 7 525 "[4]" `935 
-V G "ql" 7 526 "[4]" `938 
+V G "pl" 7 525 "[4]" `932 
+V G "ql" 7 526 "[4]" `935 
 C L "log" 7 2 3 "FUNCTION"
-V L "x" 7 534 "float" `942 
-F G "log" 7 535 "float(float x)" `941 
-V L "y" 7 536 "float" `943 
-V L "res" 7 536 "float" `944 
-V L "r" 7 536 "float" `945 
-V L "y2" 7 536 "float" `946 
-V L "n" 7 540 "sint8" `947 
+V L "x" 7 534 "float" `939 
+F G "log" 7 535 "float(float x)" `938 
+V L "y" 7 536 "float" `940 
+V L "res" 7 536 "float" `941 
+V L "r" 7 536 "float" `942 
+V L "y2" 7 536 "float" `943 
+V L "n" 7 540 "sint8" `944 
 C L "log" 7 2 1 "FUNCTION"
 D G "LN10" 7 758 "2.3025850929940456"
 D G "LN10_INV" 7 759 "0.4342944819032518276"
 C L "log10" 7 2 3 "FUNCTION"
-V L "x" 7 767 "float" `949 
-F G "log10" 7 768 "float(float x)" `948 
-V L "r" 7 769 "float" `950 
+V L "x" 7 767 "float" `946 
+F G "log10" 7 768 "float(float x)" `945 
+V L "r" 7 769 "float" `947 
 C L "modf" 7 2 8 "FUNCTION"
-V L "value" 7 808 "float" `952 
-V L "iptr" 7 808 "*float" `953 
-F G "modf" 7 809 "float(float value,*float iptr)" `951 
+V L "value" 7 808 "float" `949 
+V L "iptr" 7 808 "*float" `950 
+F G "modf" 7 809 "float(float value,*float iptr)" `948 
 C L "pwr" 7 2 6 "FUNCTION"
-V L "x" 7 836 "float" `955 
-V L "y" 7 836 "float" `956 
-F G "pwr" 7 837 "float(float x,float y)" `954 
+V L "x" 7 836 "float" `952 
+V L "y" 7 836 "float" `953 
+F G "pwr" 7 837 "float(float x,float y)" `951 
 C L "pow" 7 2 7 "FUNCTION"
-V L "x" 7 899 "float" `958 
-V L "y" 7 899 "float" `959 
-F G "pow" 7 900 "float(float x,float y)" `957 
+V L "x" 7 899 "float" `955 
+V L "y" 7 899 "float" `956 
+F G "pow" 7 900 "float(float x,float y)" `954 
 C L "sqrt" 7 2 5 "FUNCTION"
-V L "x" 7 960 "float" `961 
-F G "sqrt" 7 961 "float(float x)" `960 
-V L "y" 7 962 "float" `962 
-V L "res" 7 962 "float" `963 
-V L "p" 7 966 "*int8" `964 
+V L "x" 7 960 "float" `958 
+F G "sqrt" 7 961 "float(float x)" `957 
+V L "y" 7 962 "float" `959 
+V L "res" 7 962 "float" `960 
+V L "p" 7 966 "*int8" `961 
 D G "PI_DIV_BY_TWO_INV" 7 1155 "0.63661977236758134"
 D G "PI_DIV_BY_TWO" 7 1159 "1.5707963267948966"
 D G "TWOBYPI" 7 1163 "0.6366197723675813"
 C L "cos" 7 2 3 "FUNCTION"
-V L "x" 7 1171 "float" `966 
-F G "cos" 7 1172 "float(float x)" `965 
-V L "y" 7 1173 "float" `967 
-V L "t" 7 1173 "float" `968 
-V L "t2" 7 1173 "float" `969 
-V L "quad" 7 1174 "int8" `970 
-V L "i" 7 1174 "int8" `971 
-V L "frac" 7 1175 "float" `972 
-V L "p" 7 1176 "float[5]" `973  "by the series definition for cosine"
+V L "x" 7 1171 "float" `963 
+F G "cos" 7 1172 "float(float x)" `962 
+V L "y" 7 1173 "float" `964 
+V L "t" 7 1173 "float" `965 
+V L "t2" 7 1173 "float" `966 
+V L "quad" 7 1174 "int8" `967 
+V L "i" 7 1174 "int8" `968 
+V L "frac" 7 1175 "float" `969 
+V L "p" 7 1176 "float[5]" `970  "by the series definition for cosine"
 C L "cos" 7 2 1 "FUNCTION"
 C L "cos" 7 2 2 "FUNCTION"
 C L "cos" 7 2 1 "FUNCTION"
@@ -1370,75 +1368,75 @@ C L "cos" 7 2 1 "FUNCTION"
 C L "cos" 7 2 1 "FUNCTION"
 C L "cos" 7 2 1 "FUNCTION"
 C L "sin" 7 2 5 "FUNCTION"
-V L "x" 7 1312 "float" `975 
-F G "sin" 7 1313 "float(float x)" `974 
+V L "x" 7 1312 "float" `972 
+F G "sin" 7 1313 "float(float x)" `971 
 C L "tan" 7 2 5 "FUNCTION"
-V L "x" 7 1338 "float" `977 
-F G "tan" 7 1339 "float(float x)" `976 
-V L "c" 7 1340 "float" `978 
-V L "s" 7 1340 "float" `979 
-V G "pas" 7 1378 "[3]" `980 
-V G "qas" 7 1379 "[3]" `983 
-V L "x" 7 1381 "float" `987 
-V L "n" 7 1381 "int8" `988 
-F G "ASIN_COS" 7 1382 "float(float x,int8 n)" `986 
-V L "y" 7 1383 "float" `989 
-V L "res" 7 1383 "float" `990 
-V L "r" 7 1383 "float" `991 
-V L "y2" 7 1383 "float" `992 
-V L "s" 7 1384 "int1" `993 
+V L "x" 7 1338 "float" `974 
+F G "tan" 7 1339 "float(float x)" `973 
+V L "c" 7 1340 "float" `975 
+V L "s" 7 1340 "float" `976 
+V G "pas" 7 1378 "[3]" `977 
+V G "qas" 7 1379 "[3]" `980 
+V L "x" 7 1381 "float" `984 
+V L "n" 7 1381 "int8" `985 
+F G "ASIN_COS" 7 1382 "float(float x,int8 n)" `983 
+V L "y" 7 1383 "float" `986 
+V L "res" 7 1383 "float" `987 
+V L "r" 7 1383 "float" `988 
+V L "y2" 7 1383 "float" `989 
+V L "s" 7 1384 "int1" `990 
 C L "ASIN_COS" 7 2 1 "FUNCTION"
 C L "ASIN_COS" 7 2 1 "FUNCTION"
 C L "asin" 7 2 5 "FUNCTION"
-V L "x" 7 1539 "float" `995 
-F G "asin" 7 1540 "float(float x)" `994 
-V L "r" 7 1541 "float" `996 
+V L "x" 7 1539 "float" `992 
+F G "asin" 7 1540 "float(float x)" `991 
+V L "r" 7 1541 "float" `993 
 C L "acos" 7 2 5 "FUNCTION"
-V L "x" 7 1573 "float" `998 
-F G "acos" 7 1574 "float(float x)" `997 
-V L "r" 7 1575 "float" `999 
-V G "pat" 7 1601 "[4]" `1000 
-V G "qat" 7 1602 "[4]" `1003 
+V L "x" 7 1573 "float" `995 
+F G "acos" 7 1574 "float(float x)" `994 
+V L "r" 7 1575 "float" `996 
+V G "pat" 7 1601 "[4]" `997 
+V G "qat" 7 1602 "[4]" `1000 
 C L "atan" 7 2 3 "FUNCTION"
-V L "x" 7 1610 "float" `1007 
-F G "atan" 7 1611 "float(float x)" `1006 
-V L "y" 7 1612 "float" `1008 
-V L "res" 7 1612 "float" `1009 
-V L "r" 7 1612 "float" `1010 
-V L "s" 7 1613 "int1" `1011 
-V L "flag" 7 1613 "int1" `1012 
+V L "x" 7 1610 "float" `1004 
+F G "atan" 7 1611 "float(float x)" `1003 
+V L "y" 7 1612 "float" `1005 
+V L "res" 7 1612 "float" `1006 
+V L "r" 7 1612 "float" `1007 
+V L "s" 7 1613 "int1" `1008 
+V L "flag" 7 1613 "int1" `1009 
 C L "atan" 7 2 1 "FUNCTION"
 C L "atan2" 7 2 7 "FUNCTION"
-V L "y" 7 1753 "float" `1014 
-V L "x" 7 1753 "float" `1015 
-F G "atan2" 7 1754 "float(float y,float x)" `1013 
-V L "z" 7 1755 "float" `1016 
-V L "sign" 7 1756 "int1" `1017 
-V L "quad" 7 1757 "int8" `1018 
+V L "y" 7 1753 "float" `1011 
+V L "x" 7 1753 "float" `1012 
+F G "atan2" 7 1754 "float(float y,float x)" `1010 
+V L "z" 7 1755 "float" `1013 
+V L "sign" 7 1756 "int1" `1014 
+V L "quad" 7 1757 "int8" `1015 
 C L "atan2" 7 2 1 "FUNCTION"
 C L "atan2" 7 2 1 "FUNCTION"
 C L "cosh" 7 2 7 "FUNCTION"
-V L "x" 7 1975 "float" `1021 
-F G "cosh" 7 1976 "float(float x)" `1020 
+V L "x" 7 1975 "float" `1018 
+F G "cosh" 7 1976 "float(float x)" `1017 
 C L "sinh" 7 2 6 "FUNCTION"
-V L "x" 7 2002 "float" `1023 
-F G "sinh" 7 2003 "float(float x)" `1022 
+V L "x" 7 2002 "float" `1020 
+F G "sinh" 7 2003 "float(float x)" `1019 
 C L "tanh" 7 2 6 "FUNCTION"
-V L "x" 7 2032 "float" `1025 
-F G "tanh" 7 2033 "float(float x)" `1024 
+V L "x" 7 2032 "float" `1022 
+F G "tanh" 7 2033 "float(float x)" `1021 
 D G "LOG2" 7 2062 ".30102999566398119521"
 D G "LOG2_INV" 7 2063 "3.32192809488736234787"
-V L "x" 7 2064 "float" `1027 
-V L "exp" 7 2064 "*sint8" `1028 
-F G "frexp" 7 2065 "float(float x,*sint8 exp)" `1026 
-V L "res" 7 2066 "float" `1029 
-V L "sign" 7 2067 "int1" `1030 
+V L "x" 7 2064 "float" `1024 
+V L "exp" 7 2064 "*sint8" `1025 
+F G "frexp" 7 2065 "float(float x,*sint8 exp)" `1023 
+V L "res" 7 2066 "float" `1026 
+V L "sign" 7 2067 "int1" `1027 
 C L "ldexp" 7 2 6 "FUNCTION"
-V L "value" 7 2209 "float" `1032 
-V L "exp" 7 2209 "sint8" `1033 
-F G "ldexp" 7 2210 "float(float value,sint8 exp)" `1031 
+V L "value" 7 2209 "float" `1029 
+V L "exp" 7 2209 "sint8" `1030 
+F G "ldexp" 7 2210 "float(float value,sint8 exp)" `1028 
 D G "__LCD_C__" 8 76 ""
-T G "LCD_PIN_MAP" 8 90 "{int1 enable,int1 rs,int1 rw,int1 unused,int4 data}" `1040  "this is to improve compatability with previous LCD drivers that accepted"
+T G "LCD_PIN_MAP" 8 90 "{int1 enable,int1 rs,int1 rw,int1 unused,int4 data}" `1037  "this is to improve compatability with previous LCD drivers that accepted"
 D G "lcd_output_enable" 8 112 "(x) output_bit(LCD_ENABLE_PIN, x)"
 D G "lcd_enable_tris" 8 113 "()  output_drive(LCD_ENABLE_PIN)"
 D G "lcd_output_rs" 8 120 "(x) output_bit(LCD_RS_PIN, x)"
@@ -1448,42 +1446,42 @@ D G "lcd_rw_tris" 8 129 "()  output_drive(LCD_RW_PIN)"
 D G "LCD_TYPE" 8 179 "2" "0=5x7, 1=5x10, 2=2 lines"
 D G "LCD_LINE_TWO" 8 183 "0x40" "LCD RAM address for the second line"
 D G "LCD_LINE_LENGTH" 8 187 "20"
-f G "lcd_read_nibble" 8 190 "int8()" `1041 
-F G "lcd_read_byte" 8 193 "int8()" `1042 
-V L "low" 8 194 "int8" `1043 
-V L "high" 8 194 "int8" `1044 
-F G "lcd_read_nibble" 8 240 "int8()" `1041 
-V L "n" 8 242 "int8" `1045 
+f G "lcd_read_nibble" 8 190 "int8()" `1038 
+F G "lcd_read_byte" 8 193 "int8()" `1039 
+V L "low" 8 194 "int8" `1040 
+V L "high" 8 194 "int8" `1041 
+F G "lcd_read_nibble" 8 240 "int8()" `1038 
+V L "n" 8 242 "int8" `1042 
 C L "lcd_read_nibble" 8 2 1 "FUNCTION"
-V L "n" 8 256 "int8" `1047 
-F G "lcd_send_nibble" 8 257 "void(int8 n)" `1046 
+V L "n" 8 256 "int8" `1044 
+F G "lcd_send_nibble" 8 257 "void(int8 n)" `1043 
 C L "lcd_send_nibble" 8 2 1 "FUNCTION"
-V L "address" 8 274 "int8" `1049 
-V L "n" 8 274 "int8" `1050 
-F G "lcd_send_byte" 8 275 "void(int8 address,int8 n)" `1048 
-F G "lcd_init" 8 300 "void()" `1051 
-V L "i" 8 301 "int8" `1052 
-V L "LCD_INIT_STRING" 8 302 "int8[4]" `1053 
+V L "address" 8 274 "int8" `1046 
+V L "n" 8 274 "int8" `1047 
+F G "lcd_send_byte" 8 275 "void(int8 address,int8 n)" `1045 
+F G "lcd_init" 8 300 "void()" `1048 
+V L "i" 8 301 "int8" `1049 
+V L "LCD_INIT_STRING" 8 302 "int8[4]" `1050 
 C L "lcd_init" 8 2 2 "FUNCTION"
-V L "x" 8 345 "int8" `1055 
-V L "y" 8 345 "int8" `1056 
-F G "lcd_gotoxy" 8 346 "void(int8 x,int8 y)" `1054 
-V L "address" 8 347 "int8" `1057 
-V L "c" 8 363 "int8" `1059 
-F G "lcd_putc" 8 364 "void(int8 c)" `1058 
-V L "x" 8 406 "int8" `1061 
-V L "y" 8 406 "int8" `1062 
-F G "lcd_getc" 8 407 "int8(int8 x,int8 y)" `1060 
-V L "value" 8 408 "int8" `1063 
+V L "x" 8 345 "int8" `1052 
+V L "y" 8 345 "int8" `1053 
+F G "lcd_gotoxy" 8 346 "void(int8 x,int8 y)" `1051 
+V L "address" 8 347 "int8" `1054 
+V L "c" 8 363 "int8" `1056 
+F G "lcd_putc" 8 364 "void(int8 c)" `1055 
+V L "x" 8 406 "int8" `1058 
+V L "y" 8 406 "int8" `1059 
+F G "lcd_getc" 8 407 "int8(int8 x,int8 y)" `1057 
+V L "value" 8 408 "int8" `1060 
 C L "lcd_getc" 8 2 1 "FUNCTION"
 C L "lcd_set_cgram_char" 8 2 5 "FUNCTION"
-V L "which" 8 424 "int8" `1065 
-V L "ptr" 8 424 "*int8" `1066 
-F G "lcd_set_cgram_char" 8 425 "void(int8 which,*int8 ptr)" `1064 
-V L "i" 8 426 "int8" `1067 
+V L "which" 8 424 "int8" `1062 
+V L "ptr" 8 424 "*int8" `1063 
+F G "lcd_set_cgram_char" 8 425 "void(int8 which,*int8 ptr)" `1061 
+V L "i" 8 426 "int8" `1064 
 C L "lcd_set_cgram_char" 8 2 1 "FUNCTION"
-V L "on" 8 443 "int8" `1069 
-F G "lcd_cursor_on" 8 444 "void(int8 on)" `1068 
+V L "on" 8 443 "int8" `1066 
+F G "lcd_cursor_on" 8 444 "void(int8 on)" `1065 
 C L "lcd_cursor_on" 8 2 1 "FUNCTION"
 C L "lcd_cursor_on" 8 2 1 "FUNCTION"
 D G "Speaker" 9 1 "PIN_B2" "Altavoz conectado a RB0"
@@ -1499,36 +1497,28 @@ D G "nSOL_" 9 11 "8" "SOL#"
 D G "nLA" 9 12 "9" "LA"
 D G "nLA_" 9 13 "10" "LA#"
 D G "nSI" 9 14 "11" "SI"
-V G "FreqNota" 9 16 "int16[12]" `1070  "retardos entre estado alto"
-V L "nota" 9 32 "int8" `1072 
-V L "octava" 9 32 "int8" `1073 
-V L "duracion" 9 32 "int16" `1074 
-F G "Play" 9 32 "void(int8 nota,int8 octava,int16 duracion)" `1071 
-V L "fn" 9 33 "int16" `1075 
-V L "mS_Transcurridos" 9 35 "int16" `1076 
-C L "Play" 9 17 2 "FUNCTION"
-V L "CiclosL" 9 37 "int16" `1077 
-C L "Play" 9 17 1 "FUNCTION"
-C L "Play" 9 17 2 "FUNCTION"
-C L "Play" 9 17 3 "FUNCTION"
-C L "Play" 9 17 1 "FUNCTION"
-C L "Play" 9 17 1 "FUNCTION"
-C L "Play" 9 17 2 "FUNCTION"
-C L "Play" 9 17 1 "FUNCTION"
-C L "Play" 9 17 1 "FUNCTION"
-C L "Play" 9 17 1 "FUNCTION"
-C L "Play" 9 17 2 "FUNCTION"
-C L "Play" 9 17 1 "FUNCTION"
-C L "Play" 9 17 1 "FUNCTION"
-C L "Play" 9 17 1 "FUNCTION"
-C L "Play" 9 17 2 "FUNCTION"
-V L "frecuencia" 9 65 "int16" `1079 
-V L "duracion" 9 65 "int16" `1080 
-F G "Sound" 9 65 "void(int16 frecuencia,int16 duracion)" `1078 
-V L "mS_Transcurridos" 9 67 "int16" `1081 
-V L "CiclosL" 9 68 "int16" `1082 
-V L "uS" 9 69 "int16" `1083 
-V L "tmp" 9 70 "int32" `1084  "si la frecuancia se encuentra entre los margenes de 20Hz y 20 KHz se ejecuta"
+V G "FreqNota" 9 16 "int16[12]" `1067  "retardos entre estado alto"
+C L "Sound" 9 17 1 "FUNCTION"
+C L "Sound" 9 17 1 "FUNCTION"
+C L "Sound" 9 17 1 "FUNCTION"
+C L "Sound" 9 17 1 "FUNCTION"
+C L "Sound" 9 17 1 "FUNCTION"
+C L "Sound" 9 17 1 "FUNCTION"
+C L "Sound" 9 17 1 "FUNCTION"
+C L "Sound" 9 17 1 "FUNCTION"
+C L "Sound" 9 17 1 "FUNCTION"
+C L "Sound" 9 17 1 "FUNCTION"
+C L "Sound" 9 17 1 "FUNCTION"
+C L "Sound" 9 17 1 "FUNCTION"
+C L "Sound" 9 17 1 "FUNCTION"
+C L "Sound" 9 17 26 "FUNCTION"
+V L "frecuencia" 9 65 "int16" `1069 
+V L "duracion" 9 65 "int16" `1070 
+F G "Sound" 9 65 "void(int16 frecuencia,int16 duracion,int16 duracion)" `1068 
+V L "mS_Transcurridos" 9 67 "int16" `1071 
+V L "CiclosL" 9 68 "int16" `1072 
+V L "uS" 9 69 "int16" `1073 
+V L "tmp" 9 70 "int32" `1074  "si la frecuancia se encuentra entre los margenes de 20Hz y 20 KHz se ejecuta"
 C L "Sound" 9 17 1 "FUNCTION"
 C L "Sound" 9 17 1 "FUNCTION"
 C L "Sound" 9 17 1 "FUNCTION"
@@ -1552,16 +1542,16 @@ D G "OPT_EXIT" 10 9 "5"
 D G "MODE_CLIENT" 10 12 "0"
 D G "MODE_AP" 10 13 "1"
 D G "MODE_CLIENT_AP" 10 14 "2"
-V G "countOptMenuModo" 10 16 "int8" `1088 
-V G "optMenuModo" 10 19 "[5][13]" `1089 
+V G "countOptMenuModo" 10 16 "int8" `1078 
+V G "optMenuModo" 10 19 "[5][13]" `1079 
 C L "pressExit" 10 3 1 "FUNCTION"
-F G "pressExit" 10 28 "void()" `1093 
+F G "pressExit" 10 28 "void(int32 )" `1083 
 C L "pressExit" 10 3 1 "FUNCTION"
-F G "showBottonMenu" 10 42 "void()" `1098 
+F G "showBottonMenu" 10 40 "void()" `1086 
 C L "setMenuModo" 10 3 1 "FUNCTION"
-F G "setMenuModo" 10 49 "void()" `1100 
-V L "optSelected" 10 50 "int8" `1101 
-V L "exit" 10 51 "int8" `1102 
+F G "setMenuModo" 10 47 "void()" `1088 
+V L "optSelected" 10 48 "int8" `1089 
+V L "exit" 10 49 "int8" `1090 
 C L "setMenuModo" 10 3 1 "FUNCTION"
 C L "setMenuModo" 10 3 1 "FUNCTION"
 C L "setMenuModo" 10 3 1 "FUNCTION"
@@ -1569,31 +1559,34 @@ C L "setMenuModo" 10 3 1 "FUNCTION"
 C L "setMenuModo" 10 3 2 "FUNCTION"
 C L "setMenuModo" 10 3 1 "FUNCTION"
 C L "setMenuModo" 10 3 2 "FUNCTION"
+C L "setMenuModo" 10 3 1 "FUNCTION"
+C L "setMenuModo" 10 3 1 "FUNCTION"
+C L "setMenuModo" 10 3 1 "FUNCTION"
 C L "setMenuModo" 10 3 1 "FUNCTION"
 C L "setMenuModo" 10 3 1 "FUNCTION"
 C L "setMenuModo" 10 3 1 "FUNCTION"
 C L "setMenuModo" 10 3 1 "FUNCTION"
 C L "setMenuModo" 10 3 1 "FUNCTION"
 C L "executeSetup" 10 3 2 "FUNCTION"
-V L "optSelect" 10 114 "int8" `1116 
-F G "executeSetup" 10 114 "void(int8 optSelect)" `1115 
+V L "optSelect" 10 112 "int8" `1099 
+F G "executeSetup" 10 112 "void(int8 optSelect)" `1098 
 D G "MENU_START" 11 2 "0"
 D G "MENU_ON" 11 3 "1"
 D G "MENU_OFF" 11 4 "2"
 D G "MENU_SETUP" 11 5 "3"
 C G "" 11 7 1 "*"
-V G "countOptMenuStart" 11 8 "int8" `1127 
-V G "countOptMenuSetup" 11 9 "int8" `1128 
-V G "countOptMenuOn" 11 10 "int8" `1129 
-V G "countOptMenuOff" 11 11 "int8" `1130 
-V G "optMenuStart" 11 14 "[4][16]" `1131 
-V G "optMenuOn" 11 20 "[10][15]" `1135 
-V G "optMenuOff" 11 32 "[10][16]" `1139 
-V G "optMenuSetup" 11 44 "[7][17]" `1143 
+V G "countOptMenuStart" 11 8 "int8" `1106 
+V G "countOptMenuSetup" 11 9 "int8" `1107 
+V G "countOptMenuOn" 11 10 "int8" `1108 
+V G "countOptMenuOff" 11 11 "int8" `1109 
+V G "optMenuStart" 11 14 "[4][16]" `1110 
+V G "optMenuOn" 11 20 "[10][15]" `1114 
+V G "optMenuOff" 11 32 "[10][16]" `1118 
+V G "optMenuSetup" 11 44 "[7][17]" `1122 
 C L "getMenuStart" 11 7 1 "FUNCTION"
-F G "getMenuStart" 11 55 "int8()" `1147 
-V L "optSelected" 11 56 "int8" `1148 
-V L "exit" 11 57 "int8" `1149 
+F G "getMenuStart" 11 55 "int8()" `1126 
+V L "optSelected" 11 56 "int8" `1127 
+V L "exit" 11 57 "int8" `1128 
 C L "getMenuStart" 11 7 1 "FUNCTION"
 C L "getMenuStart" 11 7 1 "FUNCTION"
 C L "getMenuStart" 11 7 1 "FUNCTION"
@@ -1605,9 +1598,9 @@ C L "getMenuStart" 11 7 1 "FUNCTION"
 C L "getMenuStart" 11 7 1 "FUNCTION"
 C L "getMenuStart" 11 7 1 "FUNCTION"
 C L "getMenuOn" 11 7 2 "FUNCTION"
-F G "getMenuOn" 11 99 "int8()" `1152 
-V L "optSelected" 11 100 "int8" `1153 
-V L "exit" 11 101 "int8" `1154 
+F G "getMenuOn" 11 99 "int8()" `1131 
+V L "optSelected" 11 100 "int8" `1132 
+V L "exit" 11 101 "int8" `1133 
 C L "getMenuOn" 11 7 1 "FUNCTION"
 C L "getMenuOn" 11 7 1 "FUNCTION"
 C L "getMenuOn" 11 7 1 "FUNCTION"
@@ -1621,9 +1614,9 @@ C L "getMenuOn" 11 7 1 "FUNCTION"
 C L "getMenuOn" 11 7 1 "FUNCTION"
 C L "getMenuOn" 11 7 1 "FUNCTION"
 C L "getMenuOff" 11 7 2 "FUNCTION"
-F G "getMenuOff" 11 149 "int8()" `1161 
-V L "optSelected" 11 150 "int8" `1162 
-V L "exit" 11 151 "int8" `1163 
+F G "getMenuOff" 11 149 "int8()" `1140 
+V L "optSelected" 11 150 "int8" `1141 
+V L "exit" 11 151 "int8" `1142 
 C L "getMenuOff" 11 7 1 "FUNCTION"
 C L "getMenuOff" 11 7 1 "FUNCTION"
 C L "getMenuOff" 11 7 1 "FUNCTION"
@@ -1637,9 +1630,9 @@ C L "getMenuOff" 11 7 1 "FUNCTION"
 C L "getMenuOff" 11 7 1 "FUNCTION"
 C L "getMenuOff" 11 7 1 "FUNCTION"
 C L "getMenuSetup" 11 7 2 "FUNCTION"
-F G "getMenuSetup" 11 199 "int8()" `1166 
-V L "optSelected" 11 200 "int8" `1167 
-V L "exit" 11 201 "int8" `1168 
+F G "getMenuSetup" 11 199 "int8(int16 )" `1145 
+V L "optSelected" 11 200 "int8" `1146 
+V L "exit" 11 201 "int8" `1147 
 C L "getMenuSetup" 11 7 1 "FUNCTION"
 C L "getMenuSetup" 11 7 1 "FUNCTION"
 C L "getMenuSetup" 11 7 1 "FUNCTION"
@@ -1653,66 +1646,152 @@ C L "getMenuSetup" 11 7 1 "FUNCTION"
 C L "getMenuSetup" 11 7 1 "FUNCTION"
 C L "getMenuSetup" 11 7 1 "FUNCTION"
 D G "CMD_MODE" 12 1 "1"
-V G "ESP8266_RESP_OK" 12 4 "[4]" `1172 
-V G "CMD_RUN" 12 5 "int8" `1175 
-V G "bufferRespOK" 12 8 "int8[4]" `1176  "Declaracion de Funciones *"
-V L "modeVal" 12 11 "*int8" `1178 
-f G "setupMode" 12 11 "int8(*int8 modeVal)" `1177 
-f G "waitRespOK" 12 12 "void()" `1180 
-f G "waitResp" 12 13 "void()" `1181 
-f G "reset" 12 14 "void()" `1182  "Variables Globales *"
-V G "flag_Resp_Valid" 12 17 "int8" `1183 
-V G "flag_Pos_Resp" 12 18 "int8" `1184 
-C L "reset" 12 3 1 "FUNCTION"
-F G "esp8266_init" 12 22 "void()" `1185 
-C L "esp8266_init" 12 3 1 "FUNCTION"
-V L "modoVal" 12 26 "int8[1]" `1187 
-V L "ssid" 12 27 "int8[1]" `1188 
-V L "key" 12 28 "int8[1]" `1189 
-C L "reset" 12 3 1 "FUNCTION"
-F G "reset" 12 41 "void()" `1182 
-V L "mode" 12 42 "int8[1]" `1191 
-C L "reset" 12 3 1 "FUNCTION"
-V L "lenCMD" 12 43 "int8" `1192 
-C L "reset" 12 3 2 "FUNCTION"
-V L "idx" 12 46 "int8" `1193 
-C L "reset" 12 3 1 "FUNCTION"
-C L "setupMode" 12 3 2 "FUNCTION"
-V L "modeVal" 12 56 "*int8" `1195 
-F G "setupMode" 12 57 "int8(*int8 modeVal)" `1177 
-V L "mode" 12 58 "int8[1]" `1194 
-C L "setupMode" 12 3 1 "FUNCTION"
-V L "lenCMD" 12 59 "int8" `1195 
-C L "setupMode" 12 3 2 "FUNCTION"
-C L "setupMode" 12 3 1 "FUNCTION"
-V L "idx" 12 65 "int8" `1196 
-C L "setupMode" 12 3 1 "FUNCTION"
-C L "setupMode" 12 3 1 "FUNCTION"
-C L "waitRespOK" 12 3 4 "FUNCTION"
-V L "buffer" 12 81 "int8" `1198 
-F G "waitRespOK" 12 82 "void(int8 buffer)" `1197 
-V L "lenResp" 12 83 "int8" `1199 
-C L "waitRespOK" 12 3 4 "FUNCTION"
-C L "waitRespOK" 12 3 1 "FUNCTION"
-C L "waitRespOK" 12 3 2 "FUNCTION"
-C L "waitRespOK" 12 3 1 "FUNCTION"
-C L "waitRespOK" 12 3 1 "FUNCTION"
-C L "waitRespOK" 12 3 3 "FUNCTION"
-C L "waitResp" 12 3 3 "FUNCTION"
-F G "waitResp" 12 119 "void()" `1181 
+D G "CMD_DO_CONN" 12 2 "2"
+D G "CMD_CONN" 12 3 "3"
+V G "CMD_RUN" 12 6 "int8" `1151 
+V G "ESP8266_RESP_OK" 12 9 "[4]" `1152 
+V G "ESP8266_RESP_NoAP" 12 10 "[5]" `1155 
+V G "ESP8266_RESP_CWJAP" 12 11 "[7]" `1158 
+V G "ESP8266_RESP_Connected" 12 12 "[9]" `1161 
+V G "ESP8266_RESP_FAIL" 12 13 "[4]" `1164 
+V G "bufferRespOK" 12 16 "int8[4]" `1167  "char bufferRespNoAp[5];"
+C L "reset" 12 5 4 "FUNCTION"
+f G "reset" 12 23 "void()" `1168 
+V L "modeVal" 12 24 "*int8" `1170 
+f G "setupMode" 12 24 "int8(*int8 modeVal)" `1169 
+f G "doConnected" 12 25 "int8()" `1172 
+V L "SSIDAndKey" 12 26 "*int8" `1174 
+f G "setupConn" 12 26 "int8(*int8 SSIDAndKey)" `1173 
+f G "setupServer" 12 27 "int8(*int8 setupServer)" `1176  "Declaracion de Funciones de respuestas *"
+V L "buffer" 12 30 "int8" `1178 
+f G "waitRespOK" 12 30 "void(int8 buffer)" `1177 
+V L "buffer" 12 31 "int8" `1180 
+f G "waitRespNoAp" 12 31 "void(int8 buffer,*int8 SSID_And_Key)" `1179 
+V L "buffer" 12 32 "int8" `1182 
+f G "waitRespCWJAP" 12 32 "void(int8 buffer)" `1181 
+V L "buffer" 12 33 "int8" `1184 
+f G "waitRespConnected" 12 33 "void(int8 buffer,int8 buffer)" `1183 
+V L "buffer" 12 34 "int8" `1186 
+f G "waitRespFail" 12 34 "void(int8 buffer,int8 waitRespFail)" `1185 
+f G "waitResp" 12 35 "int8()" `1187  "Flag usadas para conocer si la respuesta del comando ejecutado esta completo *"
+V G "flag_Resp_Valid" 12 38 "int8" `1188 
+V G "flag_Resp_NoAp" 12 39 "int8" `1189 
+V G "flag_Resp_CWJAP" 12 40 "int8" `1190 
+V G "flag_Resp_Connected" 12 41 "int8" `1191 
+V G "flag_Resp_Fail" 12 42 "int8" `1192 
+C L "waitResp" 12 5 1 "FUNCTION"
+V G "flag_Pos_Resp" 12 45 "int8" `1193 
+V G "flag_Pos_Resp_NoAp" 12 46 "int8" `1194 
+V G "flag_Pos_Resp_CWJAP" 12 47 "int8" `1195 
+V G "flag_Pos_Resp_Connected" 12 48 "int8" `1196 
+V G "flag_Pos_Resp_Fail" 12 49 "int8" `1197 
+C L "waitResp" 12 5 1 "FUNCTION"
+V G "modeStar" 12 52 "int8[1]" `1198 
+V G "SSIDAndKey" 12 53 "int8[1]" `1199 
+C L "waitResp" 12 5 1 "FUNCTION"
+F G "esp8266_init" 12 61 "void()" `1200 
+V L "modeWithoutConnect" 12 62 "int8[1]" `1201 
+V L "resp" 12 63 "int8" `1202  "fprintf(console, "Inicializando ESP8266");"
+C L "esp8266_init" 12 5 2 "FUNCTION"
+C L "esp8266_init" 12 69 2 "*reset"
+C L "esp8266_init" 12 69 4 "FUNCTION"
+C L "esp8266_init" 12 69 3 "FUNCTION"
+C L "esp8266_init" 12 69 3 "FUNCTION"
+C L "esp8266_init" 12 69 2 "FUNCTION"
+C L "esp8266_init" 12 69 2 "FUNCTION"
+C L "esp8266_init" 12 69 1 "FUNCTION"
+C L "esp8266_init" 12 110 1 "*"
+C L "ESP8266_PROCCESS_RESPONSE" 12 115 1 "*"
+C L "ESP8266_PROCCESS_RESPONSE" 12 115 1 "*"
+V L "buffer" 12 121 "int8" `1204 
+F G "ESP8266_PROCCESS_RESPONSE" 12 121 "void(int8 buffer)" `1203  "Seleciona la funcion de confirmacion de la respuesta"
+C L "ESP8266_PROCCESS_RESPONSE" 12 115 2 "FUNCTION"
+C L "reset" 12 115 1 "FUNCTION"
+F G "reset" 12 150 "void()" `1168 
+C L "setupMode" 12 115 1 "FUNCTION"
+C L "setupMode" 12 154 1 "*"
+C L "setupMode" 12 154 1 "*"
+V L "modeVal" 12 161 "*int8" `1208 
+F G "setupMode" 12 162 "int8(*int8 modeVal)" `1169 
+C L "doConnected" 12 154 1 "FUNCTION"
+C L "doConnected" 12 167 1 "*"
+C L "doConnected" 12 167 1 "*"
+F G "doConnected" 12 175 "int8()" `1172 
+C L "setupConn" 12 180 1 "*"
+C L "setupConn" 12 180 1 "*"
+V L "SSID_And_Key" 12 187 "*int8" `1213 
+F G "setupConn" 12 188 "int8(*int8 SSID_And_Key)" `1173 
+C L "setupServer" 12 180 1 "FUNCTION"
+C L "setupServer" 12 193 1 "*"
+F G "setupServer" 12 201 "int8()" `1176 
+C L "waitRespOK" 12 193 4 "FUNCTION"
+V L "buffer" 12 216 "int8" `1216 
+F G "waitRespOK" 12 217 "void(int8 buffer)" `1177 
+V L "lenResp" 12 218 "int8" `1215 
+C L "waitRespOK" 12 193 4 "FUNCTION"
+C L "waitRespOK" 12 193 1 "FUNCTION"
+C L "waitRespOK" 12 193 2 "FUNCTION"
+C L "waitRespOK" 12 193 1 "FUNCTION"
+C L "waitRespOK" 12 193 1 "FUNCTION"
+C L "waitRespOK" 12 193 3 "FUNCTION"
+C L "waitRespNoAp" 12 193 4 "FUNCTION"
+V L "buffer" 12 257 "int8" `1217 
+F G "waitRespNoAp" 12 258 "void(int8 buffer)" `1179 
+V L "lenResp" 12 259 "int8" `1216 
+C L "waitRespNoAp" 12 193 4 "FUNCTION"
+C L "waitRespNoAp" 12 193 1 "FUNCTION"
+C L "waitRespNoAp" 12 193 2 "FUNCTION"
+C L "waitRespNoAp" 12 193 1 "FUNCTION"
+C L "waitRespNoAp" 12 193 3 "FUNCTION"
+C L "waitRespCWJAP" 12 193 4 "FUNCTION"
+V L "buffer" 12 290 "int8" `1218 
+F G "waitRespCWJAP" 12 291 "void(int8 buffer)" `1181 
+V L "lenResp" 12 292 "int8" `1217 
+C L "waitRespCWJAP" 12 193 3 "FUNCTION"
+C L "waitRespCWJAP" 12 193 1 "FUNCTION"
+C L "waitRespCWJAP" 12 193 2 "FUNCTION"
+C L "waitRespCWJAP" 12 193 1 "FUNCTION"
+C L "waitRespConnected" 12 193 4 "FUNCTION"
+V L "buffer" 12 321 "int8" `1219 
+F G "waitRespConnected" 12 322 "void(int8 buffer)" `1183 
+V L "lenResp" 12 323 "int8" `1218 
+C L "waitRespConnected" 12 193 4 "FUNCTION"
+C L "waitRespConnected" 12 193 1 "FUNCTION"
+C L "waitRespConnected" 12 193 2 "FUNCTION"
+C L "waitRespConnected" 12 193 1 "FUNCTION"
+C L "waitRespConnected" 12 193 3 "FUNCTION"
+C L "waitRespFail" 12 193 4 "FUNCTION"
+V L "buffer" 12 355 "int8" `1220 
+F G "waitRespFail" 12 356 "void(int8 buffer)" `1185 
+V L "lenResp" 12 357 "int8" `1219 
+C L "waitRespFail" 12 193 4 "FUNCTION"
+C L "waitRespFail" 12 193 1 "FUNCTION"
+C L "waitRespFail" 12 193 2 "FUNCTION"
+C L "waitRespFail" 12 193 1 "FUNCTION"
+C L "waitRespFail" 12 193 3 "FUNCTION"
+C L "waitResp" 12 193 3 "FUNCTION"
+F G "waitResp" 12 385 "int8()" `1187 
+V L "ret" 12 386 "int8" `1220 
+C L "waitResp" 12 193 5 "FUNCTION"
+C L "waitResp" 12 193 7 "FUNCTION"
+C L "waitResp" 12 193 2 "FUNCTION"
+C L "waitResp" 12 193 5 "FUNCTION"
+C L "waitResp" 12 193 2 "FUNCTION"
+C L "waitResp" 12 193 9 "FUNCTION"
+C L "waitResp" 12 193 2 "FUNCTION"
+C L "waitResp" 12 193 1 "FUNCTION"
+C L "waitResp" 12 193 4 "FUNCTION"
 C G "" 0 10 2 "*"
-V G "menuActive" 0 13 "int8" `1200 
-V G "optSelect" 0 15 "int8" `1201 
-C L "RDA_isr" 0 17 2 "*"
-F G "RDA_isr" 0 22 "void()" `1202 
-V L "buffer" 0 23 "int8" `1203 
-C L "RDA_isr" 0 17 1 "FUNCTION"
-C L "MAIN" 0 39 1 "*"
-F G "MAIN" 0 42 "void()" `1204  "Activa las resistencias de Pull-Up y configura el puerto"
-C L "MAIN" 0 39 1 "FUNCTION"
-C L "MAIN" 0 39 1 "FUNCTION"
-C L "MAIN" 0 39 1 "FUNCTION"
-C L "MAIN" 0 39 1 "FUNCTION"
+V G "menuActive" 0 13 "int8" `1221 
+C L "RDA_isr" 0 15 2 "*"
+F G "RDA_isr" 0 19 "void()" `1222 
+V L "buffer" 0 20 "int8" `1223 
+C L "MAIN" 0 24 1 "*"
+F G "MAIN" 0 27 "void()" `1224  "Estabiliza el inicio del programa"
+C L "MAIN" 0 24 1 "FUNCTION"
+C L "MAIN" 0 24 1 "FUNCTION"
+C L "MAIN" 0 24 1 "FUNCTION"
+C L "MAIN" 0 24 1 "FUNCTION"
 F B "reset_cpu" 0 0
 F B "abs" 1 0
 F B "sleep_ulpwu" 1 0

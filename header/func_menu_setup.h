@@ -29,14 +29,12 @@ void pressExit(void){
    lcd_gotoxy(12,2);
    printf(lcd_putc, "SALIR");
    while(1){
-         
       if(input(KEY_OK)==0){
             // Elimina el rebote
             delay_ms(500);
             break;
       }
    }
-   fprintf(console,"%s",buffer);
 }
 
 void showBottonMenu(void){
@@ -86,15 +84,15 @@ void setMenuModo(void){
          }else{
             switch(optSelected){
                case MODE_CLIENT:
-                  fprintf(ESP8266,"AT+CWMODE_DEF=1%c%c",NL,CR);
+                  //fprintf(ESP8266,"AT+CWMODE_DEF=1\r\n");
                   printf(lcd_putc, "\fConfig Cliente");
                   break;
                case MODE_AP:
-                  fprintf(ESP8266,"AT+CWMODE_DEF=2%c%c",NL,CR);
+                  //fprintf(ESP8266,"AT+CWMODE_DEF=2\r\n");
                   printf(lcd_putc, "\fConfig AP");
                   break;
                case MODE_CLIENT_AP:
-                  fprintf(ESP8266,"AT+CWMODE_DEF=3%c%c",NL,CR);
+                  //fprintf(ESP8266,"AT+CWMODE_DEF=3\r\n");
                   printf(lcd_putc, "\fConfig ClienteAP");
                   break;
             }
@@ -115,17 +113,14 @@ void executeSetup(int optSelect){
    switch(optSelect){
       
       case OPT_SHOW_IP:
-         fprintf(console,"192.168.0.1");
          printf(lcd_putc, "\f192.168.0.1");
          pressExit();
          break;
       case OPT_SHOW_SSID:
-         fprintf(console,"C0G3_UNE");
          printf(lcd_putc, "\fC0G3_UNE");
          pressExit();         
          break;
       case OPT_SHOW_KEY:
-         fprintf(console,"1234Az!");
          printf(lcd_putc, "\f1234Az!");
          pressExit();
          break;

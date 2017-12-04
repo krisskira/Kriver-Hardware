@@ -1,13 +1,6 @@
->>> Warning 225 "D:\DAVID\Documents\GitHub\Kriver-Hardware\header\config.h" Line 29(13,30): Duplicate #define
->>> Warning 225 "D:\DAVID\Documents\GitHub\Kriver-Hardware\header\config.h" Line 30(14,30): Duplicate #define
-*** Error 58 "C:\Program Files (x86)\PICC\Drivers\lcd.c" Line 94(54,55): Expecting a close paren   use_portb_lcd
-*** Error 43 "C:\Program Files (x86)\PICC\Drivers\lcd.c" Line 94(55,56): Expecting a declaration
-*** Error 21 "C:\Program Files (x86)\PICC\Drivers\lcd.c" Line 455(0,1): #ENDIF with no corresponding #IF
-*** Error 12 "D:\DAVID\Documents\GitHub\Kriver-Hardware\header\func_menu_setup.h" Line 39(25,31): Undefined identifier   buffer
-*** Error 12 "D:\DAVID\Documents\GitHub\Kriver-Hardware\header\func_menu_setup.h" Line 89(57,59): Undefined identifier   NL
-*** Error 12 "D:\DAVID\Documents\GitHub\Kriver-Hardware\header\func_menu_setup.h" Line 93(57,59): Undefined identifier   NL
-*** Error 12 "D:\DAVID\Documents\GitHub\Kriver-Hardware\header\func_menu_setup.h" Line 97(57,59): Undefined identifier   NL
-*** Error 5 "D:\DAVID\Documents\GitHub\Kriver-Hardware\header\esp8266.h" Line 29(28,29): Character constant constructed incorrectly
-*** Error 36 "D:\DAVID\Documents\GitHub\Kriver-Hardware\header\esp8266.h" Line 30(25,26): Expecting a ; or ,
-*** Error 12 "D:\DAVID\Documents\GitHub\Kriver-Hardware\header\esp8266.h" Line 46(26,27): Undefined identifier  -- doConnected
-*** Error 12 "D:\DAVID\Documents\GitHub\Kriver-Hardware\header\esp8266.h" Line 112(19,26): Undefined identifier   modeVal
+>>> Warning 203 "D:\DAVID\Documents\GitHub\Kriver-Hardware\header\func_menu_setup.h" Line 31(1,1): Condition always TRUE
+>>> Warning 203 "main.c" Line 46(1,1): Condition always TRUE
+>>> Warning 202 "D:\DAVID\Documents\GitHub\Kriver-Hardware\header\sound.h" Line 16(7,15): Variable never used:   FreqNota
+      Memory usage:   ROM=63%      RAM=31% - 41%
+      0 Errors,  3 Warnings.
+Build Successful.
