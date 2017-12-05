@@ -20,6 +20,14 @@
     #define MODE_AP         1
     #define MODE_CLIENT_AP  2
 
+/** VARIABLES GENERALS **/
+int8 countOptMenuStart  = 2;
+int8 countOptMenuOn     = 8;
+int8 countOptMenuOff    = 8;
+int8 countOptMenuSetup  = 5;
+// Numero de opciones SubMenu Modo
+int8 countOptMenuModo = 3;
+
 //Contiene las opciones del menu principal [pos][lenString]
 const char  optMenuStart[4][16]    =  { {"Encender Manual"},
                                         {"Apagado Manual "},
@@ -65,24 +73,6 @@ const char  optMenuModo[5][14]    =   { {"Estacion     "},
                                         {"Estacion + AP"},
                                         {"SALIR        "}
                                       };   
-
-/* Declaracion de Funciones */
-int   getMenuStart(void);
-void  pressExit(void);
-void  showBottonMenu(void);
-int   getMenuOn(void);
-int   getMenuOff(void);
-int   getMenuSetup(void);
-void  executeSetup(int optSelect);
-void  setMenuModo(void);
-
-/** VARIABLES GENERALS **/
-int8 countOptMenuStart  = 2;
-int8 countOptMenuOn     = 8;
-int8 countOptMenuOff    = 8;
-int8 countOptMenuSetup  = 5;
-// Numero de opciones SubMenu Modo
-int8 countOptMenuModo = 3;
 
 /***************************************************
 Despliega el menu principal MENU_START
@@ -254,7 +244,6 @@ int getMenuOff(void){
 /***************************************************
 Despliega el menu principal MENU_SETUP
 ***************************************************/
-
 int getMenuSetup(void){
    int optSelected = 0;
    int exit = 0;
@@ -346,7 +335,6 @@ void executeSetup(int optSelect){
 /***************************************************
 Despliega el menu MODE
 ***************************************************/
-
 void setMenuModo(void){
   int optSelected = 0;
   int exit = 0;

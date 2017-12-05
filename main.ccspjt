@@ -14,10 +14,10 @@ Type=4
 1=main.c
 [Opened Files]
 1=main.c
-2=header\func_menu_setup.h
-3=header\config.h
+2=header\esp8266.h
+3=header\menu.h
 4=
-5=header\esp8266.h
+5=header\sound.h
 6=
 7=
 8=Hardware\Test\FirmwareTest\Test.c
@@ -25,9 +25,9 @@ Type=4
 [main.c]
 Type=4
 [ExtraIncludes]
-Count=1
+Count=2
 1=main=d:\david\documents\github\kriver-hardware\header\esp8266.h
-2=main=d:\david\documents\github\kriver-hardware\header\esp8266.h
+2=main=d:\david\documents\github\kriver-hardware\header\cmd_wifi.h
 [Units]
 Count=1
 1=main (main)

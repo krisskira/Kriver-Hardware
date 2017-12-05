@@ -4,9 +4,9 @@
 #include <math.h>
 #include <lcd.c>
 #include "header/sound.h"
+#include "header/cmd_wifi.h"
 #include "header/menu.h"
 #include "header/esp8266.h"
-#include "header/cmd_wifi.h"
 /********************************************
 ***         VARIABLES GLOBALS             ***
 /*******************************************/
@@ -24,13 +24,6 @@ void  RDA_isr(void)
 {
    int buffer = getc();
    ESP8266_PROCCESS_RESPONSE(buffer);
-   if(READY_RESP==1){
-
-   /**   @TODO:   Invoca la funcion que realiza la 
-                  lectura del request
-   **/
-   
-   }
 }
 /********************************************
 ***                INIT                   ***

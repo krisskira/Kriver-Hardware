@@ -22,8 +22,8 @@ void waitRespFail(int buffer);
 int  waitResp(void);
 
 /** BANDERAS MODOS DE FUNCIONAMIENTO **/
-int CMD_RUN    = 0x00;
-int READY_RESP = 0x00;
+int CMD_RUN = 0x00;
+//int READY_RESP
 
 /* Flag usadas para conocer si la respuesta del comando ejecutado esta completo */
 int flag_Ready_Resp         = 0;
@@ -82,7 +82,6 @@ void esp8266_init()
   
    /** @TODO: Rutina que se encarga de recibir datos desde ESP8266 **/
    setupServer();
-   READY_RESP = 1;
 }
 
 /********************************************************
@@ -209,7 +208,6 @@ int waitResp(void)
       }
    }; // Fin del loop
    flag_Resp_Valid = 0;
-   CMD_RUN = 0x00;
    return ret;
 } // Fin de la funcion waitResp
 

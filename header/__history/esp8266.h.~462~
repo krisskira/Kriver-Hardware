@@ -2,6 +2,13 @@
 #define  CMD_DO_CONN 2
 #define  CMD_CONN    3
 
+/* Constantes de respuestas */
+//const char ESP8266_RESP_OK[4]             ={'O','K',0x0D,0x0A};
+const char ESP8266_RESP_NoAP[5]           ={'N', 'o', ' ', 'A', 'P'};
+const char ESP8266_RESP_CWJAP[7]          ={'+', 'C', 'W', 'J', 'A', 'P', ':'};
+const char ESP8266_RESP_Connected[9]      ={'C','O','N','N','E','C','T','E','D'};
+const char ESP8266_RESP_FAIL[4]           ={'F', 'A', 'I', 'L'};
+
 /* Constantes de Captura Respuestas */
 const char ESP8266_RESP_START_STAIP[7]    ={'S','T','A','I','P',',','"'};
 const char ESP8266_RESP_STOP_STAIP[3]     ={'"',0x0D,0x0A};
@@ -22,8 +29,8 @@ void waitRespFail(int buffer);
 int  waitResp(void);
 
 /** BANDERAS MODOS DE FUNCIONAMIENTO **/
-int CMD_RUN    = 0x00;
-int READY_RESP = 0x00;
+int CMD_RUN = 0x00;
+//int READY_RESP
 
 /* Flag usadas para conocer si la respuesta del comando ejecutado esta completo */
 int flag_Ready_Resp         = 0;
@@ -53,7 +60,10 @@ void esp8266_init()
 {
    char  modeWithoutConnect[] = "3";
    int   resp;
-  
+   
+   /*fprintf(console, "Inicializando ESP8266");
+   fputc(0x0D,console);*/
+
    // @TODO: Usar este comando solo en produccion
    /**reset();
    delay_ms(2000);**/
@@ -82,7 +92,6 @@ void esp8266_init()
   
    /** @TODO: Rutina que se encarga de recibir datos desde ESP8266 **/
    setupServer();
-   READY_RESP = 1;
 }
 
 /********************************************************
@@ -209,7 +218,6 @@ int waitResp(void)
       }
    }; // Fin del loop
    flag_Resp_Valid = 0;
-   CMD_RUN = 0x00;
    return ret;
 } // Fin de la funcion waitResp
 
@@ -233,7 +241,7 @@ RESPUESTA ESPERADA:    ESP8266_RESP_OK[4] = {'O','K',0x0D,0x0A}
 void waitRespOK(int buffer)
 {
    const char ESP8266_RESP_OK[4] ={'O','K',0x0D,0x0A};
-   int lenResp = 4;
+   int lenResp = 4;  // Tamaño del buffer de respuesta esperado
    
    // Si el caracter pasado por argumento se encuentra en la posicion de la 
    // constante de respuesta entonces aumenta la bandera de lo contrario la
@@ -269,7 +277,7 @@ void waitRespOK(int buffer)
 void waitRespNoAp(int buffer)
 {
    const char ESP8266_RESP_NoAP[5] ={'N', 'o', ' ', 'A', 'P'};
-   int lenResp = 5;
+   int lenResp = 5;  // Tamaño del buffer de respuesta esperado
    
    if(buffer == ESP8266_RESP_NoAp[flag_Pos_Resp_NoAp] )
    {
@@ -291,8 +299,7 @@ void waitRespNoAp(int buffer)
 *********************************************************/
 void waitRespCWJAP(int buffer)
 {
-   const char ESP8266_RESP_CWJAP[7] ={'+', 'C', 'W', 'J', 'A', 'P', ':'};
-   int lenResp = 7;
+   int lenResp = 7;  // Tamaño del buffer de respuesta esperado
 
    if(buffer == ESP8266_RESP_CWJAP[flag_Pos_Resp_CWJAP] )
    {
@@ -315,8 +322,7 @@ void waitRespCWJAP(int buffer)
 *********************************************************/
 void waitRespConnected(int buffer)
 {
-   const char ESP8266_RESP_Connected[9] ={'C','O','N','N','E','C','T','E','D'};
-   int lenResp = 9;
+   int lenResp = 9;  // Tamaño del buffer de respuesta esperado
  
    if(buffer == ESP8266_RESP_Connected[flag_Pos_Resp_Connected] )
    {
@@ -338,8 +344,7 @@ void waitRespConnected(int buffer)
 *********************************************************/
 void waitRespFail(int buffer)
 {
-   const char ESP8266_RESP_FAIL[4] ={'F', 'A', 'I', 'L'};
-   int lenResp = 4;
+   int lenResp = 4;  // Tamaño del buffer de respuesta esperado
  
    if(buffer == ESP8266_RESP_FAIL[flag_Pos_Resp_Fail] )
    {

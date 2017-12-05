@@ -65,7 +65,6 @@ const char  optMenuModo[5][14]    =   { {"Estacion     "},
                                         {"Estacion + AP"},
                                         {"SALIR        "}
                                       };   
-
 /* Declaracion de Funciones */
 int   getMenuStart(void);
 void  pressExit(void);

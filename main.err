@@ -1,6 +1,2 @@
->>> Warning 203 "D:\DAVID\Documents\GitHub\Kriver-Hardware\header\func_menu_setup.h" Line 31(1,1): Condition always TRUE
->>> Warning 203 "main.c" Line 46(1,1): Condition always TRUE
->>> Warning 202 "D:\DAVID\Documents\GitHub\Kriver-Hardware\header\sound.h" Line 16(7,15): Variable never used:   FreqNota
-      Memory usage:   ROM=63%      RAM=31% - 41%
-      0 Errors,  3 Warnings.
-Build Successful.
+>>> Warning 203 "D:\DAVID\Documents\GitHub\Kriver-Hardware\header\menu.h" Line 137(1,1): Condition always TRUE
+>>> Warning 203 "main.c" Line 62(1,1): Condition always TRUE

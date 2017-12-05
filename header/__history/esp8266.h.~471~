@@ -209,7 +209,6 @@ int waitResp(void)
       }
    }; // Fin del loop
    flag_Resp_Valid = 0;
-   CMD_RUN = 0x00;
    return ret;
 } // Fin de la funcion waitResp
 

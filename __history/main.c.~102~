@@ -26,9 +26,9 @@ void  RDA_isr(void)
    ESP8266_PROCCESS_RESPONSE(buffer);
    if(READY_RESP==1){
 
-   /**   @TODO:   Invoca la funcion que realiza la 
-                  lectura del request
-   **/
+      /**   @ TODO Invoca la funcion que realiza la 
+            lectura del request
+      **/
    
    }
 }

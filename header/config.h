@@ -10,6 +10,7 @@
 /* RS232 */
 #use rs232(baud=9600,parity=N,xmit=PIN_C6,rcv=PIN_C7,bits=8,stream=ESP8266)
 #use rs232(baud=9600,parity=N,xmit=PIN_B0,rcv=PIN_B1,bits=8,stream=console)
+
 // Puertos de salida
 #use FIXED_IO( A_outputs=PIN_A0,PIN_A1,PIN_A2,PIN_A3,PIN_A4)
 #use FIXED_IO( E_outputs=PIN_E0,PIN_E1,PIN_E2)
@@ -25,9 +26,6 @@
 
 #define KEY_NEXT        PIN_B4
 #define KEY_OK          PIN_B5
-
-//#define TRUE            0x01;
-//#define FALSE           0x00;
 
 int16 PIN_OUT[8]={
                   PIN_E2,
