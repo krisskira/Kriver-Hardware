@@ -8,7 +8,7 @@
   <PWI>
    <POPUP w="800" x="38" flags="00000002" y="129" h="200" pid="0" iid="-1">
     <PROPERTIES>
-     <ITEM name="Message Column Width">542</ITEM>
+     <ITEM name="Message Column Width">663</ITEM>
      <ITEM name="ShowGrid">No</ITEM>
      <ITEM name="Source Column Width">100</ITEM>
      <ITEM name="Time Column Width">120</ITEM>
@@ -45,7 +45,7 @@
    </POPUP>
    <POPUP w="454" x="1946" flags="00000023" y="265" h="250" pid="0" iid="2">
     <PROPERTIES>
-     <ITEM name="AutoEcho">0</ITEM>
+     <ITEM name="AutoEcho">1</ITEM>
      <ITEM name="HexMode">0</ITEM>
     </PROPERTIES>
    </POPUP>
@@ -158,13 +158,13 @@
      <ITEM name="HexMode">0</ITEM>
     </PROPERTIES>
    </POPUP>
-   <POPUP w="456" x="1947" flags="00000023" y="17" h="250" pid="0" iid="7">
+   <POPUP w="456" x="1947" flags="00008023" y="17" h="250" pid="0" iid="7">
     <PROPERTIES>
      <ITEM name="AutoEcho">1</ITEM>
-     <ITEM name="HexMode">0</ITEM>
+     <ITEM name="HexMode">1</ITEM>
     </PROPERTIES>
    </POPUP>
-   <POPUP w="772" x="2397" flags="00008023" y="19" h="628" pid="0" iid="6">
+   <POPUP w="775" x="2394" flags="00000023" y="19" h="628" pid="0" iid="6">
     <PROPERTIES>
      <ITEM name="AutoEcho">0</ITEM>
      <ITEM name="HexMode">0</ITEM>

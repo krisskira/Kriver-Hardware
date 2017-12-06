@@ -94,7 +94,7 @@ void ESP8266_Get_CMD(char buffer[]){
             flag_Pos_Resp_CMD = 0x00;
             flag_Resp_CMD     = 0x00;
             fprintf(console,"%s",COMMAND);
-            
+            fputchar(COMMAND,console);
             // Activa la recepcion de datos del comando
             flag_Resp_StartGetData  = 1;
             break;

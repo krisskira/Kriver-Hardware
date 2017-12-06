@@ -23,7 +23,8 @@ llegada al puerto serie portWF
 void  RDA_isr(void) 
 {
    int buffer = getc();
-   if(READY_RESP==0){
+   READY_RESP==0;
+   if(READY_RESP==1){
       //ESP8266_PROCCESS_RESPONSE(buffer);
    }else{
       //ESP8266_Get_IPD(buffer);

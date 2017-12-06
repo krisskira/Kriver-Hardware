@@ -1,8 +1,9 @@
-D G "CMD_CONN" 11 3 "3"
-D G "__PCM__" 0 81 ""5.015""
-D G "__DEVICE__" 0 81 "887"
-D G "__DATE__" 0 81 ""04-dic.-17""
-D G "__TIME__" 0 81 ""21:32:23"" "Standard Header file for the PIC16F887 device ////////////////"
+C L "MAIN" 0 34 1 "FUNCTION"
+C L "MAIN" 0 34 1 "FUNCTION"
+D G "__PCM__" 0 86 ""5.015""
+D G "__DEVICE__" 0 86 "887"
+D G "__DATE__" 0 86 ""06-dic.-17""
+D G "__TIME__" 0 86 ""00:43:11"" "Standard Header file for the PIC16F887 device ////////////////"
 c L "set_tris_a" 2 3 6 "FUNCTION"
 v L "value" 2 39 "int8" `54 
 f B "set_tris_a" 2 39 "void(int8 value)" `53 
@@ -1624,156 +1625,216 @@ C L "setMenuModo" 10 18 1 "FUNCTION"
 C L "setMenuModo" 10 18 1 "FUNCTION"
 C L "setMenuModo" 10 18 1 "FUNCTION"
 C L "setMenuModo" 10 18 1 "FUNCTION"
-D G "CMD_MODE" 11 1 "1"
-D G "CMD_DO_CONN" 11 2 "2"
-D G "CMD_CONN" 11 3 "3"
-V G "ESP8266_RESP_START_STAIP" 11 13 "[7]" `1154 
-V G "ESP8266_RESP_STOP_STAIP" 11 14 "[3]" `1157 
-C L "reset" 11 5 1 "FUNCTION"
-f G "reset" 11 17 "void()" `1160 
-V L "modeVal" 11 18 "*int8" `1162 
-f G "setupMode" 11 18 "int8(*int8 modeVal)" `1161 
-f G "doConnected" 11 19 "int8()" `1164 
-V L "SSIDAndKey" 11 20 "*int8" `1166 
-f G "setupConn" 11 20 "int8(*int8 SSIDAndKey)" `1165 
-f G "setupServer" 11 21 "int8()" `1168  "Declaracion de Funciones de respuestas *"
-V L "buffer" 11 24 "int8" `1170 
-f G "waitRespOK" 11 24 "void(int8 buffer)" `1169 
-V L "buffer" 11 25 "int8" `1172 
-f G "waitRespNoAp" 11 25 "void(int8 buffer)" `1171 
-V L "buffer" 11 26 "int8" `1174 
-f G "waitRespCWJAP" 11 26 "void(int8 buffer)" `1173 
-V L "buffer" 11 27 "int8" `1176 
-f G "waitRespConnected" 11 27 "void(int8 buffer)" `1175 
-V L "buffer" 11 28 "int8" `1178 
-f G "waitRespFail" 11 28 "void(int8 buffer)" `1177 
-f G "waitResp" 11 29 "int8(int8 waitRespFail)" `1179  "* BANDERAS MODOS DE FUNCIONAMIENTO **"
-V G "CMD_RUN" 11 32 "int8" `1180 
-C L "waitResp" 11 5 2 "FUNCTION"
-V G "flag_Ready_Resp" 11 36 "int8" `1181 
-V G "flag_Resp_Valid" 11 37 "int8" `1182 
-V G "flag_Resp_NoAp" 11 38 "int8" `1183 
-V G "flag_Resp_CWJAP" 11 39 "int8" `1184 
-V G "flag_Resp_Connected" 11 40 "int8" `1185 
-V G "flag_Resp_Fail" 11 41 "int8" `1186 
-C L "waitResp" 11 5 1 "FUNCTION"
-V G "flag_Pos_Resp" 11 44 "int8" `1187 
-V G "flag_Pos_Resp_NoAp" 11 45 "int8" `1188 
-V G "flag_Pos_Resp_CWJAP" 11 46 "int8" `1189 
-V G "flag_Pos_Resp_Connected" 11 47 "int8" `1190 
-V G "flag_Pos_Resp_Fail" 11 48 "int8" `1191 
-C L "waitResp" 11 5 1 "FUNCTION"
-V G "modeStar" 11 51 "int8[1]" `1192 
-V G "SSIDAndKey" 11 52 "int8[1]" `1193 
-C L "waitResp" 11 5 1 "FUNCTION"
-F G "esp8266_init" 11 60 "void()" `1194 
-V L "modeWithoutConnect" 11 61 "int8[1]" `1195 
-V L "resp" 11 62 "int8" `1196  "@TODO: Usar este comando solo en produccion"
-C L "esp8266_init" 11 65 2 "*reset"
-C L "esp8266_init" 11 65 2 "FUNCTION"
-C L "esp8266_init" 11 65 1 "FUNCTION"
-C L "esp8266_init" 11 65 1 "FUNCTION"
-C L "esp8266_init" 11 65 1 "FUNCTION"
-C L "esp8266_init" 11 90 1 "*"
-C L "ESP8266_PROCCESS_RESPONSE" 11 90 2 "FUNCTION"
-V L "buffer" 11 98 "int8" `1198 
-F G "ESP8266_PROCCESS_RESPONSE" 11 98 "void(int8 buffer)" `1197  "Seleciona la funcion de confirmacion de la respuesta"
-C L "ESP8266_PROCCESS_RESPONSE" 11 90 2 "FUNCTION"
-C L "ESP8266_PROCCESS_RESPONSE" 11 90 1 "FUNCTION"
-C L "reset" 11 90 2 "FUNCTION"
-F G "reset" 11 129 "void()" `1160 
-C L "setupMode" 11 90 1 "FUNCTION"
-C L "setupMode" 11 133 1 "*"
-C L "setupMode" 11 133 1 "*"
-V L "modeVal" 11 137 "*int8" `1201 
-F G "setupMode" 11 138 "int8(*int8 modeVal)" `1161 
-C L "doConnected" 11 133 1 "FUNCTION"
-C L "doConnected" 11 143 1 "*"
-C L "doConnected" 11 143 1 "*"
-F G "doConnected" 11 148 "int8()" `1164 
-C L "setupConn" 11 153 1 "*"
-C L "setupConn" 11 153 1 "*"
-V L "SSID_And_Key" 11 157 "*int8" `1206 
-F G "setupConn" 11 158 "int8(*int8 SSID_And_Key)" `1165 
-C L "setupServer" 11 153 1 "FUNCTION"
-C L "setupServer" 11 163 1 "*"
-C L "setupServer" 11 163 1 "*"
-F G "setupServer" 11 168 "int8()" `1168 
-C L "waitResp" 11 163 1 "FUNCTION"
-C L "waitResp" 11 176 1 "*"
-C L "waitResp" 11 176 1 "*"
-C L "waitResp" 11 176 1 "*"
-C L "waitResp" 11 176 1 "*"
-F G "waitResp" 11 183 "int8()" `1179 
-V L "ret" 11 184 "int8" `1208 
-C L "waitResp" 11 176 2 "FUNCTION"
-C L "waitResp" 11 176 1 "FUNCTION"
-C L "waitResp" 11 176 1 "FUNCTION"
-C L "waitResp" 11 176 1 "FUNCTION"
-C L "waitResp" 11 176 3 "FUNCTION"
-C L "waitResp" 11 176 1 "FUNCTION"
-C L "waitRespOK" 11 176 1 "FUNCTION"
-C L "waitRespOK" 11 221 10 "*"
-V L "buffer" 11 238 "int8" `1210 
-F G "waitRespOK" 11 239 "void(int8 buffer)" `1169 
-V L "ESP8266_RESP_OK" 11 240 "[4]" `1209 
-V L "lenResp" 11 241 "int8" `1212 
-C L "waitRespOK" 11 221 3 "FUNCTION"
-C L "waitRespOK" 11 221 2 "FUNCTION"
-C L "waitRespOK" 11 221 1 "FUNCTION"
-C L "waitRespOK" 11 221 1 "FUNCTION"
-C L "waitRespOK" 11 221 2 "FUNCTION"
-C L "waitRespOK" 11 221 2 "FUNCTION"
-C L "waitRespNoAp" 11 221 1 "FUNCTION"
-C L "waitRespNoAp" 11 270 1 "*"
-C L "waitRespNoAp" 11 270 1 "*"
-V L "buffer" 11 274 "int8" `1214 
-F G "waitRespNoAp" 11 275 "void(int8 buffer)" `1171 
-V L "ESP8266_RESP_NoAP" 11 276 "[5]" `1213 
-V L "lenResp" 11 277 "int8" `1216 
-C L "waitRespNoAp" 11 270 1 "FUNCTION"
-C L "waitRespNoAp" 11 270 1 "FUNCTION"
-C L "waitRespCWJAP" 11 270 1 "FUNCTION"
-C L "waitRespCWJAP" 11 293 1 "*"
-C L "waitRespCWJAP" 11 293 1 "*"
-V L "buffer" 11 297 "int8" `1218 
-F G "waitRespCWJAP" 11 298 "void(int8 buffer)" `1173 
-V L "ESP8266_RESP_CWJAP" 11 299 "[7]" `1217 
-V L "lenResp" 11 300 "int8" `1220 
-C L "waitRespCWJAP" 11 293 1 "FUNCTION"
-C L "waitRespCWJAP" 11 293 1 "FUNCTION"
-C L "waitRespConnected" 11 293 1 "FUNCTION"
-C L "waitRespConnected" 11 317 1 "*"
-C L "waitRespConnected" 11 317 1 "*"
-V L "buffer" 11 321 "int8" `1222 
-F G "waitRespConnected" 11 322 "void(int8 buffer)" `1175 
-V L "ESP8266_RESP_Connected" 11 323 "[9]" `1221 
-V L "lenResp" 11 324 "int8" `1224 
-C L "waitRespConnected" 11 317 1 "FUNCTION"
-C L "waitRespConnected" 11 317 1 "FUNCTION"
-C L "waitRespFail" 11 317 1 "FUNCTION"
-C L "waitRespFail" 11 340 1 "*"
-C L "waitRespFail" 11 340 1 "*"
-V L "buffer" 11 344 "int8" `1226 
-F G "waitRespFail" 11 345 "void(int8 buffer)" `1177 
-V L "ESP8266_RESP_FAIL" 11 346 "[4]" `1225 
-V L "lenResp" 11 347 "int8" `1228 
-C L "waitRespFail" 11 340 1 "FUNCTION"
-C L "waitRespFail" 11 340 1 "FUNCTION"
-C G "" 0 11 3 "*"
-V G "menuActive" 0 16 "int8" `1229 
-C L "RDA_isr" 0 18 3 "*"
-F G "RDA_isr" 0 25 "void()" `1230 
-V L "buffer" 0 26 "int8" `1231 
-C L "MAIN" 0 29 1 "*"
-F G "MAIN" 0 34 "void()" `1232  "Estabiliza el inicio del programa para evitar_"
-C L "MAIN" 0 29 1 "FUNCTION"
-C L "MAIN" 0 29 1 "FUNCTION"
-C L "MAIN" 0 29 1 "FUNCTION"
-C L "MAIN" 0 29 1 "FUNCTION"
-C L "MAIN" 0 29 1 "FUNCTION"
-C L "MAIN" 0 29 1 "FUNCTION"
-C L "MAIN" 0 29 1 "FUNCTION"
+C G "" 11 1 1 "*"
+C G "" 11 1 1 "*"
+C G "" 11 1 1 "*"
+C G "" 11 1 1 "*"
+C G "" 11 1 1 "*"
+C G "" 11 1 1 "*"
+C G "" 11 1 1 "*"
+C G "" 11 1 1 "*"
+C G "" 11 1 1 "*"
+D G "CMD_MODE" 11 13 "1"
+D G "CMD_DO_CONN" 11 14 "2"
+D G "CMD_CONN" 11 15 "3"
+C L "reset" 11 1 4 "FUNCTION"
+f G "reset" 11 22 "void()" `1154 
+V L "modeVal" 11 23 "*int8" `1156 
+f G "setupMode" 11 23 "int8(*int8 modeVal)" `1155 
+f G "doConnected" 11 24 "int8()" `1158 
+V L "SSIDAndKey" 11 25 "*int8" `1160 
+f G "setupConn" 11 25 "int8(*int8 SSIDAndKey)" `1159 
+f G "setupServer" 11 26 "int8()" `1162  "Declaracion de Funciones de respuestas *"
+V L "buffer" 11 29 "int8" `1164 
+f G "waitRespOK" 11 29 "void(int8 buffer)" `1163 
+V L "buffer" 11 30 "int8" `1166 
+f G "waitRespNoAp" 11 30 "void(int8 buffer)" `1165 
+V L "buffer" 11 31 "int8" `1168 
+f G "waitRespCWJAP" 11 31 "void(int8 buffer)" `1167 
+V L "buffer" 11 32 "int8" `1170 
+f G "waitRespConnected" 11 32 "void(int8 buffer)" `1169 
+V L "buffer" 11 33 "int8" `1172 
+f G "waitRespFail" 11 33 "void(int8 buffer)" `1171 
+f G "waitResp" 11 34 "int8()" `1173  "* BANDERAS MODOS DE FUNCIONAMIENTO **"
+V G "CMD_RUN" 11 37 "int8" `1174 
+V G "READY_RESP" 11 38 "int8" `1175 
+C L "waitResp" 11 1 2 "FUNCTION"
+V G "flag_Resp_Valid" 11 42 "int8" `1176 
+V G "flag_Resp_NoAp" 11 43 "int8" `1177 
+V G "flag_Resp_CWJAP" 11 44 "int8" `1178 
+V G "flag_Resp_Connected" 11 45 "int8" `1179 
+V G "flag_Resp_Fail" 11 46 "int8" `1180 
+C L "waitResp" 11 1 1 "FUNCTION"
+V G "flag_Pos_Resp" 11 49 "int8" `1181 
+V G "flag_Pos_Resp_NoAp" 11 50 "int8" `1182 
+V G "flag_Pos_Resp_CWJAP" 11 51 "int8" `1183 
+V G "flag_Pos_Resp_Connected" 11 52 "int8" `1184 
+V G "flag_Pos_Resp_Fail" 11 53 "int8" `1185 
+C L "waitResp" 11 1 1 "FUNCTION"
+V G "modeStar" 11 56 "int8[1]" `1186 
+V G "SSIDAndKey" 11 57 "int8[1]" `1187 
+C L "waitResp" 11 1 1 "FUNCTION"
+F G "esp8266_init" 11 65 "void()" `1188 
+V L "modeWithoutConnect" 11 66 "int8[1]" `1189 
+V L "resp" 11 67 "int8" `1190  "@TODO: Usar este comando solo en produccion"
+C L "esp8266_init" 11 70 2 "*reset"
+C L "esp8266_init" 11 70 2 "FUNCTION"
+C L "esp8266_init" 11 70 1 "FUNCTION"
+C L "esp8266_init" 11 70 1 "FUNCTION"
+C L "esp8266_init" 11 70 1 "FUNCTION"
+C L "esp8266_init" 11 95 1 "*"
+C L "ESP8266_PROCCESS_RESPONSE" 11 95 2 "FUNCTION"
+V L "buffer" 11 104 "int8" `1192 
+F G "ESP8266_PROCCESS_RESPONSE" 11 104 "void(int8 buffer)" `1191  "Seleciona la funcion de confirmacion de la respuesta"
+C L "ESP8266_PROCCESS_RESPONSE" 11 95 2 "FUNCTION"
+C L "ESP8266_PROCCESS_RESPONSE" 11 95 1 "FUNCTION"
+C L "reset" 11 95 2 "FUNCTION"
+F G "reset" 11 135 "void()" `1154 
+C L "setupMode" 11 95 1 "FUNCTION"
+C L "setupMode" 11 139 1 "*"
+C L "setupMode" 11 139 1 "*"
+V L "modeVal" 11 143 "*int8" `1195 
+F G "setupMode" 11 144 "int8(*int8 modeVal)" `1155 
+C L "doConnected" 11 139 1 "FUNCTION"
+C L "doConnected" 11 149 1 "*"
+C L "doConnected" 11 149 1 "*"
+F G "doConnected" 11 154 "int8()" `1158 
+C L "setupConn" 11 159 1 "*"
+C L "setupConn" 11 159 1 "*"
+V L "SSID_And_Key" 11 163 "*int8" `1200 
+F G "setupConn" 11 164 "int8(*int8 SSID_And_Key)" `1159 
+C L "setupServer" 11 159 1 "FUNCTION"
+C L "setupServer" 11 169 1 "*"
+C L "setupServer" 11 169 1 "*"
+F G "setupServer" 11 174 "int8()" `1162 
+C L "waitResp" 11 169 1 "FUNCTION"
+C L "waitResp" 11 182 1 "*"
+C L "waitResp" 11 182 1 "*"
+C L "waitResp" 11 182 1 "*"
+C L "waitResp" 11 182 1 "*"
+F G "waitResp" 11 189 "int8()" `1173 
+V L "ret" 11 190 "int8" `1202 
+C L "waitResp" 11 182 2 "FUNCTION"
+C L "waitResp" 11 182 1 "FUNCTION"
+C L "waitResp" 11 182 1 "FUNCTION"
+C L "waitResp" 11 182 1 "FUNCTION"
+C L "waitResp" 11 182 3 "FUNCTION"
+C L "waitResp" 11 182 1 "FUNCTION"
+C L "waitRespOK" 11 182 1 "FUNCTION"
+C L "waitRespOK" 11 228 10 "*"
+V L "buffer" 11 245 "int8" `1204 
+F G "waitRespOK" 11 246 "void(int8 buffer)" `1163 
+V L "ESP8266_RESP_OK" 11 247 "[4]" `1203 
+V L "lenResp" 11 248 "int8" `1206 
+C L "waitRespOK" 11 228 3 "FUNCTION"
+C L "waitRespOK" 11 228 2 "FUNCTION"
+C L "waitRespOK" 11 228 1 "FUNCTION"
+C L "waitRespOK" 11 228 1 "FUNCTION"
+C L "waitRespOK" 11 228 2 "FUNCTION"
+C L "waitRespOK" 11 228 2 "FUNCTION"
+C L "waitRespNoAp" 11 228 1 "FUNCTION"
+C L "waitRespNoAp" 11 277 1 "*"
+C L "waitRespNoAp" 11 277 1 "*"
+V L "buffer" 11 281 "int8" `1208 
+F G "waitRespNoAp" 11 282 "void(int8 buffer)" `1165 
+V L "ESP8266_RESP_NoAP" 11 283 "[5]" `1207 
+V L "lenResp" 11 284 "int8" `1210 
+C L "waitRespNoAp" 11 277 1 "FUNCTION"
+C L "waitRespNoAp" 11 277 1 "FUNCTION"
+C L "waitRespCWJAP" 11 277 1 "FUNCTION"
+C L "waitRespCWJAP" 11 300 1 "*"
+C L "waitRespCWJAP" 11 300 1 "*"
+V L "buffer" 11 304 "int8" `1212 
+F G "waitRespCWJAP" 11 305 "void(int8 buffer)" `1167 
+V L "ESP8266_RESP_CWJAP" 11 306 "[7]" `1211 
+V L "lenResp" 11 307 "int8" `1214 
+C L "waitRespCWJAP" 11 300 1 "FUNCTION"
+C L "waitRespCWJAP" 11 300 1 "FUNCTION"
+C L "waitRespConnected" 11 300 1 "FUNCTION"
+C L "waitRespConnected" 11 324 1 "*"
+C L "waitRespConnected" 11 324 1 "*"
+V L "buffer" 11 328 "int8" `1216 
+F G "waitRespConnected" 11 329 "void(int8 buffer)" `1169 
+V L "ESP8266_RESP_Connected" 11 330 "[9]" `1215 
+V L "lenResp" 11 331 "int8" `1218 
+C L "waitRespConnected" 11 324 1 "FUNCTION"
+C L "waitRespConnected" 11 324 1 "FUNCTION"
+C L "waitRespFail" 11 324 1 "FUNCTION"
+C L "waitRespFail" 11 347 1 "*"
+C L "waitRespFail" 11 347 1 "*"
+V L "buffer" 11 351 "int8" `1220 
+F G "waitRespFail" 11 352 "void(int8 buffer)" `1171 
+V L "ESP8266_RESP_FAIL" 11 353 "[4]" `1219 
+V L "lenResp" 11 354 "int8" `1222 
+C L "waitRespFail" 11 347 1 "FUNCTION"
+C L "waitRespFail" 11 347 1 "FUNCTION"
+C G "" 12 1 1 "*"
+C G "" 12 1 1 "*"
+C G "" 12 1 1 "*"
+C G "" 12 1 1 "*"
+C G "" 12 1 1 "*"
+C G "" 12 1 1 "*"
+C G "" 12 1 1 "*"
+C G "" 12 1 1 "*"
+C G "" 12 1 1 "*"
+C G "" 12 1 2 "*"
+C G "" 12 13 1 "*"
+C G "" 12 13 1 "*"
+C G "" 12 13 1 "*"
+C G "" 12 13 2 "*"
+C G "" 12 19 1 "*"
+V G "ID_CONNETION" 12 20 "int8[1]" `1223 
+V G "COMMAND" 12 21 "int8[5]" `1224 
+V G "DATA_COMMAND" 12 22 "int8[1]" `1225  "Flag usadas para conocer si la respuesta del comando ejecutado esta completo *"
+V G "flag_Resp_CMD" 12 25 "int8" `1226 
+V G "flag_Resp_IPD" 12 26 "int8" `1227 
+V G "flag_Resp_StartGetData" 12 27 "int8" `1228 
+V G "flag_Pos_Resp_CMD" 12 30 "int8" `1229 
+V G "flag_Pos_Resp_IPD" 12 31 "int8" `1230 
+V G "flag_Pos_Resp_Data" 12 32 "int8" `1231 
+C L "ESP8266_Get_IPD" 12 19 2 "FUNCTION"
+V L "buffer" 12 38 "*int8" `1233 
+F G "ESP8266_Get_IPD" 12 38 "void(*int8 buffer)" `1232 
+V L "ESP8266_RESP_IPD" 12 40 "[5]" `1235 
+V L "lenResp" 12 41 "int8" `1238 
+C L "ESP8266_Get_IPD" 12 19 3 "FUNCTION"
+C L "ESP8266_Get_IPD" 12 19 2 "FUNCTION"
+C L "ESP8266_Get_IPD" 12 19 2 "FUNCTION"
+C L "ESP8266_Get_IPD" 12 19 1 "FUNCTION"
+C L "ESP8266_Get_IPD" 12 19 1 "FUNCTION"
+C L "ESP8266_Get_CMD" 12 19 4 "FUNCTION"
+V L "buffer" 12 82 "*int8" `1240 
+F G "ESP8266_Get_CMD" 12 82 "void(*int8 buffer)" `1239 
+V L "ESP8266_RESP_CMD" 12 84 "[4]" `1242 
+V L "lenResp" 12 85 "int8" `1245 
+C L "ESP8266_Get_CMD" 12 19 3 "FUNCTION"
+C L "ESP8266_Get_CMD" 12 19 1 "FUNCTION"
+C L "ESP8266_Get_CMD" 12 19 2 "FUNCTION"
+C L "ESP8266_Get_CMD" 12 19 2 "FUNCTION"
+C L "ESP8266_Get_CMD" 12 19 1 "FUNCTION"
+C L "ESP8266_Get_CMD" 12 19 1 "FUNCTION"
+C L "ESP8266_Get_Data" 12 19 5 "FUNCTION"
+V L "buffer" 12 134 "*int8" `1249 
+F G "ESP8266_Get_Data" 12 134 "void(*int8 buffer)" `1248  "Si el inicio la bandera de recepcion de comando esta"
+C L "ESP8266_Get_Data" 12 19 2 "FUNCTION"
+C L "ESP8266_Get_Data" 12 19 1 "FUNCTION"
+C G "" 0 10 3 "*"
+V G "menuActive" 0 15 "int8" `1254 
+C L "RDA_isr" 0 17 3 "*"
+F G "RDA_isr" 0 24 "void()" `1255 
+V L "buffer" 0 25 "int8" `1256 
+C L "RDA_isr" 0 17 1 "FUNCTION"
+C L "RDA_isr" 0 17 1 "FUNCTION"
+C L "RDA_isr" 0 17 1 "FUNCTION"
+C L "MAIN" 0 34 1 "*"
+F G "MAIN" 0 39 "void()" `1257  "Estabiliza el inicio del programa para evitar_"
+C L "MAIN" 0 34 1 "FUNCTION"
+C L "MAIN" 0 34 1 "FUNCTION"
+C L "MAIN" 0 34 1 "FUNCTION"
+C L "MAIN" 0 34 1 "FUNCTION"
+C L "MAIN" 0 34 1 "FUNCTION"
+C L "MAIN" 0 34 1 "FUNCTION"
+C L "MAIN" 0 34 1 "FUNCTION"
 F B "reset_cpu" 0 0
 F B "abs" 1 0
 F B "sleep_ulpwu" 1 0

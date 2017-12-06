@@ -18,7 +18,7 @@
 
 /** VARIABLES DATOS GENERALES **/
 char  ID_CONNETION[];
-char  COMMAND[5];
+char  COMMAND[];
 char  DATA_COMMAND[];
 
 /* Flag usadas para conocer si la respuesta del comando ejecutado esta completo */
@@ -90,16 +90,15 @@ void ESP8266_Get_CMD(char buffer[]){
    if(flag_Resp_CMD==1){
       
       switch(buffer){
-         case '@':
+         case '?':
             flag_Pos_Resp_CMD = 0x00;
             flag_Resp_CMD     = 0x00;
-            fprintf(console,"%s",COMMAND);
-            
             // Activa la recepcion de datos del comando
             flag_Resp_StartGetData  = 1;
             break;
          default:
             COMMAND[flag_Pos_Resp_CMD] = buffer;
+            fputc(COMMAND[flag_Pos_Resp_CMD],console);
             flag_Pos_Resp_CMD++;
             break;
       }

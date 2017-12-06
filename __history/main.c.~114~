@@ -23,11 +23,12 @@ llegada al puerto serie portWF
 void  RDA_isr(void) 
 {
    int buffer = getc();
+   
    if(READY_RESP==0){
-      //ESP8266_PROCCESS_RESPONSE(buffer);
+      ESP8266_PROCCESS_RESPONSE(buffer);
    }else{
-      //ESP8266_Get_IPD(buffer);
-      ESP8266_Get_CMD(buffer);
+      ESP8266_Get_IPD(buffer);
+      //ESP8266_Get_CMD(buffer);
       //ESP8266_Get_Data(buffer);
    }
 }

@@ -15,8 +15,8 @@
 #define  CMD_CONN    3
 
 /* Constantes de Captura Respuestas */
-//const char ESP8266_RESP_START_STAIP[7]    ={'S','T','A','I','P',',','"'};
-//const char ESP8266_RESP_STOP_STAIP[3]     ={'"',0x0D,0x0A};
+const char ESP8266_RESP_START_STAIP[7]    ={'S','T','A','I','P',',','"'};
+const char ESP8266_RESP_STOP_STAIP[3]     ={'"',0x0D,0x0A};
 
 /* Declaracion de Funciones de comandos */
 void reset(void);
@@ -38,7 +38,7 @@ int CMD_RUN    = 0x00;
 int READY_RESP = 0x00;
 
 /* Flag usadas para conocer si la respuesta del comando ejecutado esta completo */
-//int flag_Ready_Resp         = 0;
+int flag_Ready_Resp         = 0;
 int flag_Resp_Valid         = 0;
 int flag_Resp_NoAp          = 0;
 int flag_Resp_CWJAP         = 0;
