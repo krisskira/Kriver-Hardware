@@ -193,28 +193,20 @@ int run_command_wifi(void){
          }
          
          ret = 1;
-      } // Fin comando OP
-      
-      // Reinicia el buffer
-      flag_Resp_Ready  = 0x00;
-      LEN_DATA_COMMAND = 0x00;
-      
-      // Responde la solicitud
-      delay_ms(20);
-      fprintf(ESP8266, "AT+CIPSEND=%c,12\r\n",ID_CONNETION[0]);
-      delay_ms(50);
-      fprintf(ESP8266, "%s\r\n",ESP8266_Resp);
-      delay_ms(100);
-      fprintf(ESP8266, "AT+CIPCLOSE=%c\r\n",ID_CONNETION[0]);
+      }
       
       // Limpia el buffer
       for(int idx=0;idx<=LEN_DATA_COMMAND;idx++){
+         COMMAND[idx]      ==0x00;
          DATA_COMMAND[idx] ==0x00;
       }
-      COMMAND[0]        ==0x00;
-      COMMAND[1]        ==0x00;
-      ID_CONNETION[0]   ==0x00;
-   } // Fin del if(flag_Resp_Ready)
+   } // Fin comando OP
    
+   // Reinicia el buffer
+   flag_Resp_Ready  = 0x00;
+   LEN_DATA_COMMAND = 0x00;
+   
+   // Responde la solicitud
+   fprintf(ESP8266, "AT+CIPSEND=%c,12 \r\n %s",ID_CONNETION[0],ESP8266_Resp);
    return ret;
 }

@@ -1,4 +1,9 @@
->>> Warning 203 "D:\DAVID\Documents\GitHub\Kriver-Hardware\header\menu.h" Line 137(1,1): Condition always TRUE
-*** Error 51 "D:\DAVID\Documents\GitHub\Kriver-Hardware\header\cmd_wifi.h" Line 97(18,25): A numeric expression must appear here  ::
-      1 Errors,  1 Warnings.
-Build Failed.
+>>> Warning 207 "D:\DAVID\Documents\GitHub\Kriver-Hardware\header\cmd_wifi.h" Line 212(1,1): Code has no effect
+>>> Warning 207 "D:\DAVID\Documents\GitHub\Kriver-Hardware\header\cmd_wifi.h" Line 214(1,1): Code has no effect
+>>> Warning 207 "D:\DAVID\Documents\GitHub\Kriver-Hardware\header\cmd_wifi.h" Line 215(1,1): Code has no effect
+>>> Warning 207 "D:\DAVID\Documents\GitHub\Kriver-Hardware\header\cmd_wifi.h" Line 216(1,1): Code has no effect
+>>> Warning 203 "D:\DAVID\Documents\GitHub\Kriver-Hardware\header\menu.h" Line 145(1,1): Condition always TRUE
+>>> Warning 203 "main.c" Line 62(1,1): Condition always TRUE
+      Memory usage:   ROM=64%      RAM=41% - 53%
+      0 Errors,  6 Warnings.
+Build Successful.

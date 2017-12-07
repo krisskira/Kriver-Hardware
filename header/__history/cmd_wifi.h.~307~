@@ -202,7 +202,7 @@ int run_command_wifi(void){
       // Responde la solicitud
       delay_ms(20);
       fprintf(ESP8266, "AT+CIPSEND=%c,12\r\n",ID_CONNETION[0]);
-      delay_ms(50);
+      delay_ms(100);
       fprintf(ESP8266, "%s\r\n",ESP8266_Resp);
       delay_ms(100);
       fprintf(ESP8266, "AT+CIPCLOSE=%c\r\n",ID_CONNETION[0]);

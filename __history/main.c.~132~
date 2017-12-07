@@ -1,13 +1,9 @@
 #include "header/config.h"
-#include <string.h>
-#include <stdlib.h>
-#include <math.h>
 #include <lcd.c>
 #include "header/sound.h"
+#include "header/menu.h"
 #include "header/esp8266.h"
 #include "header/cmd_wifi.h"
-#include "header/menu.h"
-
 /********************************************
 ***         VARIABLES GLOBALS             ***
 /*******************************************/
@@ -79,6 +75,7 @@ void  RDA_isr(void)
                menuActive = getMenuSetup();
                break;
          } // Fin del Switch(menuActive)
+         
       } // End loop while -> true
    } // Fin del main
 

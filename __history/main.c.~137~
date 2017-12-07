@@ -14,7 +14,7 @@
 
 // Menu seleccionado, Inicia en el menuStart(0)
 int menuActive = 0;
-
+int run_command_wifi();
 /********************************************
 *****          INTERRUPCIONES            ****
 se dispara cuando se detectan datos de

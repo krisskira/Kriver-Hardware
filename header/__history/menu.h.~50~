@@ -94,13 +94,6 @@ int getMenuStart(void){
    printf(lcd_putc, "\f%s",optMenuStart[optSelected]);
    showBottonMenu();
    while(!exit){
-      
-      /********************************************
-      *  INVOCA LA FUNCION RUN_COMMAND_WIFI       *
-      *********************************************/
-      run_command_wifi();
-      /********************************************/
-      
       // TECLA SIGUIENTE: hace la navegacion entre las opciones del menu
       if(input(KEY_NEXT)==0)
       { 
@@ -141,14 +134,7 @@ Pausa el programa hasta que se presione OK
 void pressExit(void){
   lcd_gotoxy(12,2);
   printf(lcd_putc, "SALIR");
-  
   while(1){
-      /********************************************
-      *  INVOCA LA FUNCION RUN_COMMAND_WIFI       *
-      *********************************************/
-      run_command_wifi();
-      /********************************************/
-      
      if(input(KEY_OK)==0){
            // Elimina el rebote
            delay_ms(500);
@@ -177,13 +163,6 @@ int getMenuOn(void){
    showBottonMenu();
    
    while(!exit){
-   
-      /********************************************
-      *  INVOCA LA FUNCION RUN_COMMAND_WIFI       *
-      *********************************************/
-      run_command_wifi();
-      /********************************************/
-      
       // TECLA SIGUIENTE: hace la navegacion entre las opciones del menu
       if(input(KEY_NEXT)==0)
       { 
@@ -234,13 +213,6 @@ int getMenuOff(void){
    showBottonMenu();
    
    while(!exit){
-   
-      /********************************************
-      *  INVOCA LA FUNCION RUN_COMMAND_WIFI       *
-      *********************************************/
-      run_command_wifi();
-      /********************************************/
-      
       // TECLA SIGUIENTE: hace la navegacion entre las opciones del menu
       if(input(KEY_NEXT)==0)
       { 
@@ -284,13 +256,6 @@ Despliega el menu principal MENU_SETUP
 ***************************************************/
 
 int getMenuSetup(void){
-
-   /********************************************
-   *  INVOCA LA FUNCION RUN_COMMAND_WIFI       *
-   *********************************************/
-   run_command_wifi();
-   /********************************************/
-   
    int optSelected = 0;
    int exit = 0;
    
@@ -391,13 +356,6 @@ void setMenuModo(void){
   showBottonMenu();
   
   while(!exit){
-  
-      /********************************************
-      *  INVOCA LA FUNCION RUN_COMMAND_WIFI       *
-      *********************************************/
-      run_command_wifi();
-      /********************************************/
-      
      // TECLA SIGUIENTE: hace la navegacion entre las opciones del menu
      if(input(KEY_NEXT)==0)
      { 

@@ -16,24 +16,6 @@
 *   e.g. CMD:CMD_SSID_AND_PASS,DATA:       *
 \******************************************/
 
-/*
-+-----------------------------------------------+ 
-|      ****  CMD:OP,[op][port]:                 |
-|-----------------------------------------------|     
-|> Realiaza Operaciones en el Puerto de Salida  |
-|                                               |
-|   @Sintax:                                    |
-|      CMD:OP,[1|0][0-7]:                       |
-|                                               |
-|   @Param:                                     |
-|      op:    1   -> Encender                   |
-|             0   -> Apagar                     |
-|      port:  0-7 -> No. del puerto.            |
-|                                               |
-|** @e.g. CMD:OP,10:  Enciende el PORT 0        | 
-+-----------------------------------------------|
-*/
-
 /** VARIABLES DATOS GENERALES **/
 char  ID_CONNETION[2];
 char  COMMAND[2];
@@ -172,7 +154,6 @@ void ESP8266_Get_Data(char buffer[]){
 
 int run_command_wifi(void){
    int8 ret = 0, optSelected = 0;
-   char ESP8266_Resp[13] = {'{','"','c','m','d','"',':','"','o','k','"','}'};
    // Si hay un comando y datos listos para ejecutar
    if(flag_Resp_Ready==1){
       
@@ -193,28 +174,17 @@ int run_command_wifi(void){
          }
          
          ret = 1;
-      } // Fin comando OP
-      
-      // Reinicia el buffer
-      flag_Resp_Ready  = 0x00;
-      LEN_DATA_COMMAND = 0x00;
-      
-      // Responde la solicitud
-      delay_ms(20);
-      fprintf(ESP8266, "AT+CIPSEND=%c,12\r\n",ID_CONNETION[0]);
-      delay_ms(50);
-      fprintf(ESP8266, "%s\r\n",ESP8266_Resp);
-      delay_ms(100);
-      fprintf(ESP8266, "AT+CIPCLOSE=%c\r\n",ID_CONNETION[0]);
+      }
       
       // Limpia el buffer
       for(int idx=0;idx<=LEN_DATA_COMMAND;idx++){
+         COMMAND[idx]      ==0x00;
          DATA_COMMAND[idx] ==0x00;
       }
-      COMMAND[0]        ==0x00;
-      COMMAND[1]        ==0x00;
-      ID_CONNETION[0]   ==0x00;
-   } // Fin del if(flag_Resp_Ready)
+   } // Fin comando OP
    
+   // Reinicia el buffer
+   flag_Resp_Ready  = 0x00;
+   LEN_DATA_COMMAND = 0x00;
    return ret;
 }
