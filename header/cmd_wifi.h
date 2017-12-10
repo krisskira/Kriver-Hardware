@@ -1,4 +1,4 @@
-/****************************************************************\
+/*****************************************************************
 * @NOTA:   Funcionamiento de las funciones de Busqueda y         *
 *         comparacion de String.                                 *
 *                                                                *
@@ -8,18 +8,17 @@
 * entonces las cadenas son iguales y almacena en una estructura  *
 * los siguientes caracteres recibidos hasta que encuentre el     *
 * caracter del fin de la cadena (":")                            *
-\****************************************************************/
+******************************************************************
 
-/******************************************\
+********************************************
 *   Formato de comando en la respuesta:    *
 *   INICIO:COMANDO:DATOS:<-(FIN)           *
 *   e.g. CMD:CMD_SSID_AND_PASS,DATA:       *
-\******************************************/
+********************************************
 
-/*
-+-----------------------------------------------+ 
++-----------------------------------------------+
 |      ****  CMD:OP,[op][port]:                 |
-|-----------------------------------------------|     
+|-----------------------------------------------|
 |> Realiaza Operaciones en el Puerto de Salida  |
 |                                               |
 |   @Sintax:                                    |
@@ -30,8 +29,46 @@
 |             0   -> Apagar                     |
 |      port:  0-7 -> No. del puerto.            |
 |                                               |
-|** @e.g. CMD:OP,10:  Enciende el PORT 0        | 
-+-----------------------------------------------|
+|** @e.g. CMD:OP,10:  Enciende el PORT 0        |
++-----------------------------------------------+
+
++-----------------------------------------------+
+|      ****  CMD:NC,"SSID","KEY":               |
+|-----------------------------------------------|
+|> Almacena en la EEPROM el SSID y Key de la    |
+|  Red donde se conectara.                      |
+|                                               |
+|   @Sintax:                                    |
+|      CMD:NC,"SSID","KEY":                     |
+|                                               |
+|   @Param:                                     |
+|      SSID:  "Nombre de la Red."               |
+|                                               |
+|      KEY:   "Clave."                          |
+|                                               |
+|** @e.g. CMD:NC,"myRed","12345678":            |
+| Intentara conectarse y almacenar en la eeprom |
+| al nombre de la red con key pasados como      |
+| parametro.                                    |
++-----------------------------------------------+
+
++-----------------------------------------------+
+|      ****  CMD:NM,[ModeConection]:            |
+|-----------------------------------------------|
+|> Almacena en la EEPROM el modo de la conexion |
+|                                               |
+|                                               |
+|   @Sintax:                                    |
+|      CMD:NM,[1|2|3]:                          |
+|                                               |
+|   @Param:                                     |
+|      ModeConection:  "1" -> STA               |
+|                      "2" -> AP                |
+|                      "3" -> STA/AP            |
+|                                               |
+|** @e.g. CMD:NM,3:                             |
+|                                               |
++-----------------------------------------------+
 */
 
 /** VARIABLES DATOS GENERALES **/
@@ -176,8 +213,10 @@ int run_command_wifi(void){
    // Si hay un comando y datos listos para ejecutar
    if(flag_Resp_Ready==1){
       
-      // Accede a las Salidas 
-      /** CMD:OP,[0|1][0-7]: **/
+      /**************************
+      *** Accede a las Salidas **
+      *** CMD:OP,[0|1][0-7]:   **
+      **************************/
       if(COMMAND[0]=='O' &&
          COMMAND[1]=='P')
       {
@@ -195,25 +234,90 @@ int run_command_wifi(void){
          ret = 1;
       } // Fin comando OP
       
-      // Reinicia el buffer
-      flag_Resp_Ready  = 0x00;
-      LEN_DATA_COMMAND = 0x00;
+      /**********************************
+      *** Configura Conecxion a la Red **
+      *** CMD:NC,"SSID","KEY":         **
+      **********************************/
+      if(COMMAND[0]=='N' &&
+         COMMAND[1]=='C')
+      {
+         for(int idxNC=0;idxNC<=LEN_DATA_COMMAND;idxNC++){
+            write_eeprom(idxNC+1,DATA_COMMAND[idxNC]);
+            delay_ms(10);
+         }
+         
+         // Banderas para fin de dato en EEPROM
+         write_eeprom(idxNC+1,0x0D);
+         delay_ms(10);
+         write_eeprom(idxNC+2,0x0A);
+         delay_ms(10);
+
+         // Responde la solicitud
+         delay_ms(20);
+         fprintf(ESP8266, "AT+CIPSEND=%c,12\r\n",ID_CONNETION[0]);
+         delay_ms(50);
+         fprintf(ESP8266, "%s",ESP8266_Resp);
+         delay_ms(100);
+         fprintf(ESP8266, "AT+CIPCLOSE=%c\r\n",ID_CONNETION[0]);
+         
+         // Libera la conexion actual
+         fprintf(ESP8266, "AT+CWQAP\n\r");
+         delay_ms(1000);
+         
+         // Reinicia el dispositivo
+         reset_cpu();
+         ret = 1;
+      } // Fin comando NC
+      
+      /*********************************
+      *** Cambia el modo de conexion  **
+      *** CMD:NM,[1|2|3]:             **
+      *********************************/
+      if(COMMAND[0]=='N' &&
+         COMMAND[1]=='M')
+      {
+         // Guarda en la EEPROM el modo de conexion
+         write_eeprom(0,DATA_COMMAND[0]);
+         delay_ms(10);
+         
+         // Responde la solicitud
+         delay_ms(20);
+         fprintf(ESP8266, "AT+CIPSEND=%c,12\r\n",ID_CONNETION[0]);
+         delay_ms(50);
+         fprintf(ESP8266, "%s",ESP8266_Resp);
+         delay_ms(100);
+         fprintf(ESP8266, "AT+CIPCLOSE=%c\r\n",ID_CONNETION[0]);
+         
+         // Reinicia el dispositivo
+         reset_cpu();
+         
+         ret = 1;
+      } // Fin comando OP
+      
+      /************************
+      ***   FIN COMANDOS   ****
+      ************************/
       
       // Responde la solicitud
       delay_ms(20);
       fprintf(ESP8266, "AT+CIPSEND=%c,12\r\n",ID_CONNETION[0]);
       delay_ms(50);
-      fprintf(ESP8266, "%s\r\n",ESP8266_Resp);
+      fprintf(ESP8266, "%s",ESP8266_Resp);
       delay_ms(100);
       fprintf(ESP8266, "AT+CIPCLOSE=%c\r\n",ID_CONNETION[0]);
       
       // Limpia el buffer
-      for(int idx=0;idx<=LEN_DATA_COMMAND;idx++){
-         DATA_COMMAND[idx] ==0x00;
+      for(int idxCb=0;idxCb<=LEN_DATA_COMMAND;idxCb++){
+         DATA_COMMAND[idxCb] = 0x00;
       }
-      COMMAND[0]        ==0x00;
-      COMMAND[1]        ==0x00;
-      ID_CONNETION[0]   ==0x00;
+      COMMAND[0]       = 0x00;
+      COMMAND[1]       = 0x00;
+      ID_CONNETION[0]  = 0x00;
+      
+      // Reinicia el buffer
+      flag_Resp_Ready  = 0x00;
+      LEN_DATA_COMMAND = 0x00;
+      
    } // Fin del if(flag_Resp_Ready)
    
    return ret;

@@ -1,0 +1,27 @@
+Modos de Conexion:
+	CMD:NM,1:	Estacion	
+	CMD:NM,3:	AccessPoint	IP:	192.168.4.1
+					SSID:	
+					KEY:	
+
+Conecta a la Red:
+	CMD:NC,"UNE_C06E","00986344200771":	
+
+Desactiva las salidas:
+	CMD:OP,01:
+	CMD:OP,02:
+	CMD:OP,03:
+	CMD:OP,04:
+	CMD:OP,05:
+	CMD:OP,06:
+	CMD:OP,07:
+
+Activa las Salidas:
+	CMD:OP,10:
+	CMD:OP,11:
+	CMD:OP,12:
+	CMD:OP,13:
+	CMD:OP,14:
+	CMD:OP,15:
+	CMD:OP,16:
+	CMD:OP,17:
