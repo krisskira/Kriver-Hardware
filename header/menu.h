@@ -8,12 +8,14 @@
 #define MENU_SETUP  3
 
   /** DIRECTIVAS SUBMENU SETUP**/
-  #define OPT_SHOW_IP     0
-  #define OPT_SHOW_SSID   1
-  #define OPT_SHOW_KEY    2
-  #define OPT_MODE_AP     3
-  #define OPT_BACKLIGH    4
-  #define OPT_EXIT        5
+  #define OPT_SHOW_STA_IP     0
+  #define OPT_SHOW_STA_SSID   1
+  #define OPT_SHOW_AP_SSID    2
+  #define OPT_SHOW_AP_KEY     3
+  #define OPT_SHOW_AP_IP      4
+  #define OPT_MODE_AP         5
+  #define OPT_BACKLIGH        6
+  #define OPT_EXIT            7
 
     /** DIRECTIVAS SUBMENU CONF_ACCESS_RED **/
     #define MODE_CLIENT     0
@@ -51,16 +53,18 @@ const char  optMenuOff[10][16]     =  {{"Off -> Salida 1"},
                                       };
 
 //Contiene las opciones del menu Configuracion [pos][lenString]
-const char  optMenuSetup[7][17]    =  { {"VER IP          "},
-                                        {"VER SSID        "},
-                                        {"VER KEY         "},
+const char  optMenuSetup[9][17]    =  { {"ESTACION IP     "},
+                                        {"ESTACION SSID   "},
+                                        {"AP SSID         "},
+                                        {"AP KEY          "},
+                                        {"AP IP           "},
                                         {"Conf Accesso Red"},
                                         {"On/Off Backlight"},
                                         {"SALIR           "}
                                       };
 
 //Contiene las opciones del subMenu CONF_ACCESS_RED [pos][lenString]
-const char  optMenuModo[5][14]    =   { {"Estacion     "},
+const char  optMenuModo[5][14]    =   { {"Estación     "},
                                         {"Access Point "},
                                         {"Estacion + AP"},
                                         {"SALIR        "}
@@ -80,7 +84,7 @@ void  setMenuModo(void);
 int8 countOptMenuStart  = 2;
 int8 countOptMenuOn     = 8;
 int8 countOptMenuOff    = 8;
-int8 countOptMenuSetup  = 5;
+int8 countOptMenuSetup  = 7;
 // Numero de opciones SubMenu Modo
 int8 countOptMenuModo = 3;
 
@@ -347,23 +351,33 @@ Dispacher function MENU_SETUP
 ***************************************************/
 
 void executeSetup(int optSelect){
+  
   switch(optSelect){
      
-     case OPT_SHOW_IP:
-        printf(lcd_putc, "\f192.168.0.1");
-        pressExit();
+     case OPT_SHOW_STA_IP:
+        printf(lcd_putc, "\fOPT_SHOW_STA_IP");
         break;
-     case OPT_SHOW_SSID:
-        printf(lcd_putc, "\fC0G3_UNE");
-        pressExit();         
+        
+     case OPT_SHOW_STA_SSID:
+        printf(lcd_putc, "\fOPT_SHOW_STA_SSID");
         break;
-     case OPT_SHOW_KEY:
-        printf(lcd_putc, "\f1234Az!");
-        pressExit();
+        
+     case OPT_SHOW_AP_SSID:
+        printf(lcd_putc, "\fOPT_SHOW_AP_SSID");
         break;
+        
+     case OPT_SHOW_AP_KEY:
+        printf(lcd_putc, "\fOPT_SHOW_AP_KEY");
+        break;
+        
+     case OPT_SHOW_AP_IP:
+        printf(lcd_putc, "\fOPT_SHOW_AP_IP");
+        break;
+        
      case OPT_MODE_AP:
         setMenuModo();
         break;
+        
      case OPT_BACKLIGH:
         output_toggle(LCD_LIGHT_PIN);
         if(input_state(LCD_LIGHT_PIN)==1){
@@ -371,13 +385,18 @@ void executeSetup(int optSelect){
         }else{
            printf(lcd_putc, "\fBacklight Off");
         }
-        pressExit();
         break;
+        
      case OPT_EXIT:
         break;
+        
+  }
+  
+  if(optSelect!=OPT_EXIT){
+   pressExit();
   }
 }
-
+  
 /***************************************************
 Despliega el menu MODE
 ***************************************************/
@@ -430,14 +449,20 @@ void setMenuModo(void){
            switch(optSelected){
               case MODE_CLIENT:
                  fprintf(ESP8266,"AT+CWMODE_DEF=1\r\n");
+                 write_eeprom(0,'1');
+                 delay_ms(10);
                  printf(lcd_putc, "\fConfig Cliente");
                  break;
               case MODE_AP:
                  fprintf(ESP8266,"AT+CWMODE_DEF=2\r\n");
+                 write_eeprom(0,'2');
+                 delay_ms(10);
                  printf(lcd_putc, "\fConfig AP");
                  break;
               case MODE_CLIENT_AP:
                  fprintf(ESP8266,"AT+CWMODE_DEF=3\r\n");
+                 write_eeprom(0,'3');
+                 delay_ms(10);
                  printf(lcd_putc, "\fConfig ClienteAP");
                  break;
            }

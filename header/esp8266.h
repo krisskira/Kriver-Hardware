@@ -10,20 +10,11 @@
 * caracter del fin de la cadena (":")                            *
 \****************************************************************/
 
-#define  CMD_MODE    1
-#define  CMD_DO_CONN 2
-#define  CMD_CONN    3
-
-/* Constantes de Captura Respuestas */
-//const char ESP8266_RESP_START_STAIP[7]    ={'S','T','A','I','P',',','"'};
-//const char ESP8266_RESP_STOP_STAIP[3]     ={'"',0x0D,0x0A};
-
-/* Declaracion de Funciones de comandos */
-void reset(void);
-int  setupMode(char modeVal);
-int  doConnected();
-int  setupConn(char SSIDAndKey[]);
-int  setupServer(void);
+#define  CMD_MODE             1
+#define  CMD_DO_CONN          2
+#define  CMD_CONN             3
+#define  READY_RESPONSE_WIFI  4
+//#define  END_CMD_GET_IP       2
 
 /* Declaracion de Funciones de respuestas */
 void waitRespOK(int buffer);
@@ -31,12 +22,11 @@ void waitRespNoAp(int buffer);
 void waitRespCWJAP(int buffer);
 void waitRespConnected(int buffer);
 void waitRespFail(int buffer);
-void waitRespError(int buffer);
 int  waitResp(void);
+void waitRespGetIP(char buffer);
 
 /** BANDERAS MODOS DE FUNCIONAMIENTO **/
-int CMD_RUN    = 0x00;
-int READY_RESP = 0x00;
+int CMD_RUN             = 0x00;
 
 /* Flag usadas para conocer si la respuesta del comando ejecutado esta completo */
 //int flag_Ready_Resp         = 0;
@@ -62,11 +52,10 @@ char  SSIDAndKey[50];
 /* Inicializa el modulo*/
 void esp8266_init()
 {
-   char  modeWithoutConnect = '3';
    int   resp;
   
    // @TODO: Usar este comando solo en produccion
-   /**reset();
+   /**fprintf(ESP8266, "AT+RST\r\n");
    delay_ms(2000);**/
    
    // Lee de la EEPROM el modo de conexion
@@ -74,30 +63,26 @@ void esp8266_init()
    modeStar = read_eeprom(0x00);
    delay_ms(10);
    switch(modeStar){
-      
-      case 1:
       case '1':
-         modeStar = '1';
-         break;
-      
-      case 2:
       case '2':
-         modeStar = '2';
-         break;
-      
-      case 3:
       case '3':
+         break;
       default:
          write_eeprom(0x00,'3');
          delay_ms(10);
          modeStar = '3';
          break;
    }
-  
-   CMD_RUN =  setupMode(modeStar);
-   waitResp();
-
-   CMD_RUN =  doConnected();
+   // Lanza el comando para configurar el modo de conexion
+   fprintf(ESP8266, "AT+CWMODE=%c\r\n",modeStar);
+   CMD_RUN =  CMD_MODE;
+   
+   // Espera por la respuesta OK del modulo
+   delay_ms(50);
+   
+   // Lanza el comando para verificar si elmodulo ya se encuentra conectado
+   fprintf(ESP8266, "AT+CWJAP?\r\n");
+   CMD_RUN =  CMD_DO_CONN;
    
    resp = waitResp();
 
@@ -121,20 +106,26 @@ void esp8266_init()
       }
       // Lanza el comando para conectarce a la red
       if(resp!=5){
-         CMD_RUN = setupConn(SSIDAndKey);
+         fprintf(ESP8266, "AT+CWJAP=%s",SSIDAndKey);     /** AT+CWJAP="UNE_C06E","00986344200771" **/
+         CMD_RUN = CMD_CONN;
          resp    = waitResp();
       }
 
       // Si no se establece una conexion se configura en modo AP
       if(resp==4 || resp==5){
-         CMD_RUN =  setupMode(modeWithoutConnect);
+         fprintf(ESP8266, "AT+CWMODE=%c\r\n","3");
+         CMD_RUN = CMD_MODE;
          waitResp();
       }
    } // Fin del if(doConnect)
-  
-   /** @TODO: Rutina que se encarga de recibir datos desde ESP8266 **/
-   setupServer();
-   READY_RESP = 1;
+   
+   // Configura el modulo como server
+   fprintf(ESP8266, "AT+CIPMUX=1\r\n");
+   delay_ms(1000);
+   fprintf(ESP8266, "AT+CIPSERVER=1,80\r\n");
+   delay_ms(1000);
+   
+   CMD_RUN = READY_RESPONSE_WIFI;
 }
 
 /********************************************************
@@ -159,66 +150,19 @@ void ESP8266_PROCCESS_RESPONSE(int buffer){
             case CMD_CONN:
                   waitRespConnected(buffer);
                   waitRespFail(buffer);
-                  waitRespError(buffer);
                   waitRespOK(buffer);
                   break;
-            
+                  
+            case READY_RESPONSE_WIFI:
             default:
+                  ESP8266_Get_IPD(buffer);
+                  ESP8266_Get_CMD(buffer);
+                  ESP8266_Get_Data(buffer);
+            
                   CMD_RUN = 0x00;
                   break;
       } // Fin del switch (CMD_RUN)
 } // Fin Funcion ESP8266_PROCCESS_RESPONSE()
-
-/********************************************************
-Reinicia el modulo ESP8266
-*********************************************************/
-void reset(void)
-{
-   fprintf(ESP8266, "AT+RST\r\n");
-} // fin de la funcion reset()
-
-/********************************************************
- *  Configura el modo de funcionamiento
- *  1-Cliente, 2-AccessPoint, 3-AP+STA 
-*********************************************************/
-int setupMode(char modeVal)
-{
-   fprintf(ESP8266, "AT+CWMODE=%c\r\n",modeVal );
-   return CMD_MODE;
-} // fin de la funcion setupMode()
-
-/********************************************************
- *  lanza el comando para verificar el estado de la
- *  conexion a la red wifi 
-*********************************************************/
-int doConnected()
-{
-   fprintf(ESP8266, "AT+CWJAP?\r\n");
-   return CMD_DO_CONN;
-}
-
-/********************************************************
- *  Conecta a la red wifi
- *  AT+CWJAP="UNE_C06E","00986344200771"
-*********************************************************/
-int setupConn(char SSID_And_Key[])
-{
-   fprintf(ESP8266, "AT+CWJAP=%s",SSID_And_Key );
-   return CMD_CONN;
-} // fin de la funcion setupConn()
-
-/********************************************************
- * Activa el modo multiconexion y modo servidor por el_
- * Puerto IP:80
-*********************************************************/
-int setupServer(void)
-{
-   fprintf(ESP8266, "AT+CIPMUX=1\r\n");
-   delay_ms(1000);
-   fprintf(ESP8266, "AT+CIPSERVER=1,80\r\n");
-   delay_ms(1000);
-   return CMD_CONN;
-} // fin de la funcion setupConn()
 
 /*********************************************************************
  *    Bloquea el programa en un while(1) esperando la interrupcion
@@ -246,13 +190,13 @@ int waitResp(void)
          ret = 2;
 
       } else if (flag_Resp_Connected==1){
-      // Comando setupConn Conexion establecida
+      // Comando Conexion establecida
          flag_Pos_Resp_Connected = 0;
          flag_Resp_Connected     = 0;
          ret = 3;
 
       } else if(flag_Resp_Fail==1){
-      // Comando setupConn Fallo al intentar la Conexion
+      // Comando Conexion Fallo al intentar la Conexion
       // Esta respuesta da como resultado un ERROR entonces
       // Se rompe el ciclo de forma manual flag_Resp_Valid=1
          flag_Pos_Resp_Fail   = 0;
@@ -371,7 +315,7 @@ void waitRespCWJAP(int buffer)
 } // Fin de la funcion waitRespCWJAP()
 
 /********************************************************
- *    Espera por la respuesta del comando "setupConn"
+ *    Espera por la respuesta del comando Conexion
  *    ESP8266_RESP_Connected (Conectado)
 *********************************************************/
 void waitRespConnected(int buffer)
@@ -394,7 +338,7 @@ void waitRespConnected(int buffer)
 } // Fin de la funcion waitRespConnected()
 
 /********************************************************
- *    Espera por la respuesta del comando "setupConn"
+ *    Espera por la respuesta del comando Conexion
  *    ESP8266_RESP_FAIL (Fallo al intentar conectarse)
 *********************************************************/
 void waitRespFail(int buffer)
@@ -416,26 +360,61 @@ void waitRespFail(int buffer)
    }
 } // Fin de la funcion waitRespFail()
 
-/********************************************************
- *    Espera por la respuesta "ERROR"
- *    ESP8266_RESP_ERROR (Fallo al lanzar el comando)
-*********************************************************/
-void waitRespError(int buffer)
+/*********************************************************
+ *    Espera por la respuesta del comando enviado desde
+ *    el menu.
+ *********************************************************/
+/*int waitRespCmdFromMenu(void)
 {
-   const char ESP8266_RESP_ERROR[5] ={'E', 'R', 'R', 'O', 'R'};
-   int lenResp = 5;
- 
-   if(buffer == ESP8266_RESP_ERROR[flag_Pos_Resp_Error] )
-   {
-      flag_Pos_Resp_Error++;
+   int ret=0;
+   // Si la bandera flag_Resp_Valid = 1 el_
+   // fin del comando ESP8266 es OK 
+   while(flag_Resp_Valid==0){
+   
+      if(ESP8266_CMD_FROM_MENU==END_CMD_GET_IP){
+         flag_Pos_Resp_GetIP  = 0;
+         flag_Resp_GetIP      = 0;
+         ret = 1;
+      } 
       
-      if(flag_Pos_Resp_Error==lenResp){
-         // Respuesta es valida
-         flag_Resp_Error   = 1;
+   }
+   
+   return ret;
+}*/
+/*********************************************************
+ *    Espera por la respuesta del comando enviado desde
+ *    el menu.
+ *********************************************************/
+/*void waitRespGetIP(char buffer)
+{
+
+   const char ESP8266_RESP_GET_IP[7] ={'+', 'C', 'W', 'J', 'A', 'P', ':'};
+   int lenResp = 7;
+ 
+   if(flag_Resp_GetIP == 1){
+      if(buffer!=','){
+         DATA_CMD_GET_IP[flag_Pos_Resp_GetIP] = buffer;
+         flag_Pos_Resp_GetIP++;
+      }else{        
+         flag_Pos_Resp_GetIP = 0x00;
+         flag_Resp_GetIP     = 0x00;
+         
+         // Reinicia la bandera para liberar la captura de datos
+         // en la interrupcion
+         ESP8266_CMD_FROM_MENU=END_CMD_GET_IP;
       }
    }else{
-      // Reinicia el contador
-      flag_Pos_Resp_Error  = 0;
-   }
-} // Fin de la funcion waitRespError()
-
+      if(buffer == ESP8266_RESP_GET_IP[flag_Pos_Resp_GetIP] )
+      {
+         flag_Pos_Resp_GetIP++;
+         
+         if(flag_Pos_Resp_GetIP==lenResp){
+            // Respuesta es valida
+            flag_Resp_GetIP   = 1;
+         }
+      }else{
+         // Reinicia el contador
+         flag_Pos_Resp_GetIP  = 0;
+      }
+   }  
+}*/

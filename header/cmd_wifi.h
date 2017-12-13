@@ -253,11 +253,11 @@ int run_command_wifi(void){
          delay_ms(10);
 
          // Responde la solicitud
-         delay_ms(20);
+         //delay_ms(30);
          fprintf(ESP8266, "AT+CIPSEND=%c,12\r\n",ID_CONNETION[0]);
-         delay_ms(50);
+         delay_ms(60);
          fprintf(ESP8266, "%s",ESP8266_Resp);
-         delay_ms(100);
+         delay_ms(110);
          fprintf(ESP8266, "AT+CIPCLOSE=%c\r\n",ID_CONNETION[0]);
          
          // Libera la conexion actual

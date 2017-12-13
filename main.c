@@ -4,10 +4,10 @@
 #include <math.h>
 #include <lcd.c>
 #include "header/sound.h"
-#include "header/esp8266.h"
 #include "header/cmd_wifi.h"
+#include "header/esp8266.h"
 #include "header/menu.h"
-
+#ZERO_RAM
 /********************************************
 ***         VARIABLES GLOBALS             ***
 /*******************************************/
@@ -24,13 +24,7 @@ llegada al puerto serie portWF
 void  RDA_isr(void) 
 {
    int buffer = getc();
-   if(READY_RESP==0){
-      ESP8266_PROCCESS_RESPONSE(buffer);
-   }else{
-      ESP8266_Get_IPD(buffer);
-      ESP8266_Get_CMD(buffer);
-      ESP8266_Get_Data(buffer);
-   }
+   ESP8266_PROCCESS_RESPONSE(buffer);
 }
 /********************************************
 ***                INIT                   ***
@@ -55,6 +49,7 @@ void  RDA_isr(void)
 
       // Inicializa la LCD
       lcd_init();
+      printf(lcd_putc, "\fConfigurando...");
       
       // Enciende el backligh del display
       output_high(LCD_LIGHT_PIN);

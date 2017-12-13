@@ -1,20 +1,20 @@
 
-ROM used:   5737/8192 (70%)
-            5911/8192 (72%) including unused fragments
+ROM used:   5895/8192 (72%)
+            5993/8192 (73%) including unused fragments
 
             0.9 Average locations per line
-            4.8 Average locations per statement
+            5.0 Average locations per statement
 
-RAM used:   173/368 (47%) at main() level
-            210/368 (57%) worst case
+RAM used:   172/368 (47%) at main() level
+            211/368 (57%) worst case
 
 Stack used: 8 worst case (5 in main + 3 for interrupts)
 Stack size: 8
 
 Lines Stmts  %   Files
 ----- ----- ---  -----
-   89    26   2  main.c
-   51     0   0  header\config.h
+   84    21   2  main.c
+   49     0   0  header\config.h
   768     0   0  C:\Program Files (x86)\PICC\Devices\16F887.h
   423     0   0  C:\Program Files (x86)\PICC\Drivers\string.h
    32     0   0  C:\Program Files (x86)\PICC\Drivers\stddef.h
@@ -23,122 +23,119 @@ Lines Stmts  %   Files
  2229   257  22  C:\Program Files (x86)\PICC\Drivers\math.h
   456   100   8  C:\Program Files (x86)\PICC\Drivers\lcd.c
   101    20   2  header\sound.h
-  442   149  13  header\esp8266.h
-  325   112   9  header\cmd_wifi.h
-  452   167  14  header\menu.h
+  325   111   9  header\cmd_wifi.h
+  422   135  11  header\esp8266.h
+  477   176  15  header\menu.h
 ----- -----
- 6747  1190 Total
+ 6745  1179 Total
 
 Page ROM  %  RAM   Vol Diff  Functions:
 ---- --- --- ---   --- ----  ----------
 0     20   0    1             @delay_ms1
  Inline         1             @delay_us1
 1     39   1    2             @MUL88
- Inline        13             @MUL3232
+ Inline        13  1542 12.4  @MUL3232
  Inline         3   760  4.5  lcd_read_byte
  Inline         2   262  3.7  lcd_read_nibble
  Inline         1   399  2.4  lcd_send_nibble
 0    338   6    3   415  3.7  lcd_send_byte
-0    206   4    6   852  6.2  lcd_init
+0    212   4    6   852  6.2  lcd_init
  Inline         4   208  6.3  lcd_gotoxy
 1    102   2    1   354  4.7  lcd_putc
-1    339   6   15   631  8.3  Sound
+1    339   6   15   624  8.9  Sound
  Inline        13             @DIV3232
-1    330   6    5  1280  8.9  esp8266_init
- Inline         1   323  4.2  ESP8266_PROCCESS_RESPONSE
-0      5   0    0   298  4.1  @const1120
-1     82   1    4   423  4.2  @PSTRINGC7_9600_62_63
- Inline         1    59  1.8  setupMode
-0      8   0    0             @const1122
-0     86   1    5    64  2.1  @PSTRINGCN7_9600_62_63
- Inline         0    39  1.4  doConnected
-0      6   0    0    39  1.4  @const1125
- Inline         2    64  2.1  setupConn
-0      6   0    0    64  2.1  @const1126
- Inline         2   423  4.2  @PSTRINGR_9600_62_63
- Inline         1   112  2.0  setupServer
-0      7   0    0   423  4.2  @const1128
-0     10   0    0   112  2.0  @const1129
-0     62   1    1   774  4.3  waitResp
-0      8   0    0             @const1131
-0     29   1    2   320  4.8  waitRespOK
-0      9   0    0   423  4.2  @const1135
- Inline         2   272  4.8  waitRespNoAp
-0     11   0    0   423  4.2  @const1139
- Inline         2   297  4.8  waitRespCWJAP
-0     13   0    0   423  4.2  @const1143
- Inline         2   322  4.8  waitRespConnected
-0      8   0    0   423  4.2  @const1147
- Inline         2   259  4.8  waitRespFail
-0      9   0    0   423  4.2  @const1151
- Inline         2   272  4.8  waitRespError
-0      9   0    0   423  4.2  @const1169
+0      9   0    0  1431  8.8  @const1091
  Inline         5   514  5.4  ESP8266_Get_IPD
-0      8   0    0   423  4.2  @const1176
+0      8   0    0             @const1098
  Inline         5   528  5.4  ESP8266_Get_CMD
  Inline         4   313  5.1  ESP8266_Get_Data
-1    671  12   17  3024  8.8  run_command_wifi
-0     34   1    6   423  4.2  @WRITEBITA
-0     10   0    0             @const1192
-0      9   0    0             @const1194
-0      6   0    0             @const1195
-0     10   0    0             @const1196
-0      9   0    0   423  4.2  @const1198
-0     10   0    0   423  4.2  @const1199
-0      9   0    0   631  6.7  @const1201
-0     64   1    0   631  6.7  @const1203
-0    150   3    0   423  4.2  @const1207
-0    160   3    0   423  4.2  @const1211
-0    119   2    0   423  4.2  @const1215
-0     70   1    0   167  3.3  @const1219
-1    191   3    3   631  6.7  getMenuStart
-1     41   1    2    57  1.4  @PSTRINGC_1055
+1    634  11   17  2964  9.2  run_command_wifi
+1     34   1    6             @WRITEBITA
+0     10   0    0             @const1114
+1     86   1    5             @PSTRINGCN7_9600_62_63
+ Inline         2   774  4.3  @PSTRINGR_9600_62_63
+0      9   0    0   394  4.2  @const1119
+0      6   0    0   774  4.3  @const1120
+1     82   1    4   470  4.6  @PSTRINGC7_9600_62_63
+0     10   0    0   320  4.8  @const1122
+0      9   0    0   272  4.8  @const1124
+0     10   0    0   470  4.6  @const1125
+0      9   0    0   470  4.6  @const1127
+1    317   5    4  1431  8.8  esp8266_init
+0      8   0    0   163  3.5  @const1159
+0      6   0    0   259  4.8  @const1160
+0      6   0    0   470  4.6  @const1162
+0      8   0    0   514  5.4  @const1163
+0      7   0    0   528  5.4  @const1165
+0     10   0    0   313  5.1  @const1166
+ Inline         1   394  4.2  ESP8266_PROCCESS_RESPONSE
+0     50   1    1   774  4.3  waitResp
+0      8   0    0   470  4.6  @const1170
+0     37   1    2   320  4.8  waitRespOK
+0      9   0    0   470  4.6  @const1174
+ Inline         2   272  4.8  waitRespNoAp
+0     11   0    0  2993  8.7  @const1178
+ Inline         2   297  4.8  waitRespCWJAP
+0     13   0    0             @const1182
+ Inline         2   322  4.8  waitRespConnected
+0      8   0    0             @const1186
+ Inline         2   288  2.9  waitRespFail
+0     64   1    0             @const1190
+0    150   3    0             @const1194
+0    160   3    0             @const1198
+0    153   3    0             @const1202
+0     70   1    0             @const1206
+1    206   3    3   631  6.7  getMenuStart
+1     41   1    2             @PSTRINGC_1055
  Inline         1   167  3.3  pressExit
-0      3   0    0   423  4.2  @const1242
-1     80   1    4   423  4.2  @PSTRINGC7_1055
+0      3   0    0   167  3.3  @const1229
+1     80   1    4   631  6.7  @PSTRINGC7_1055
  Inline         0    57  1.4  showBottonMenu
-0      9   0    0   423  4.2  @const1244
-2    275   5    4   713  6.7  getMenuOn
-2    260   5    4   713  6.7  getMenuOff
-2    321   6    1   799  6.8  getMenuSetup
-2    783  14    2   542  5.1  executeSetup
-0      7   0    0  1173  8.3  @const1258
-0      5   0    0  1173  8.3  @const1259
-0      5   0    0   423  4.2  @const1260
-0      7   0    0   423  4.2  @const1261
-0      8   0    0   423  4.2  @const1262
-2     10   0    0             @goto13033
- Inline         3  1173  8.3  setMenuModo
-0      9   0    0   423  4.2  @const1268
-0      8   0    0   149  3.1  @const1269
-0      9   0    0   149  3.1  @const1270
-0      6   0    0   423  4.2  @const1271
-0      9   0    0   423  4.2  @const1272
-0      9   0    0   423  4.2  @const1273
-0    354   6    1   149  3.1  RDA_isr
-2    158   3    1   423  4.2  MAIN
-2      8   0    0             @goto13122
- Inline         0             @cinit1
+0      9   0    0    57  1.4  @const1231
+2    302   5    4   713  6.7  getMenuOn
+2    283   5    4   713  6.7  getMenuOff
+2    346   6    1   799  6.8  getMenuSetup
+2    724  12    2   674  5.6  executeSetup
+0      9   0    0   892  6.3  @const1245
+0     10   0    0   799  6.8  @const1246
+0      9   0    0   470  4.6  @const1247
+0      9   0    0   470  4.6  @const1248
+0      8   0    0             @const1249
+0      7   0    0   892  6.3  @const1250
+0      8   0    0             @const1251
+2     12   0    0  1415  8.3  @goto12995
+ Inline         3  1415  8.3  setMenuModo
+0      9   0    0  1415  8.3  @const1257
+0      8   0    0  1415  8.3  @const1258
+0      9   0    0             @const1259
+0      6   0    0   470  4.6  @const1260
+0      9   0    0   470  4.6  @const1261
+0      9   0    0             @const1262
+0    398   7    1    45  1.7  RDA_isr
+2    222   4    1   470  4.6  MAIN
+0      9   0    0             @const1270
+2      8   0    0    45  1.7  @goto13086
+ Inline         0   470  4.6  @cinit1
 
 Program metrics:
-    Functions               74
-    Statements              1190
-    Comments                1548
-    Volume (V)              68931
-    Difficulty (D)          333.8
-    Effort to implement (E) 23011690
-    Time to implement (T)   355 hours, 7 minutes
-    Est Delivered Bugs (B)  27
-    Cyclomatic Complexity   228
-    Maintainability (MI)    126
+    Functions               64
+    Statements              1179
+    Comments                1578
+    Volume (V)              79584
+    Difficulty (D)          339.6
+    Effort to implement (E) 27026777
+    Time to implement (T)   417 hours, 5 minutes
+    Est Delivered Bugs (B)  30
+    Cyclomatic Complexity   250
+    Maintainability (MI)    135
 
  Segment     Used  Free
 -----------  ----  ----
 00000-00003     4  0  
 00004-00050    77  0  
-00051-007FF  1966  1  
-00800-00FFF  1875  173  
-01000-017FF  1815  233  
+00051-007FF  1957  10  
+00800-00FFF  1960  88  
+01000-017FF  1897  151  
 01800-01FFF     0  2048  
 
 
