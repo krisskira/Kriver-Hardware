@@ -46,7 +46,7 @@ void  RDA_isr(void)
       set_tris_b(0b00110010);
       enable_interrupts(INT_RDA); 
       enable_interrupts(GLOBAL); 
-
+      
       // Inicializa la LCD
       lcd_init();
       printf(lcd_putc, "\fConfigurando...");

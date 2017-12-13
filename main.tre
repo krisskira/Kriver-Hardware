@@ -1,65 +1,74 @@
 ÀÄmain
-   ÃÄMAIN  2/222  Ram=1
+   ÃÄMAIN  2/1008  Ram=1
    ³  ÃÄ@cinit1  (Inline)  Ram=0
    ³  ÃÄ@delay_ms1  0/20  Ram=1
-   ³  ÃÄlcd_init  0/212  Ram=6
+   ³  ÃÄlcd_init  0/86  Ram=6
    ³  ³  ÃÄ@delay_ms1  0/20  Ram=1
-   ³  ³  ÃÄlcd_send_nibble  (Inline)  Ram=1
+   ³  ³  ÃÄlcd_send_nibble  0/64  Ram=1
    ³  ³  ÃÄ@delay_ms1  0/20  Ram=1
-   ³  ³  ÃÄlcd_send_nibble  (Inline)  Ram=1
+   ³  ³  ÃÄlcd_send_nibble  0/64  Ram=1
    ³  ³  ÃÄ@delay_ms1  0/20  Ram=1
-   ³  ³  ÀÄlcd_send_byte  0/338  Ram=3
+   ³  ³  ÀÄlcd_send_byte  0/217  Ram=3
    ³  ³     ÃÄlcd_read_byte  (Inline)  Ram=3
    ³  ³     ³  ÃÄlcd_read_nibble  (Inline)  Ram=2
    ³  ³     ³  ÀÄlcd_read_nibble  (Inline)  Ram=2
-   ³  ³     ÃÄlcd_send_nibble  (Inline)  Ram=1
-   ³  ³     ÀÄlcd_send_nibble  (Inline)  Ram=1
-   ³  ÃÄ@PSTRINGC7_1055  1/80  Ram=4
-   ³  ³  ÃÄlcd_putc  1/102  Ram=1
+   ³  ³     ÃÄlcd_send_nibble  0/64  Ram=1
+   ³  ³     ÀÄlcd_send_nibble  0/64  Ram=1
+   ³  ÃÄ@PSTRINGC7_1055  1/84  Ram=4
+   ³  ³  ÃÄlcd_putc  0/90  Ram=1
    ³  ³  ³  ÃÄlcd_gotoxy  (Inline)  Ram=4
-   ³  ³  ³  ³  ÀÄlcd_send_byte  0/338  Ram=3
+   ³  ³  ³  ³  ÀÄlcd_send_byte  0/217  Ram=3
    ³  ³  ³  ³     ÀÄ*
-   ³  ³  ³  ÃÄlcd_send_byte  0/338  Ram=3
+   ³  ³  ³  ÃÄlcd_send_byte  0/217  Ram=3
    ³  ³  ³  ³  ÀÄ*
    ³  ³  ³  ÃÄ@delay_ms1  0/20  Ram=1
    ³  ³  ³  ÃÄlcd_gotoxy  (Inline)  Ram=4
    ³  ³  ³  ³  ÀÄ*
-   ³  ³  ³  ÃÄlcd_send_byte  0/338  Ram=3
+   ³  ³  ³  ÃÄlcd_send_byte  0/217  Ram=3
    ³  ³  ³  ³  ÀÄ*
-   ³  ³  ³  ÀÄlcd_send_byte  0/338  Ram=3
+   ³  ³  ³  ÀÄlcd_send_byte  0/217  Ram=3
    ³  ³  ³     ÀÄ*
-   ³  ³  ÀÄlcd_putc  1/102  Ram=1
+   ³  ³  ÀÄlcd_putc  0/90  Ram=1
    ³  ³     ÀÄ*
-   ³  ÃÄesp8266_init  1/317  Ram=4
+   ³  ÃÄesp8266_init  1/281  Ram=4
    ³  ³  ÃÄ@delay_ms1  0/20  Ram=1
    ³  ³  ÃÄ@delay_ms1  0/20  Ram=1
    ³  ³  ÃÄ@PSTRINGCN7_9600_62_63  1/86  Ram=5
    ³  ³  ÃÄ@delay_ms1  0/20  Ram=1
    ³  ³  ÃÄ@PSTRINGC7_9600_62_63  1/82  Ram=4
-   ³  ³  ÃÄwaitResp  0/50  Ram=1
+   ³  ³  ÃÄwaitResp  1/184  Ram=4
+   ³  ³  ³  ÃÄ@MUL88  0/41  Ram=2
+   ³  ³  ³  ÃÄ@MUL88  0/41  Ram=2
+   ³  ³  ³  ÃÄ@MUL88  0/41  Ram=2
+   ³  ³  ³  ÃÄ@MUL88  0/41  Ram=2
+   ³  ³  ³  ÃÄ@MUL88  0/41  Ram=2
+   ³  ³  ³  ÃÄ@MUL88  0/41  Ram=2
+   ³  ³  ³  ÀÄ@delay_ms1  0/20  Ram=1
    ³  ³  ÃÄ@delay_ms1  0/20  Ram=1
    ³  ³  ÃÄ@PSTRINGCN7_9600_62_63  1/86  Ram=5
    ³  ³  ÃÄ@PSTRINGR_9600_62_63  (Inline)  Ram=2
-   ³  ³  ÃÄwaitResp  0/50  Ram=1
+   ³  ³  ÃÄwaitResp  1/184  Ram=4
+   ³  ³  ³  ÀÄ*
    ³  ³  ÃÄ@PSTRINGCN7_9600_62_63  1/86  Ram=5
-   ³  ³  ÃÄwaitResp  0/50  Ram=1
+   ³  ³  ÃÄwaitResp  1/184  Ram=4
+   ³  ³  ³  ÀÄ*
    ³  ³  ÃÄ@PSTRINGC7_9600_62_63  1/82  Ram=4
    ³  ³  ÃÄ@delay_ms1  0/20  Ram=1
    ³  ³  ÃÄ@PSTRINGC7_9600_62_63  1/82  Ram=4
    ³  ³  ÀÄ@delay_ms1  0/20  Ram=1
-   ³  ÃÄ@goto13086  2/8  Ram=0
-   ³  ÃÄgetMenuStart  1/206  Ram=3
-   ³  ³  ÃÄlcd_putc  1/102  Ram=1
+   ³  ÃÄ@goto13004  2/8  Ram=0
+   ³  ÃÄgetMenuStart  (Inline)  Ram=3
+   ³  ³  ÃÄlcd_putc  0/90  Ram=1
    ³  ³  ³  ÀÄ*
-   ³  ³  ÃÄ@PSTRINGC_1055  1/41  Ram=2
-   ³  ³  ³  ÀÄlcd_putc  1/102  Ram=1
+   ³  ³  ÃÄ@PSTRINGC_1055  0/41  Ram=2
+   ³  ³  ³  ÀÄlcd_putc  0/90  Ram=1
    ³  ³  ³     ÀÄ*
-   ³  ³  ÃÄshowBottonMenu  (Inline)  Ram=0
+   ³  ³  ÃÄshowBottonMenu  1/33  Ram=0
    ³  ³  ³  ÃÄlcd_gotoxy  (Inline)  Ram=4
    ³  ³  ³  ³  ÀÄ*
-   ³  ³  ³  ÀÄ@PSTRINGC7_1055  1/80  Ram=4
+   ³  ³  ³  ÀÄ@PSTRINGC7_1055  1/84  Ram=4
    ³  ³  ³     ÀÄ*
-   ³  ³  ÃÄrun_command_wifi  1/634  Ram=17
+   ³  ³  ÃÄrun_command_wifi  1/646  Ram=17
    ³  ³  ³  ÃÄ@WRITEBITA  1/34  Ram=6
    ³  ³  ³  ÃÄ@WRITEBITA  1/34  Ram=6
    ³  ³  ³  ÃÄ@WRITEBITA  1/34  Ram=6
@@ -98,176 +107,120 @@
    ³  ³  ³  ÃÄ@delay_us1  (Inline)  Ram=1
    ³  ³  ³  ÃÄ@delay_us1  (Inline)  Ram=1
    ³  ³  ³  ÀÄ@delay_us1  (Inline)  Ram=1
-   ³  ³  ÃÄlcd_putc  1/102  Ram=1
+   ³  ³  ÃÄlcd_putc  0/90  Ram=1
    ³  ³  ³  ÀÄ*
-   ³  ³  ÃÄ@PSTRINGC_1055  1/41  Ram=2
+   ³  ³  ÃÄ@PSTRINGC_1055  0/41  Ram=2
    ³  ³  ³  ÀÄ*
-   ³  ³  ÃÄshowBottonMenu  (Inline)  Ram=0
+   ³  ³  ÃÄshowBottonMenu  1/33  Ram=0
    ³  ³  ³  ÀÄ*
    ³  ³  ÃÄ@delay_ms1  0/20  Ram=1
    ³  ³  ÀÄSound  1/339  Ram=15
    ³  ³     ÀÄ*
-   ³  ÃÄgetMenuOn  2/302  Ram=4
-   ³  ³  ÃÄ@MUL88  1/39  Ram=2
-   ³  ³  ÃÄlcd_putc  1/102  Ram=1
+   ³  ÃÄgetMenuOn  (Inline)  Ram=4
+   ³  ³  ÃÄ@MUL88  0/41  Ram=2
+   ³  ³  ÃÄlcd_putc  0/90  Ram=1
    ³  ³  ³  ÀÄ*
-   ³  ³  ÃÄ@PSTRINGC_1055  1/41  Ram=2
+   ³  ³  ÃÄ@PSTRINGC_1055  0/41  Ram=2
    ³  ³  ³  ÀÄ*
-   ³  ³  ÃÄshowBottonMenu  (Inline)  Ram=0
+   ³  ³  ÃÄshowBottonMenu  1/33  Ram=0
    ³  ³  ³  ÀÄ*
-   ³  ³  ÃÄrun_command_wifi  1/634  Ram=17
-   ³  ³  ³  ÀÄ*
-   ³  ³  ÃÄ@delay_ms1  0/20  Ram=1
-   ³  ³  ÃÄSound  1/339  Ram=15
-   ³  ³  ³  ÀÄ*
-   ³  ³  ÃÄ@MUL88  1/39  Ram=2
-   ³  ³  ÃÄlcd_putc  1/102  Ram=1
-   ³  ³  ³  ÀÄ*
-   ³  ³  ÃÄ@PSTRINGC_1055  1/41  Ram=2
-   ³  ³  ³  ÀÄ*
-   ³  ³  ÃÄshowBottonMenu  (Inline)  Ram=0
+   ³  ³  ÃÄrun_command_wifi  1/646  Ram=17
    ³  ³  ³  ÀÄ*
    ³  ³  ÃÄ@delay_ms1  0/20  Ram=1
    ³  ³  ÃÄSound  1/339  Ram=15
    ³  ³  ³  ÀÄ*
-   ³  ³  ÃÄ@WRITEBITA  1/34  Ram=6
-   ³  ³  ÀÄ@WRITEBITA  1/34  Ram=6
-   ³  ÃÄgetMenuOff  2/283  Ram=4
-   ³  ³  ÃÄlcd_putc  1/102  Ram=1
+   ³  ³  ÃÄ@MUL88  0/41  Ram=2
+   ³  ³  ÃÄlcd_putc  0/90  Ram=1
    ³  ³  ³  ÀÄ*
-   ³  ³  ÃÄ@PSTRINGC_1055  1/41  Ram=2
+   ³  ³  ÃÄ@PSTRINGC_1055  0/41  Ram=2
    ³  ³  ³  ÀÄ*
-   ³  ³  ÃÄshowBottonMenu  (Inline)  Ram=0
-   ³  ³  ³  ÀÄ*
-   ³  ³  ÃÄrun_command_wifi  1/634  Ram=17
-   ³  ³  ³  ÀÄ*
-   ³  ³  ÃÄ@delay_ms1  0/20  Ram=1
-   ³  ³  ÃÄSound  1/339  Ram=15
-   ³  ³  ³  ÀÄ*
-   ³  ³  ÃÄlcd_putc  1/102  Ram=1
-   ³  ³  ³  ÀÄ*
-   ³  ³  ÃÄ@PSTRINGC_1055  1/41  Ram=2
-   ³  ³  ³  ÀÄ*
-   ³  ³  ÃÄshowBottonMenu  (Inline)  Ram=0
+   ³  ³  ÃÄshowBottonMenu  1/33  Ram=0
    ³  ³  ³  ÀÄ*
    ³  ³  ÃÄ@delay_ms1  0/20  Ram=1
    ³  ³  ÃÄSound  1/339  Ram=15
    ³  ³  ³  ÀÄ*
    ³  ³  ÃÄ@WRITEBITA  1/34  Ram=6
    ³  ³  ÀÄ@WRITEBITA  1/34  Ram=6
-   ³  ÀÄgetMenuSetup  2/346  Ram=1
-   ³     ÃÄrun_command_wifi  1/634  Ram=17
+   ³  ÃÄgetMenuOff  (Inline)  Ram=4
+   ³  ³  ÃÄlcd_putc  0/90  Ram=1
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄ@PSTRINGC_1055  0/41  Ram=2
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄshowBottonMenu  1/33  Ram=0
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄrun_command_wifi  1/646  Ram=17
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄ@delay_ms1  0/20  Ram=1
+   ³  ³  ÃÄSound  1/339  Ram=15
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄlcd_putc  0/90  Ram=1
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄ@PSTRINGC_1055  0/41  Ram=2
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄshowBottonMenu  1/33  Ram=0
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄ@delay_ms1  0/20  Ram=1
+   ³  ³  ÃÄSound  1/339  Ram=15
+   ³  ³  ³  ÀÄ*
+   ³  ³  ÃÄ@WRITEBITA  1/34  Ram=6
+   ³  ³  ÀÄ@WRITEBITA  1/34  Ram=6
+   ³  ÀÄgetMenuSetup  (Inline)  Ram=1
+   ³     ÃÄrun_command_wifi  1/646  Ram=17
    ³     ³  ÀÄ*
-   ³     ÃÄ@MUL88  1/39  Ram=2
-   ³     ÃÄlcd_putc  1/102  Ram=1
+   ³     ÃÄ@MUL88  0/41  Ram=2
+   ³     ÃÄlcd_putc  0/90  Ram=1
    ³     ³  ÀÄ*
-   ³     ÃÄ@PSTRINGC_1055  1/41  Ram=2
+   ³     ÃÄ@PSTRINGC_1055  0/41  Ram=2
    ³     ³  ÀÄ*
-   ³     ÃÄshowBottonMenu  (Inline)  Ram=0
+   ³     ÃÄshowBottonMenu  1/33  Ram=0
    ³     ³  ÀÄ*
    ³     ÃÄ@delay_ms1  0/20  Ram=1
    ³     ÃÄSound  1/339  Ram=15
    ³     ³  ÀÄ*
-   ³     ÃÄ@MUL88  1/39  Ram=2
-   ³     ÃÄlcd_putc  1/102  Ram=1
+   ³     ÃÄ@MUL88  0/41  Ram=2
+   ³     ÃÄlcd_putc  0/90  Ram=1
    ³     ³  ÀÄ*
-   ³     ÃÄ@PSTRINGC_1055  1/41  Ram=2
+   ³     ÃÄ@PSTRINGC_1055  0/41  Ram=2
    ³     ³  ÀÄ*
-   ³     ÃÄshowBottonMenu  (Inline)  Ram=0
+   ³     ÃÄshowBottonMenu  1/33  Ram=0
    ³     ³  ÀÄ*
    ³     ÃÄ@delay_ms1  0/20  Ram=1
    ³     ÃÄSound  1/339  Ram=15
    ³     ³  ÀÄ*
-   ³     ÃÄexecuteSetup  2/724  Ram=2
-   ³     ³  ÃÄ@goto12995  2/12  Ram=0
-   ³     ³  ÃÄ@PSTRINGC7_1055  1/80  Ram=4
-   ³     ³  ³  ÀÄ*
-   ³     ³  ÃÄ@PSTRINGC7_1055  1/80  Ram=4
-   ³     ³  ³  ÀÄ*
-   ³     ³  ÃÄ@PSTRINGC7_1055  1/80  Ram=4
-   ³     ³  ³  ÀÄ*
-   ³     ³  ÃÄ@PSTRINGC7_1055  1/80  Ram=4
-   ³     ³  ³  ÀÄ*
-   ³     ³  ÃÄ@PSTRINGC7_1055  1/80  Ram=4
-   ³     ³  ³  ÀÄ*
-   ³     ³  ÃÄsetMenuModo  (Inline)  Ram=3
-   ³     ³  ³  ÃÄ@MUL88  1/39  Ram=2
-   ³     ³  ³  ÃÄlcd_putc  1/102  Ram=1
-   ³     ³  ³  ³  ÀÄ*
-   ³     ³  ³  ÃÄ@PSTRINGC_1055  1/41  Ram=2
-   ³     ³  ³  ³  ÀÄ*
-   ³     ³  ³  ÃÄshowBottonMenu  (Inline)  Ram=0
-   ³     ³  ³  ³  ÀÄ*
-   ³     ³  ³  ÃÄrun_command_wifi  1/634  Ram=17
-   ³     ³  ³  ³  ÀÄ*
-   ³     ³  ³  ÃÄ@delay_ms1  0/20  Ram=1
-   ³     ³  ³  ÃÄSound  1/339  Ram=15
-   ³     ³  ³  ³  ÀÄ*
-   ³     ³  ³  ÃÄ@MUL88  1/39  Ram=2
-   ³     ³  ³  ÃÄlcd_putc  1/102  Ram=1
-   ³     ³  ³  ³  ÀÄ*
-   ³     ³  ³  ÃÄ@PSTRINGC_1055  1/41  Ram=2
-   ³     ³  ³  ³  ÀÄ*
-   ³     ³  ³  ÃÄshowBottonMenu  (Inline)  Ram=0
-   ³     ³  ³  ³  ÀÄ*
-   ³     ³  ³  ÃÄ@delay_ms1  0/20  Ram=1
-   ³     ³  ³  ÃÄSound  1/339  Ram=15
-   ³     ³  ³  ³  ÀÄ*
-   ³     ³  ³  ÃÄ@PSTRINGC7_9600_62_63  1/82  Ram=4
-   ³     ³  ³  ÃÄ@delay_ms1  0/20  Ram=1
-   ³     ³  ³  ÃÄ@PSTRINGC7_1055  1/80  Ram=4
-   ³     ³  ³  ³  ÀÄ*
-   ³     ³  ³  ÃÄ@PSTRINGC7_9600_62_63  1/82  Ram=4
-   ³     ³  ³  ÃÄ@delay_ms1  0/20  Ram=1
-   ³     ³  ³  ÃÄ@PSTRINGC7_1055  1/80  Ram=4
-   ³     ³  ³  ³  ÀÄ*
-   ³     ³  ³  ÃÄ@PSTRINGC7_9600_62_63  1/82  Ram=4
-   ³     ³  ³  ÃÄ@delay_ms1  0/20  Ram=1
-   ³     ³  ³  ÃÄ@PSTRINGC7_1055  1/80  Ram=4
-   ³     ³  ³  ³  ÀÄ*
-   ³     ³  ³  ÃÄpressExit  (Inline)  Ram=1
-   ³     ³  ³  ³  ÃÄlcd_gotoxy  (Inline)  Ram=4
-   ³     ³  ³  ³  ³  ÀÄ*
-   ³     ³  ³  ³  ÃÄ@PSTRINGC7_1055  1/80  Ram=4
-   ³     ³  ³  ³  ³  ÀÄ*
-   ³     ³  ³  ³  ÃÄrun_command_wifi  1/634  Ram=17
-   ³     ³  ³  ³  ³  ÀÄ*
-   ³     ³  ³  ³  ÀÄ@delay_ms1  0/20  Ram=1
-   ³     ³  ³  ÃÄ@MUL88  1/39  Ram=2
-   ³     ³  ³  ÃÄlcd_putc  1/102  Ram=1
-   ³     ³  ³  ³  ÀÄ*
-   ³     ³  ³  ÃÄ@PSTRINGC_1055  1/41  Ram=2
-   ³     ³  ³  ³  ÀÄ*
-   ³     ³  ³  ÀÄshowBottonMenu  (Inline)  Ram=0
-   ³     ³  ³     ÀÄ*
-   ³     ³  ÃÄ@PSTRINGC7_1055  1/80  Ram=4
-   ³     ³  ³  ÀÄ*
-   ³     ³  ÃÄ@PSTRINGC7_1055  1/80  Ram=4
-   ³     ³  ³  ÀÄ*
-   ³     ³  ÀÄpressExit  (Inline)  Ram=1
-   ³     ³     ÀÄ*
-   ³     ÃÄ@MUL88  1/39  Ram=2
-   ³     ÃÄlcd_putc  1/102  Ram=1
+   ³     ÃÄexecuteSetup  (Inline)  Ram=1
+   ³     ÃÄ@MUL88  0/41  Ram=2
+   ³     ÃÄlcd_putc  0/90  Ram=1
    ³     ³  ÀÄ*
-   ³     ÃÄ@PSTRINGC_1055  1/41  Ram=2
+   ³     ÃÄ@PSTRINGC_1055  0/41  Ram=2
    ³     ³  ÀÄ*
-   ³     ÀÄshowBottonMenu  (Inline)  Ram=0
+   ³     ÀÄshowBottonMenu  1/33  Ram=0
    ³        ÀÄ*
-   ÀÄRDA_isr  0/398  Ram=1
+   ÀÄRDA_isr  0/247  Ram=1
       ÀÄESP8266_PROCCESS_RESPONSE  (Inline)  Ram=1
-         ÃÄwaitRespOK  0/37  Ram=2
-         ³  ÀÄ@const1170  0/8  Ram=0
-         ÃÄwaitRespNoAp  (Inline)  Ram=2
-         ³  ÀÄ@const1174  0/9  Ram=0
-         ÃÄwaitRespCWJAP  (Inline)  Ram=2
-         ³  ÀÄ@const1178  0/11  Ram=0
-         ÃÄwaitRespOK  0/37  Ram=2
+         ÃÄwaitRespMajor  0/277  Ram=16
+         ³  ÃÄ@goto12691  0/9  Ram=0
+         ³  ÃÄ@const1170  0/9  Ram=0
+         ³  ÃÄ@const1171  0/10  Ram=0
+         ³  ÃÄ@const1172  0/12  Ram=0
+         ³  ÃÄ@const1173  0/14  Ram=0
+         ³  ÃÄ@const1174  0/9  Ram=0
+         ³  ÃÄ@MUL88  0/41  Ram=2
+         ³  ÃÄ@MUL88  0/41  Ram=2
+         ³  ÃÄ@MUL88  0/41  Ram=2
+         ³  ÃÄ@MUL88  0/41  Ram=2
+         ³  ÃÄ@MUL88  0/41  Ram=2
+         ³  ÀÄ@MUL88  0/41  Ram=2
+         ÃÄwaitRespMajor  0/277  Ram=16
          ³  ÀÄ*
-         ÃÄwaitRespConnected  (Inline)  Ram=2
-         ³  ÀÄ@const1182  0/13  Ram=0
-         ÃÄwaitRespFail  (Inline)  Ram=2
-         ³  ÀÄ@const1186  0/8  Ram=0
-         ÃÄwaitRespOK  0/37  Ram=2
+         ÃÄwaitRespMajor  0/277  Ram=16
+         ³  ÀÄ*
+         ÃÄwaitRespMajor  0/277  Ram=16
+         ³  ÀÄ*
+         ÃÄwaitRespMajor  0/277  Ram=16
+         ³  ÀÄ*
+         ÃÄwaitRespMajor  0/277  Ram=16
+         ³  ÀÄ*
+         ÃÄwaitRespMajor  0/277  Ram=16
          ³  ÀÄ*
          ÃÄESP8266_Get_IPD  (Inline)  Ram=5
          ³  ÀÄ@const1091  0/9  Ram=0

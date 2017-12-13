@@ -351,27 +351,27 @@ Dispacher function MENU_SETUP
 ***************************************************/
 
 void executeSetup(int optSelect){
-  
+  /*
   switch(optSelect){
      
      case OPT_SHOW_STA_IP:
-        printf(lcd_putc, "\fOPT_SHOW_STA_IP");
+        //printf(lcd_putc, "\fOPT_SHOW_STA_IP");
         break;
         
      case OPT_SHOW_STA_SSID:
-        printf(lcd_putc, "\fOPT_SHOW_STA_SSID");
+        //printf(lcd_putc, "\fOPT_SHOW_STA_SSID");
         break;
         
      case OPT_SHOW_AP_SSID:
-        printf(lcd_putc, "\fOPT_SHOW_AP_SSID");
+        //printf(lcd_putc, "\fOPT_SHOW_AP_SSID");
         break;
         
      case OPT_SHOW_AP_KEY:
-        printf(lcd_putc, "\fOPT_SHOW_AP_KEY");
+        //printf(lcd_putc, "\fOPT_SHOW_AP_KEY");
         break;
         
      case OPT_SHOW_AP_IP:
-        printf(lcd_putc, "\fOPT_SHOW_AP_IP");
+        //printf(lcd_putc, "\fOPT_SHOW_AP_IP");
         break;
         
      case OPT_MODE_AP:
@@ -394,7 +394,7 @@ void executeSetup(int optSelect){
   
   if(optSelect!=OPT_EXIT){
    pressExit();
-  }
+  }*/
 }
   
 /***************************************************
