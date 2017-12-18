@@ -214,7 +214,7 @@ int getMenuOn(void){
          BEEP;
          
          // Si optSelected = countOptMenuOn entonces esta en la pos SALIR
-         if((optSelected) == countOptMenuOn){
+         if(optSelected == countOptMenuOn){
             exit = 1;
          }else{
             output_high(PIN_OUT[optSelected]);
@@ -351,27 +351,65 @@ Dispacher function MENU_SETUP
 ***************************************************/
 
 void executeSetup(int optSelect){
-  /*
+   
+  
   switch(optSelect){
-     
+  
+     case OPT_SHOW_AP_IP:
+        fprintf(ESP8266, "AT+CIFSR\r\n");
+        CMD_RUN = CMD_GET_IP_FROM_MENU;
+        printf(lcd_putc, "\fCargando...");
+        waitResp();
+        printf(lcd_putc, "\f%s",buffer_Resp_CMD[0]);
+        flag_Resp_Get_IP_CMD = 0;
+        break;
+        
      case OPT_SHOW_STA_IP:
-        //printf(lcd_putc, "\fOPT_SHOW_STA_IP");
+        fprintf(ESP8266, "AT+CIFSR\r\n");
+        CMD_RUN = CMD_GET_IP_FROM_MENU;
+        printf(lcd_putc, "\fCargando...");
+        waitResp();
+        printf(lcd_putc, "\f%s",buffer_Resp_CMD[1]);
+        flag_Resp_Get_IP_CMD = 0;
         break;
         
      case OPT_SHOW_STA_SSID:
-        //printf(lcd_putc, "\fOPT_SHOW_STA_SSID");
+        if(modeStar!='2'){
+           fprintf(ESP8266, "AT+CWJAP?\r\n");
+           CMD_RUN = CMD_GET_STA_INFO_FROM_MENU;
+           printf(lcd_putc, "\fCargando...");
+           waitResp();
+           printf(lcd_putc, "\f%s",buffer_Resp_CMD[4]);
+           flag_Resp_Get_STA_Info_CMD=0;
+        }else{
+           printf(lcd_putc, "\fDeshabilitado");
+        }
         break;
         
      case OPT_SHOW_AP_SSID:
-        //printf(lcd_putc, "\fOPT_SHOW_AP_SSID");
+        if(modeStar!='1'){
+           fprintf(ESP8266, "AT+CWSAP?\r\n");
+           CMD_RUN = CMD_GET_AP_INFO_FROM_MENU;
+           printf(lcd_putc, "\fCargando...");
+           waitResp();
+           printf(lcd_putc, "\f%s",buffer_Resp_CMD[2]);
+           flag_Resp_Get_AP_Info_CMD=0;
+        }else{
+           printf(lcd_putc, "\fDeshabilitado");
+        }
         break;
         
      case OPT_SHOW_AP_KEY:
-        //printf(lcd_putc, "\fOPT_SHOW_AP_KEY");
-        break;
-        
-     case OPT_SHOW_AP_IP:
-        //printf(lcd_putc, "\fOPT_SHOW_AP_IP");
+        if(modeStar!='1'){
+           fprintf(ESP8266, "AT+CWSAP?\r\n");
+           CMD_RUN = CMD_GET_AP_INFO_FROM_MENU;
+           printf(lcd_putc, "\fCargando...");
+           waitResp();
+           printf(lcd_putc, "\f%s",buffer_Resp_CMD[3]);
+           flag_Resp_Get_AP_Info_CMD=0;
+        }else{
+           printf(lcd_putc, "\fDeshabilitado");
+        }
         break;
         
      case OPT_MODE_AP:
@@ -394,7 +432,7 @@ void executeSetup(int optSelect){
   
   if(optSelect!=OPT_EXIT){
    pressExit();
-  }*/
+  }
 }
   
 /***************************************************

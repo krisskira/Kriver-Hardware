@@ -7,7 +7,7 @@
 #include "header/cmd_wifi.h"
 #include "header/esp8266.h"
 #include "header/menu.h"
-#ZERO_RAM
+
 /********************************************
 ***         VARIABLES GLOBALS             ***
 /*******************************************/

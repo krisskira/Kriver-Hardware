@@ -269,6 +269,30 @@ int run_command_wifi(void){
          ret = 1;
       } // Fin comando NC
       
+      /**********************************
+      *** Cambia el SSID y Key del AP  **
+      *** CMD:AP,"SSID","KEY":         **
+      **********************************/
+      if(COMMAND[0]=='A' &&
+         COMMAND[1]=='P')
+      {
+         // Responde la solicitud
+         //delay_ms(30);
+         fprintf(ESP8266, "AT+CIPSEND=%c,12\r\n",ID_CONNETION[0]);
+         delay_ms(60);
+         fprintf(ESP8266, "%s",ESP8266_Resp);
+         delay_ms(110);
+         fprintf(ESP8266, "AT+CIPCLOSE=%c\r\n",ID_CONNETION[0]);
+         
+         delay_ms(1500);
+         fprintf(ESP8266, "AT+CWSAP_DEF=%s,1,4\r\n",DATA_COMMAND);
+         delay_ms(1000);
+         
+         // Reinicia el dispositivo
+         reset_cpu();
+         ret = 1;
+      } // Fin comando AP
+      
       /*********************************
       *** Cambia el modo de conexion  **
       *** CMD:NM,[1|2|3]:             **

@@ -10,10 +10,13 @@
 * caracter del fin de la cadena (":")                            *
 \****************************************************************/
 
-#define  CMD_MODE             1
-#define  CMD_DO_CONN          2
-#define  CMD_CONN             3
-#define  READY_RESPONSE_WIFI  4
+#define  CMD_MODE                   1
+#define  CMD_DO_CONN                2
+#define  CMD_CONN                   3
+#define  READY_RESPONSE_WIFI        4 
+#define  CMD_GET_IP_FROM_MENU       5
+#define  CMD_GET_AP_INFO_FROM_MENU  6
+#define  CMD_GET_STA_INFO_FROM_MENU 7
 
 /* Key flag responses */
 const int   Valid      = 0;
@@ -26,9 +29,12 @@ const int   Error      = 5;
 //#define  END_CMD_GET_IP       2
 
 /* Declaracion de Funciones de respuestas */
+void getIP(int buffer);
+void getAPInfo(int buffer);
+void getSTAInfo(int buffer);
 int  waitResp(void);
-//void waitRespGetIP(char buffer);
 void waitRespMajor(int buffer,int flag_resp);
+
 /** BANDERAS MODOS DE FUNCIONAMIENTO **/
 int CMD_RUN    = 0x00;
 int resp_Pos   = 1;
@@ -41,9 +47,25 @@ char buffer_flag_Resp[2][6]   =
    {0,0,0,0,0,0}  // Flag_Pos_Responses
 };
 
+char buffer_Resp_CMD[5][16]   =
+{
+   {"0.0.0.0"},   // IP    AP
+   {"0.0.0.0"},   // IP    STA
+   {""},          // SSID  AP
+   {"KEY"},       // Key   AP
+   {"SSID"}       // SSID  STA
+};
 
-/*buffer_flag_Resp[resp_Flag][1] = 5;*/
-/*@TODO: Variables que se setean con la data de la EEPROM*/
+int flag_Resp_Get_IP_CMD = 0;
+int flag_Pos_Get_IP_CMD  = 0;
+
+int flag_Resp_Get_AP_Info_CMD = 0;
+int flag_Pos_Get_AP_Info_CMD  = 0;
+
+int flag_Resp_Get_STA_Info_CMD = 0;
+int flag_Pos_Get_STA_Info_CMD  = 0;
+
+/*Variables que se setean con la data de la EEPROM*/
 char  modeStar;
 char  SSIDAndKey[50];
 
@@ -148,6 +170,21 @@ void ESP8266_PROCCESS_RESPONSE(int buffer){
             case CMD_CONN:
                   waitRespMajor(buffer,Connected);
                   waitRespMajor(buffer,Fail);
+                  waitRespMajor(buffer,Valid);
+                  break;
+            
+            case CMD_GET_IP_FROM_MENU:
+                  getIP(buffer);
+                  waitRespMajor(buffer,Valid);
+                  break;
+                  
+            case CMD_GET_AP_INFO_FROM_MENU:
+                  getAPInfo(buffer);
+                  waitRespMajor(buffer,Valid);
+                  break;
+            
+            case CMD_GET_STA_INFO_FROM_MENU:
+                  getSTAInfo(buffer);
                   waitRespMajor(buffer,Valid);
                   break;
                   
@@ -283,60 +320,122 @@ void waitRespMajor(int buffer,int flag_resp)
 }
 
 /*********************************************************
- *    Espera por la respuesta del comando enviado desde
- *    el menu.
+ *    Obtiene la IP del modo AP, STA, AP+STA
+ *    
  *********************************************************/
-/*int waitRespCmdFromMenu(void)
+void getIP(int buffer)
 {
-   int ret=0;
-   // Si la bandera flag_Resp_Valid = 1 el_
-   // fin del comando ESP8266 es OK 
-   while(flag_Resp_Valid==0){
+   const int END_GET_IP_CMD = 6;
    
-      if(ESP8266_CMD_FROM_MENU==END_CMD_GET_IP){
-         flag_Pos_Resp_GetIP  = 0;
-         flag_Resp_GetIP      = 0;
-         ret = 1;
-      } 
+   // bandera de IP_First esta habilita
+   if(flag_Resp_Get_IP_CMD==1){
+      // Fin de Get First IP
+      if(buffer == '"'){
+         // Finaliza el almacenamiento en el buffer
+         if( modeStar=='1' || modeStar=='2' ){
+            flag_Resp_Get_IP_CMD=END_GET_IP_CMD;
+            flag_Pos_Get_IP_CMD =0;
+         }else{
+            // Activa Bandera de IP_STACION, reinicia el contador de Pos
+            flag_Pos_Get_IP_CMD =0;
+         }
+
+      }else{
+         if(modeStar=='1'){
+            // IP Estacion
+            buffer_Resp_CMD[1][flag_Pos_Get_IP_CMD] = buffer;
+         }else{
+            // IP AP
+             buffer_Resp_CMD[0][flag_Pos_Get_IP_CMD] = buffer;
+         }
+         flag_Pos_Get_IP_CMD++;
+      } // Fin del if(buffer == '"')
+   
+   // bandera de IP_Second(Estacion) esta habilita
+   }else if(flag_Resp_Get_IP_CMD==5){
+       if(buffer == '"'){
+         flag_Resp_Get_IP_CMD=END_GET_IP_CMD;
+         flag_Pos_Get_IP_CMD =0;
+       }else{
+         buffer_Resp_CMD[1][flag_Pos_Get_IP_CMD] = buffer;
+         flag_Pos_Get_IP_CMD++;
+       }
+   } // Fin de if(flag_Resp_Get_IP_CMD)
       
+   if( buffer == '"'){
+      switch(flag_Resp_Get_IP_CMD){
+         case 0:
+         case 1:
+         case 2:
+         case 3:
+         case 4:
+            flag_Resp_Get_IP_CMD++;
+            flag_Pos_Get_IP_CMD =0;
+            break;
+      } // Fin del switch(flag_Resp_Get_IP_CMD)
+   } // Fin del if(buffer == '"') 
+} // Fin de la funcion getIP()
+
+/*********************************************************
+ *    Obtiene la SSID del modo AP, AP+STA
+ *    
+ *********************************************************/
+void getAPInfo(int buffer)
+{
+   // bandera de AP_First_Data esta habilitado
+   if(flag_Resp_Get_AP_Info_CMD==1){
+      
+      if(buffer != '"'){
+         buffer_Resp_CMD[2][flag_Pos_Get_AP_Info_CMD] = buffer;
+         flag_Pos_Get_AP_Info_CMD++;
+      }
+
+   }else if(flag_Resp_Get_AP_Info_CMD==3){
+      
+      if(buffer != '"'){
+         buffer_Resp_CMD[3][flag_Pos_Get_AP_Info_CMD] = buffer;
+         flag_Pos_Get_AP_Info_CMD++;
+      }else{
+         flag_Pos_Get_AP_Info_CMD =0;
+      }
    }
    
-   return ret;
-}*/
-/*********************************************************
- *    Espera por la respuesta del comando enviado desde
- *    el menu.
- *********************************************************/
-/*void waitRespGetIP(char buffer)
-{
+   if( buffer == '"'){
+      switch(flag_Resp_Get_AP_Info_CMD){
+         case 0:
+         case 1:
+         case 2:
+         case 3:
+            flag_Resp_Get_AP_Info_CMD++;
+            flag_Pos_Get_AP_Info_CMD =0;
+            break;
+      } // Fin del switch(flag_Resp_Get_IP_CMD)
+   } // Fin del if(buffer == '"') 
+}
 
-   const char ESP8266_RESP_GET_IP[7] ={'+', 'C', 'W', 'J', 'A', 'P', ':'};
-   int lenResp = 7;
- 
-   if(flag_Resp_GetIP == 1){
-      if(buffer!=','){
-         DATA_CMD_GET_IP[flag_Pos_Resp_GetIP] = buffer;
-         flag_Pos_Resp_GetIP++;
-      }else{        
-         flag_Pos_Resp_GetIP = 0x00;
-         flag_Resp_GetIP     = 0x00;
-         
-         // Reinicia la bandera para liberar la captura de datos
-         // en la interrupcion
-         ESP8266_CMD_FROM_MENU=END_CMD_GET_IP;
+
+/*********************************************************
+ *    Obtiene la SSID del modo STA
+ *    
+ *********************************************************/
+void getSTAInfo(int buffer)
+{
+   // bandera de AP_First_Data esta habilitado
+   if(flag_Resp_Get_STA_Info_CMD==1){
+      
+      if(buffer != '"'){
+         buffer_Resp_CMD[4][flag_Pos_Get_STA_Info_CMD] = buffer;
+         flag_Pos_Get_STA_Info_CMD++;
       }
-   }else{
-      if(buffer == ESP8266_RESP_GET_IP[flag_Pos_Resp_GetIP] )
-      {
-         flag_Pos_Resp_GetIP++;
-         
-         if(flag_Pos_Resp_GetIP==lenResp){
-            // Respuesta es valida
-            flag_Resp_GetIP   = 1;
-         }
-      }else{
-         // Reinicia el contador
-         flag_Pos_Resp_GetIP  = 0;
-      }
-   }  
-}*/
+   }
+   
+   if( buffer == '"'){
+      switch(flag_Resp_Get_STA_Info_CMD){
+         case 0:
+         case 1:
+            flag_Resp_Get_STA_Info_CMD++;
+            flag_Pos_Get_STA_Info_CMD =0;
+            break;
+      } // Fin del switch(flag_Resp_Get_STA_Info_CMD)
+   } // Fin del if(buffer == '"') 
+}

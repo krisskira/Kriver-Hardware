@@ -1,13 +1,13 @@
 [PROJECT]
 Target=main.hex
-Processor_Text=PIC16F887
+Processor_Text=PIC18F4620
 CCSVerions=5.015
-Compiler=PCM
+Compiler=PCH
 CCSVersion=5.015
 [Target Data]
 FileList=main.c
 [Directories]
-Include=C:\Program Files (x86)\PICC\Devices\;C:\Program Files (x86)\PICC\Drivers\
+Include=C:\Program Files (x86)\PICC\Devices\;C:\Program Files (x86)\PICC\Drivers\;C:\Program Files (x86)\PICC\Drivers\C:\Program Files (x86)\PICC\Devices\
 [D:\DAVID\Documents\GitHub\Kriver-Hardware\main]
 Type=4
 [mru-list]
@@ -17,10 +17,10 @@ Type=4
 2=header\cmd_wifi.h
 3=header\menu.h
 4=header\esp8266.h
-5=main.sta
-6=
+5=
+6=18F4620.h
 7=
-8=Hardware\Test\FirmwareTest\Test.c
+8=
 9=
 [main.c]
 Type=4

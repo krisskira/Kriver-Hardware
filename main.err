@@ -1,6 +1,2 @@
 >>> Warning 203 "D:\DAVID\Documents\GitHub\Kriver-Hardware\header\menu.h" Line 149(1,1): Condition always TRUE
 >>> Warning 203 "main.c" Line 61(1,1): Condition always TRUE
->>> Warning 216 "main.c" Line 82(4,5): Interrupts disabled during call to prevent re-entrancy:  (@MUL88)
-      Memory usage:   ROM=59%      RAM=48% - 61%
-      0 Errors,  3 Warnings.
-Build Successful.
