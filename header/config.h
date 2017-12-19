@@ -26,16 +26,16 @@
 #define KEY_NEXT        PIN_B4
 #define KEY_OK          PIN_B5
 
-int16 PIN_OUT[8]={
-                  PIN_E2,
-                  PIN_E1,
-                  PIN_E0,
-                  PIN_A4,
-                  PIN_A0,
-                  PIN_A1,
-                  PIN_A2,
-                  PIN_A3
-};
+const int16 PIN_OUT[8]={
+                        PIN_E2,
+                        PIN_E1,
+                        PIN_E0,
+                        PIN_A4,
+                        PIN_A0,
+                        PIN_A1,
+                        PIN_A2,
+                        PIN_A3
+                        };
 
 /* LCD 2x16 */
 #define LCD_LIGHT_PIN   PIN_D3

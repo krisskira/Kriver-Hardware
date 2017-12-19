@@ -1,2 +1,5 @@
 >>> Warning 203 "D:\DAVID\Documents\GitHub\Kriver-Hardware\header\menu.h" Line 149(1,1): Condition always TRUE
 >>> Warning 203 "main.c" Line 61(1,1): Condition always TRUE
+      Memory usage:   ROM=15%      RAM=6% - 8%
+      0 Errors,  2 Warnings.
+Build Successful.

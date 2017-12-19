@@ -50,7 +50,7 @@ void  RDA_isr(void)
       // Inicializa la LCD
       lcd_init();
       printf(lcd_putc, "\fConfigurando...");
-      
+
       // Enciende el backligh del display
       output_high(LCD_LIGHT_PIN);
 
