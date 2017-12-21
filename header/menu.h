@@ -29,28 +29,7 @@ const char  optMenuStart[4][16]    =  { {"Encender Manual"},
                                       };
                                       
 //Contiene las opciones del menu Encender [pos][lenString]
-const char  optMenuOn[10][15]      =  {{"On -> Salida 1"},
-                                       {"On -> Salida 2"},
-                                       {"On -> Salida 3"},
-                                       {"On -> Salida 4"},
-                                       {"On -> Salida 5"},
-                                       {"On -> Salida 6"},
-                                       {"On -> Salida 7"},
-                                       {"On -> Salida 8"},
-                                       {"SALIR         "}
-                                      };
-
-//Contiene las opciones del menu Apagar [pos][lenString]
-const char  optMenuOff[10][16]     =  {{"Off -> Salida 1"},
-                                       {"Off -> Salida 2"},
-                                       {"Off -> Salida 3"},
-                                       {"Off -> Salida 4"},
-                                       {"Off -> Salida 5"},
-                                       {"Off -> Salida 6"},
-                                       {"Off -> Salida 7"},
-                                       {"Off -> Salida 8"},
-                                       {"SALIR          "}
-                                      };
+char  optMenuOn[10][11];
 
 //Contiene las opciones del menu Configuracion [pos][lenString]
 const char  optMenuSetup[9][17]    =  { {"ESTACION IP     "},
@@ -87,6 +66,31 @@ int8 countOptMenuOff    = 8;
 int8 countOptMenuSetup  = 7;
 // Numero de opciones SubMenu Modo
 int8 countOptMenuModo = 3;
+
+
+/***************************************************
+   Carga el nombre de las opciones del menu On y Off
+***************************************************/
+void getNameMenusOutput(){
+   int posIni = 0;
+     
+   for(int idx=0;idx<8;idx++){
+      
+      posIni =( 10 * idx ) + 40;
+      
+      for(int idxChar=0;idxChar<=9;idxChar++){
+         optMenuOn[idx][idxChar]=read_eeprom(posIni+idxChar);
+         delay_ms(10);
+      }
+   }
+   
+   optMenuOn[8][0]='\f';
+   optMenuOn[8][1]='S';
+   optMenuOn[8][2]='A';
+   optMenuOn[8][3]='L';
+   optMenuOn[8][4]='I';
+   optMenuOn[8][5]='R';
+}
 
 /***************************************************
 Despliega el menu principal MENU_START
@@ -177,7 +181,7 @@ int getMenuOn(void){
    int exit = 0;
    
    // Muestra la primera opcion del menu
-   printf(lcd_putc, "\f%s",optMenuOn[optSelected]);
+   printf(lcd_putc, "\fOn -> %s",optMenuOn[optSelected]);
    showBottonMenu();
    
    while(!exit){
@@ -202,7 +206,7 @@ int getMenuOn(void){
             optSelected = 0;
          }
          // Muestra la opcion seleccionada
-         printf(lcd_putc, "\f%s",optMenuOn[optSelected]);
+         printf(lcd_putc, "\fOn -> %s",optMenuOn[optSelected]);
          showBottonMenu();
       } // Fin KEY_NEXT
       
@@ -234,7 +238,7 @@ int getMenuOff(void){
    int exit = 0;
 
    // Muestra la primera opcion del menu
-   printf(lcd_putc, "\f%s",optMenuOff[optSelected]);
+   printf(lcd_putc, "\fOff-> %s",optMenuOn[optSelected]);
    showBottonMenu();
    
    while(!exit){
@@ -259,7 +263,7 @@ int getMenuOff(void){
             optSelected = 0;
          }
          // Muestra la opcion seleccionada
-         printf(lcd_putc, "\f%s",optMenuOff[optSelected]);
+         printf(lcd_putc, "\fOff-> %s",optMenuOn[optSelected]);
          showBottonMenu();
       } // Fin KEY_NEXT
       

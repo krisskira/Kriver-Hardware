@@ -35,7 +35,8 @@
 +-----------------------------------------------+
 |      ****  CMD:NC,"SSID","KEY":               |
 |-----------------------------------------------|
-|> Almacena en la EEPROM el SSID y Key de la    |
+|> Almacena en la EEPROM desde la posicion 0x01 |
+|  hasta la posicion 0x27 el SSID y Key de la   |
 |  Red donde se conectara.                      |
 |                                               |
 |   @Sintax:                                    |
@@ -75,7 +76,6 @@
 |      ****  CMD:NM,[ModeConection]:            |
 |-----------------------------------------------|
 |> Almacena en la EEPROM el modo de la conexion |
-|                                               |
 |                                               |
 |   @Sintax:                                    |
 |      CMD:NM,[1|2|3]:                          |
@@ -122,10 +122,10 @@ int flag_Pos_Resp_CMD   = 0x00;
 int flag_Pos_Resp_IPD   = 0x00;
 int flag_Pos_Resp_Data  = 0x00;
 
-/********************************************************
-Funcion Busca la cadena de inicio recepcion de request, 
-y retorna el ID de la conexion
-*********************************************************/
+/**********************************************************
+   Funcion Busca la cadena de inicio recepcion de request, 
+   y retorna el ID de la conexion
+***********************************************************/
 void ESP8266_Get_IPD(char buffer[]){
    
    const char ESP8266_RESP_IPD[5] ={ '+','I', 'P', 'D', ','};
@@ -163,9 +163,9 @@ void ESP8266_Get_IPD(char buffer[]){
 } // Fin de la funcion ESP8266_Get_IPD()
 
 /********************************************************
-Funcion Busca la cadena de inicio comando, 
-y retorna el Comando enviado, Activa la bandera
-de recepcion de datos
+   Funcion Busca la cadena de inicio comando, 
+   y retorna el Comando enviado, Activa la bandera
+   de recepcion de datos
 *********************************************************/
 
 void ESP8266_Get_CMD(char buffer[]){
@@ -209,13 +209,12 @@ void ESP8266_Get_CMD(char buffer[]){
    } // Fin del if(flag_Resp_IPD)
 }
 
-/********************************************************
-Funcion Verifica si la bandera de recepcion de datos esta
-activa y almacena los datos entrantes en el arreglo
-DATA_COMMAND, Finaliza la captura de caracteres cuando
-encuentra el caracter ":".
-Envia al ESP8266 el fin de la conexion
-*********************************************************/
+/***********************************************************
+   Funcion Verifica si la bandera de recepcion de datos esta
+   activa y almacena los datos entrantes en el arreglo
+   DATA_COMMAND, Finaliza la captura de caracteres cuando
+   encuentra el caracter ":".
+************************************************************/
 void ESP8266_Get_Data(char buffer[]){
    
    // Si el inicio la bandera de recepcion de comando esta
@@ -241,9 +240,15 @@ void ESP8266_Get_Data(char buffer[]){
    } // Fin del if(flag_Resp_StartGetData)
 }
 
+/*****************************************************
+   Verifica si se ha recibido algun comando enviado
+   por WiFi. 
+*****************************************************/
+
 int run_command_wifi(void){
-   int8 ret = 0, optSelected  = 0, respReq =  1;
-   char ESP8266_Resp[13]      = {"{\"cmd\":\"ok\"}"};
+   int8 reset = 0, optSelected  = 0,counter = 0, idxRSTNC = 0,lenResponse = 12;
+   
+   char response[57] = "{\"cmd\":\"ok\"}";
    // Si hay un comando y datos listos para ejecutar
    if(flag_Resp_Ready==1){
       
@@ -264,8 +269,6 @@ int run_command_wifi(void){
                output_high(PIN_OUT[optSelected]);
                break;
          }
-         
-         ret = 1;
       } // Fin comando OP
       
       /**********************************
@@ -276,7 +279,8 @@ int run_command_wifi(void){
          COMMAND[1]=='C')
       {
          // Borra la eeprom para almacenar las nuevas credenciales
-         for(int idxRSTNC=1;idxRSTNC<=31;idxRSTNC++){
+         // Desde la posicion 0x01 hasta 0x027
+         for(idxRSTNC=1;idxRSTNC<=27;idxRSTNC++){
             write_eeprom(idxRSTNC,0xFF);
             delay_ms(10);
          }
@@ -294,20 +298,19 @@ int run_command_wifi(void){
          delay_ms(10);
 
          // Responde la solicitud
-         //delay_ms(30);
-         fprintf(ESP8266, "AT+CIPSEND=%c,12\r\n",ID_CONNETION[0]);
+         delay_ms(30);
+         fprintf(ESP8266, "AT+CIPSEND=%c,%u\r\n",ID_CONNETION[0],lenResponse);
          delay_ms(60);
-         fprintf(ESP8266, "%s",ESP8266_Resp);
-         delay_ms(110);
+         fprintf(ESP8266, "%s",response);
+         delay_ms(120);
          fprintf(ESP8266, "AT+CIPCLOSE=%c\r\n",ID_CONNETION[0]);
+         delay_ms(500);
          
          // Libera la conexion actual
          fprintf(ESP8266, "AT+CWQAP\n\r");
          delay_ms(1000);
          
-         // Reinicia el dispositivo
-         reset_cpu();
-         ret = 1;
+         reset = 1;
       } // Fin comando NC
       
       /**********************************
@@ -318,20 +321,17 @@ int run_command_wifi(void){
          COMMAND[1]=='P')
       {
          // Responde la solicitud
-         //delay_ms(30);
-         fprintf(ESP8266, "AT+CIPSEND=%c,12\r\n",ID_CONNETION[0]);
-         delay_ms(60);
-         fprintf(ESP8266, "%s",ESP8266_Resp);
-         delay_ms(110);
+         delay_ms(20);
+         fprintf(ESP8266, "AT+CIPSEND=%c,%u\r\n",ID_CONNETION[0],lenResponse);
+         delay_ms(50);
+         fprintf(ESP8266, "%s",response);
+         delay_ms(100);
          fprintf(ESP8266, "AT+CIPCLOSE=%c\r\n",ID_CONNETION[0]);
+         delay_ms(500);
          
-         delay_ms(1500);
          fprintf(ESP8266, "AT+CWSAP_DEF=%s,1,4\r\n",DATA_COMMAND);
          delay_ms(1000);
-         
-         // Reinicia el dispositivo
-         reset_cpu();
-         ret = 1;
+         reset = 1;
       } // Fin comando AP
       
       /*********************************
@@ -347,16 +347,13 @@ int run_command_wifi(void){
          
          // Responde la solicitud
          delay_ms(20);
-         fprintf(ESP8266, "AT+CIPSEND=%c,12\r\n",ID_CONNETION[0]);
+         fprintf(ESP8266, "AT+CIPSEND=%c,%u\r\n",ID_CONNETION[0],lenResponse);
          delay_ms(50);
-         fprintf(ESP8266, "%s",ESP8266_Resp);
+         fprintf(ESP8266, "%s",response);
          delay_ms(100);
          fprintf(ESP8266, "AT+CIPCLOSE=%c\r\n",ID_CONNETION[0]);
-         
-         // Reinicia el dispositivo
-         reset_cpu();
-         
-         ret = 1;
+         delay_ms(100);
+         reset = 1;
       } // Fin comando OP
       
       /*********************************
@@ -366,54 +363,128 @@ int run_command_wifi(void){
       if(COMMAND[0]=='O' &&
          COMMAND[1]=='S')
       {
-         char  response[18];
+         //char  response[57];
          
-         response[0]  = input_state(PIN_OUT[0])+ 48;
-         response[1]  = ',';
-         response[2]  = input_state(PIN_OUT[1])+ 48;
-         response[3]  = ',';
-         response[4]  = input_state(PIN_OUT[2])+ 48;
-         response[5]  = ',';
-         response[6]  = input_state(PIN_OUT[3])+ 48;
-         response[7]  = ',';
-         response[8]  = input_state(PIN_OUT[4])+ 48;
-         response[9]  = ',';
-         response[10] = input_state(PIN_OUT[5])+ 48;
-         response[11] = ',';
-         response[12] = input_state(PIN_OUT[6])+ 48;
-         response[13] = ',';
-         response[14] = input_state(PIN_OUT[7])+ 48;
-         response[15] = ',';
-         response[16] = read_eeprom(0x00);
-         // Responde la solicitud
-         delay_ms(20);
-         fprintf(ESP8266, "AT+CIPSEND=%c,17\r\n",ID_CONNETION[0]);
-         delay_ms(50);
-         fprintf(ESP8266, "%s",response);
-         delay_ms(100);
-         fprintf(ESP8266, "AT+CIPCLOSE=%c\r\n",ID_CONNETION[0]);
+         response[0]  = '{';
+         response[1]  = '"';
+         response[2]  = '0';
+         response[3]  = '"';
+         response[4]  = ':';
+         response[5]  = input_state(PIN_OUT[0])+ 48;
+         response[6]  = ',';
          
-         respReq=0;
-         ret = 1;
+         response[7]   = '"';
+         response[8]   = '1';
+         response[9]   = '"';
+         response[10]  = ':';
+         response[11]  = input_state(PIN_OUT[1])+ 48;
+         response[12]  = ',';
+         
+         response[13]  = '"';
+         response[14]  = '2';
+         response[15]  = '"';
+         response[16]  = ':';
+         response[17]  = input_state(PIN_OUT[2])+ 48;
+         response[18]  = ',';
+         
+         response[19]  = '"';
+         response[20]  = '3';
+         response[21]  = '"';
+         response[22]  = ':';
+         response[23]  = input_state(PIN_OUT[3])+ 48;
+         response[24]  = ',';
+         
+         response[25]  = '"';
+         response[26]  = '4';
+         response[27]  = '"';
+         response[28]  = ':';
+         response[29]  = input_state(PIN_OUT[4])+ 48;
+         response[30]  = ',';
+         
+         response[31]  = '"';
+         response[32]  = '5';
+         response[33]  = '"';
+         response[34]  = ':';
+         response[35]  = input_state(PIN_OUT[5])+ 48;
+         response[36]  = ',';
+         
+         response[37]  = '"';
+         response[38]  = '6';
+         response[39]  = '"';
+         response[40]  = ':';
+         response[41]  = input_state(PIN_OUT[6])+ 48;
+         response[42]  = ',';
+         
+         response[43]  = '"';
+         response[44]  = '7';
+         response[45]  = '"';
+         response[46]  = ':';
+         response[47] = input_state(PIN_OUT[7])+ 48;
+         response[48] = ',';
+         
+         response[49]  = '"';
+         response[50]  = 'M';
+         response[51]  = '"';
+         response[52]  = ':';
+         response[53] = read_eeprom(0x00);
+         
+         response[54]  = '}';
+         
+         lenResponse = 55;
+         
       } // Fin comando OS
       
+      /***********************************
+      *** Cambia el Nombre de la salida **
+      *** lo almacena en la EEPROM      **
+      *** CMD:NO,0NombreChar[15]:       **
+      ***********************************/
+      if(COMMAND[0]=='N' &&
+         COMMAND[1]=='O')
+      {
+         
+         int posIni = 0, posFin = 0;
+         optSelected =(int) ( DATA_COMMAND[0] - 48);
+         posIni =( 10 * optSelected ) + 40;
+         posFin = posIni + 10;
+         
+         // Guarda el nuevo nombre
+         for(idxRSTNC=posIni;idxRSTNC<(posIni+LEN_DATA_COMMAND);idxRSTNC++){
+            counter++;
+            write_eeprom(idxRSTNC,DATA_COMMAND[counter]);
+            delay_ms(10);
+         }
+         
+         // Borra el restante de la eeprom para almacenar las nuevas credenciales
+         for(idxRSTNC=(posIni+LEN_DATA_COMMAND+1);idxRSTNC<=posFin;idxRSTNC++){
+            write_eeprom(idxRSTNC,0xFF);
+            delay_ms(10);
+         }
+         
+         counter = 0;
+         //reset = 1;
+      } // Fin comando NC
       
       /************************
       ***   FIN COMANDOS   ****
       ************************/
-      if(respReq==1){
+      if(reset==0){
          // Responde la solicitud
          delay_ms(20);
-         fprintf(ESP8266, "AT+CIPSEND=%c,12\r\n",ID_CONNETION[0]);
+         fprintf(ESP8266, "AT+CIPSEND=%c,%u\r\n",ID_CONNETION[0],lenResponse);
          delay_ms(50);
-         fprintf(ESP8266, "%s",ESP8266_Resp);
+         fprintf(ESP8266, "%s",response);
          delay_ms(100);
          fprintf(ESP8266, "AT+CIPCLOSE=%c\r\n",ID_CONNETION[0]);
+         delay_ms(100);
       }
       
       // Limpia el buffer
       for(int idxCb=0;idxCb<=LEN_DATA_COMMAND;idxCb++){
          DATA_COMMAND[idxCb] = 0x00;
+      }
+      for(idxCb=0;idxCb<=56;idxCb++){
+      response[idxCb] = 0x00;
       }
       COMMAND[0]       = 0x00;
       COMMAND[1]       = 0x00;
@@ -423,7 +494,12 @@ int run_command_wifi(void){
       flag_Resp_Ready  = 0x00;
       LEN_DATA_COMMAND = 0x00;
       
+      if(reset==1){
+         reset = 0;
+          // Reinicia el dispositivo
+         reset_cpu();
+      }
    } // Fin del if(flag_Resp_Ready)
    
-   return ret;
+   return reset;
 }

@@ -75,8 +75,8 @@ void esp8266_init()
    int   resp;
   
    // @TODO: Usar este comando solo en produccion
-   fprintf(ESP8266, "AT+RST\r\n");
-   delay_ms(2000);
+   //fprintf(ESP8266, "AT+RST\r\n");
+   //delay_ms(2000);
    
    // Lee de la EEPROM el modo de conexion
    // Si no ha sido configurado lo setea en '3'
@@ -412,7 +412,6 @@ void getAPInfo(int buffer)
       } // Fin del switch(flag_Resp_Get_IP_CMD)
    } // Fin del if(buffer == '"') 
 }
-
 
 /*********************************************************
  *    Obtiene la SSID del modo STA
