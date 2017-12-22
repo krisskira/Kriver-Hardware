@@ -15,10 +15,10 @@ void Sound(int16 frecuencia, int16 duracion){
       tmp*=5;   
       uS=tmp;
       do{
-         output_high(PIN_B2);   // Genera la frecuancia deseada
+         output_high(Speaker);   // Genera la frecuancia deseada
          delay_us(uS);           // con los retardos mientras
          CiclosL+=(uS);          // aumenta el contador de ciclos transcurridos
-         output_low(PIN_B2);    // en dos partes para repartir el 
+         output_low(Speaker);    // en dos partes para repartir el 
          delay_us(uS);           // trabajo entre estado alto y bajo.
          CiclosL+=(uS);          // 
          CiclosL+=25;            // Compensador.

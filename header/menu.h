@@ -1,3 +1,17 @@
+/*******************************************************
+
+   Company Name:  KRIVER DEVICE 
+   Product Name:  KRIVER SMART HOME
+   
+   Developer:     CRHISTIAN DAVID VERGARA
+   Date:          21 Diciembre de 2017
+   
+   FILE:          menu.H: contiene las funciones que
+                          muestran y ejecutan las
+                          operaciones de los menus
+
+*******************************************************/
+
 /** VARIABLES EXTERNAL **/
 #define BEEP  Sound(1209,20)
 
@@ -14,8 +28,9 @@
   #define OPT_SHOW_AP_KEY     3
   #define OPT_SHOW_AP_IP      4
   #define OPT_MODE_AP         5
-  #define OPT_BACKLIGH        6
-  #define OPT_EXIT            7
+  #define OPT_RESET_ALL       6
+  #define OPT_BACKLIGH        7
+  #define OPT_EXIT            8
 
     /** DIRECTIVAS SUBMENU CONF_ACCESS_RED **/
     #define MODE_CLIENT     0
@@ -29,7 +44,16 @@ const char  optMenuStart[4][16]    =  { {"Encender Manual"},
                                       };
                                       
 //Contiene las opciones del menu Encender [pos][lenString]
-char  optMenuOn[10][11];
+char  optMenuOn[10][11]            =   {{"Output 1  "},
+                                        {"Output 2  "},
+                                        {"Output 3  "},
+                                        {"Output 4  "},
+                                        {"Output 5  "},
+                                        {"Output 6  "},
+                                        {"Output 7  "},
+                                        {"Output 8  "},
+                                        {"SALIR     "}
+                                      };
 
 //Contiene las opciones del menu Configuracion [pos][lenString]
 const char  optMenuSetup[9][17]    =  { {"ESTACION IP     "},
@@ -38,6 +62,7 @@ const char  optMenuSetup[9][17]    =  { {"ESTACION IP     "},
                                         {"AP KEY          "},
                                         {"AP IP           "},
                                         {"Conf Accesso Red"},
+                                        {"Borrar a Fabrica"},
                                         {"On/Off Backlight"},
                                         {"SALIR           "}
                                       };
@@ -63,7 +88,7 @@ void  setMenuModo(void);
 int8 countOptMenuStart  = 2;
 int8 countOptMenuOn     = 8;
 int8 countOptMenuOff    = 8;
-int8 countOptMenuSetup  = 7;
+int8 countOptMenuSetup  = 8;
 // Numero de opciones SubMenu Modo
 int8 countOptMenuModo = 3;
 
@@ -73,27 +98,32 @@ int8 countOptMenuModo = 3;
 ***************************************************/
 void getNameMenusOutput(){
    int posIni = 0;
-     
-   for(int idx=0;idx<8;idx++){
-      
-      posIni =( 10 * idx ) + 40;
-      
-      for(int idxChar=0;idxChar<=9;idxChar++){
-         optMenuOn[idx][idxChar]=read_eeprom(posIni+idxChar);
-         delay_ms(10);
-      }
-   }
    
-   optMenuOn[8][0]='\f';
-   optMenuOn[8][1]='S';
-   optMenuOn[8][2]='A';
-   optMenuOn[8][3]='L';
-   optMenuOn[8][4]='I';
-   optMenuOn[8][5]='R';
-}
+   posIni = read_eeprom(0x00);
+   
+   if(posIni!=0xFF){
+      posIni =0;
+      for(int idx=0;idx<8;idx++){
+         
+         posIni =( 10 * idx ) + 40;
+         
+         for(int idxChar=0;idxChar<=9;idxChar++){
+            optMenuOn[idx][idxChar]=read_eeprom(posIni+idxChar);
+            delay_ms(10);
+         }
+      }
+      
+      optMenuOn[8][0]='\f';
+      optMenuOn[8][1]='S';
+      optMenuOn[8][2]='A';
+      optMenuOn[8][3]='L';
+      optMenuOn[8][4]='I';
+      optMenuOn[8][5]='R';
+   }   
+} // FIn de la funcion getNameMenusOutput
 
 /***************************************************
-Despliega el menu principal MENU_START
+   Despliega el menu principal MENU_START
 ***************************************************/
 int getMenuStart(void){
    int optSelected = 0;
@@ -163,10 +193,10 @@ void pressExit(void){
            break;
      }
   }
-}
+} // Fin de la funcion pressExit
 /***************************************************
-Dibuja en la parte inferior del Display los botones de
-Siguiente y Entrar
+   Dibuja en la parte inferior del Display los botones de
+   Siguiente y Entrar
 ***************************************************/
 void showBottonMenu(void){
   lcd_gotoxy(1,2);
@@ -174,7 +204,7 @@ void showBottonMenu(void){
 }
 
 /***************************************************
-Despliega el menu MENU_ON
+   Despliega el menu MENU_ON
 ***************************************************/
 int getMenuOn(void){
    int optSelected = 0;
@@ -231,7 +261,7 @@ int getMenuOn(void){
 } // Fin funcion getMenuOn
 
 /***************************************************
-Despliega el menu MENU_OFF
+   Despliega el menu MENU_OFF
 ***************************************************/
 int getMenuOff(void){
    int optSelected = 0;
@@ -288,17 +318,11 @@ int getMenuOff(void){
 } // Fin funcion getMenuMain
 
 /***************************************************
-Despliega el menu principal MENU_SETUP
+   Despliega el menu principal MENU_SETUP
 ***************************************************/
 
 int getMenuSetup(void){
 
-   /********************************************
-   *  INVOCA LA FUNCION RUN_COMMAND_WIFI       *
-   *********************************************/
-   run_command_wifi();
-   /********************************************/
-   
    int optSelected = 0;
    int exit = 0;
    
@@ -307,6 +331,13 @@ int getMenuSetup(void){
    showBottonMenu();
    
    while(!exit){
+
+      /********************************************
+      *  INVOCA LA FUNCION RUN_COMMAND_WIFI       *
+      *********************************************/
+      run_command_wifi();
+      /********************************************/
+   
       // TECLA SIGUIENTE: hace la navegacion entre las opciones del menu
       if(input(KEY_NEXT)==0)
       { 
@@ -351,7 +382,7 @@ int getMenuSetup(void){
 } // Fin funcion getMenuSetup
 
 /***************************************************
-Dispacher function MENU_SETUP
+   Dispacher function MENU_SETUP
 ***************************************************/
 
 void executeSetup(int optSelect){
@@ -416,9 +447,25 @@ void executeSetup(int optSelect){
         }
         break;
         
+     case OPT_RESET_ALL:
+         printf(lcd_putc, "\fBorrando EEEPROM");
+         for(int idxNC=0x00;idxNC<=0x6E;idxNC++){
+            write_eeprom(idxNC,0xFF);
+            delay_ms(10);
+         }
+         printf(lcd_putc, "\fBorrando RED");
+         fprintf(ESP8266, "AT+CWQAP\n\r");
+         delay_ms(1000);
+         fprintf(ESP8266, "AT+RST\n\r");
+         delay_ms(2000);
+         fprintf(ESP8266, "AT+CWSAP_DEF=\"Kriver SmartHome\",\"kriver56106\",1,4\r\n");
+         delay_ms(2000);
+         reset_cpu();
+        break;
+    
      case OPT_MODE_AP:
         setMenuModo();
-        break;
+        break;  
         
      case OPT_BACKLIGH:
         output_toggle(LCD_LIGHT_PIN);
@@ -440,9 +487,8 @@ void executeSetup(int optSelect){
 }
   
 /***************************************************
-Despliega el menu MODE
+   Despliega el menu MODE
 ***************************************************/
-
 void setMenuModo(void){
   int optSelected = 0;
   int exit = 0;

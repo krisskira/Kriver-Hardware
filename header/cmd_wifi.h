@@ -1,109 +1,15 @@
-/*****************************************************************
-* @NOTA:   Funcionamiento de las funciones de Busqueda y         *
-*         comparacion de String.                                 *
-*                                                                *
-* Cuenta el numero de aciertos de manera secuencial cuando       *
-* compara los caracteres que recibe por el usart vs una cadena   *
-* constante. Si el numero de aciertos es igual a la cadena       *
-* entonces las cadenas son iguales y almacena en una estructura  *
-* los siguientes caracteres recibidos hasta que encuentre el     *
-* caracter del fin de la cadena (":")                            *
-******************************************************************
+/*******************************************************
 
-********************************************
-*   Formato de comando en la respuesta:    *
-*   INICIO:COMANDO:DATOS:<-(FIN)           *
-*   e.g. CMD:CMD_SSID_AND_PASS,DATA:       *
-********************************************
+   Company Name:  KRIVER DEVICE 
+   Product Name:  KRIVER SMART HOME
+   
+   Developer:     CRHISTIAN DAVID VERGARA
+   Date:          21 Diciembre de 2017
+   
+   FILE:          CMD_WIFI.H: Comandos Ejecutados desde
+                              wifi.
 
-+-----------------------------------------------+
-|      ****  CMD:OP,[op][port]:                 |
-|-----------------------------------------------|
-|> Realiaza Operaciones en el Puerto de Salida  |
-|                                               |
-|   @Sintax:                                    |
-|      CMD:OP,[1|0][0-7]:                       |
-|                                               |
-|   @Param:                                     |
-|      op:    1   -> Encender                   |
-|             0   -> Apagar                     |
-|      port:  0-7 -> No. del puerto.            |
-|                                               |
-|** @e.g. CMD:OP,10:  Enciende el PORT 0        |
-+-----------------------------------------------+
-
-+-----------------------------------------------+
-|      ****  CMD:NC,"SSID","KEY":               |
-|-----------------------------------------------|
-|> Almacena en la EEPROM desde la posicion 0x01 |
-|  hasta la posicion 0x27 el SSID y Key de la   |
-|  Red donde se conectara.                      |
-|                                               |
-|   @Sintax:                                    |
-|      CMD:NC,"SSID","KEY":                     |
-|                                               |
-|   @Param:                                     |
-|      SSID:  "Nombre de la Red."               |
-|                                               |
-|      KEY:   "Clave."                          |
-|                                               |
-|** @e.g. CMD:NC,"myRed","12345678":            |
-| Intentara conectarse y almacenar en la eeprom |
-| al nombre de la red con key pasados como      |
-| parametro.                                    |
-+-----------------------------------------------+
-
-+-----------------------------------------------+
-|      ****  CMD:AP,"SSID","KEY":               |
-|-----------------------------------------------|
-|> Setea directamenete en el ESP8266 el SSID y  |
-|  el Key de la Red en modo AccessPoint         |
-|                                               |
-|   @Sintax:                                    |
-|      CMD:AP,"SSID","KEY":                     |
-|                                               |
-|   @Param:                                     |
-|      SSID:  "Nombre de la Red."               |
-|                                               |
-|      KEY:   "Clave."                          |
-|                                               |
-|** @e.g. CMD:AP,"myRed","12345678":            |
-| Establece en la memoria del ESP8266 el SSID   |
-| de la red AP con key pasados como parametro.  |
-+-----------------------------------------------+
-
-+-----------------------------------------------+
-|      ****  CMD:NM,[ModeConection]:            |
-|-----------------------------------------------|
-|> Almacena en la EEPROM el modo de la conexion |
-|                                               |
-|   @Sintax:                                    |
-|      CMD:NM,[1|2|3]:                          |
-|                                               |
-|   @Param:                                     |
-|      ModeConection:  "1" -> STA               |
-|                      "2" -> AP                |
-|                      "3" -> STA/AP            |
-|                                               |
-|** @e.g. CMD:NM,3:                             |
-|                                               |
-+-----------------------------------------------+
-
-+-----------------------------------------------+
-|      ****  CMD:OS,0:                          |
-|-----------------------------------------------|
-|> Retorna el estado de las salidas del Port    |
-|  En una cadena separada por comas, el ultimo  |
-|  valor hace referencia al modo de funcionami. |
-|   @Sintax:                                    |
-|      CMD:OP,0:                                |
-|                                               |
-|   @Param: "0" -> No usado                     |
-|                                               |
-|** @e.g. CMD:OP,0:                             |
-|    Ret: 0,0,0,0,0,0,0,0,3                     |
-+-----------------------------------------------+
-*/
+*******************************************************/
 
 /** VARIABLES DATOS GENERALES **/
 char  ID_CONNETION[2];
@@ -111,13 +17,14 @@ char  COMMAND[2];
 char  DATA_COMMAND[50];
 int16 LEN_DATA_COMMAND     = 0;
 
-/* Flag usadas para conocer si la respuesta del comando ejecutado esta completo */
+/* Flag usadas para conocer si la respuesta del comando 
+// ejecutado esta completo */
 int flag_Resp_CMD          = 0x00;
 int flag_Resp_IPD          = 0x00;
 int flag_Resp_StartGetData = 0x00;
 int flag_Resp_Ready        = 0x00;
 
-/* Flag para contadores tamaÃ±o de la respuesta */
+/* Flag para contadores tamaño de la respuesta */
 int flag_Pos_Resp_CMD   = 0x00;
 int flag_Pos_Resp_IPD   = 0x00;
 int flag_Pos_Resp_Data  = 0x00;
@@ -163,11 +70,10 @@ void ESP8266_Get_IPD(char buffer[]){
 } // Fin de la funcion ESP8266_Get_IPD()
 
 /********************************************************
-   Funcion Busca la cadena de inicio comando, 
-   y retorna el Comando enviado, Activa la bandera
-   de recepcion de datos
+   Busca la cadena de inicio comando, y retorna el 
+   Comando enviado, Activa la bandera de recepcion 
+   de datos
 *********************************************************/
-
 void ESP8266_Get_CMD(char buffer[]){
    
    const char ESP8266_RESP_CMD[4] ={'C', 'M', 'D', ':'};
@@ -210,7 +116,7 @@ void ESP8266_Get_CMD(char buffer[]){
 }
 
 /***********************************************************
-   Funcion Verifica si la bandera de recepcion de datos esta
+   Verifica si la bandera de recepcion de datos esta
    activa y almacena los datos entrantes en el arreglo
    DATA_COMMAND, Finaliza la captura de caracteres cuando
    encuentra el caracter ":".
@@ -238,22 +144,41 @@ void ESP8266_Get_Data(char buffer[]){
          flag_Resp_Ready         = 1;
       }
    } // Fin del if(flag_Resp_StartGetData)
-}
+} // Fin Funcion ESP8266_Get_Data
 
 /*****************************************************
    Verifica si se ha recibido algun comando enviado
-   por WiFi. 
+   por WiFi y lo ejecuta. 
 *****************************************************/
-
 int run_command_wifi(void){
    int8 reset = 0, optSelected  = 0,counter = 0, idxRSTNC = 0,lenResponse = 12;
-   
    char response[57] = "{\"cmd\":\"ok\"}";
+   
    // Si hay un comando y datos listos para ejecutar
    if(flag_Resp_Ready==1){
+   
+      /*****************************
+      *** Reinicia el Dispositivo **
+      *** CMD:OP,[0|1][0-7]:      **
+      *****************************/
+      if(COMMAND[0]=='R' &&
+         COMMAND[1]=='S')
+      {
+         // Responde la solicitud
+         delay_ms(30);
+         fprintf(ESP8266, "AT+CIPSEND=%c,%u\r\n",ID_CONNETION[0],lenResponse);
+         delay_ms(60);
+         fprintf(ESP8266, "%s",response);
+         delay_ms(120);
+         fprintf(ESP8266, "AT+CIPCLOSE=%c\r\n",ID_CONNETION[0]);
+         delay_ms(500);
+         
+         reset = 1;         
+      } // Fin comando RS
       
       /**************************
-      *** Accede a las Salidas **
+      *** Activa o desactiva   **
+      *** los puertos          **
       *** CMD:OP,[0|1][0-7]:   **
       **************************/
       if(COMMAND[0]=='O' &&
@@ -354,7 +279,7 @@ int run_command_wifi(void){
          fprintf(ESP8266, "AT+CIPCLOSE=%c\r\n",ID_CONNETION[0]);
          delay_ms(100);
          reset = 1;
-      } // Fin comando OP
+      } // Fin comando NM
       
       /*********************************
       *** Optiene el estado de Puerto **
@@ -419,25 +344,23 @@ int run_command_wifi(void){
          response[44]  = '7';
          response[45]  = '"';
          response[46]  = ':';
-         response[47] = input_state(PIN_OUT[7])+ 48;
-         response[48] = ',';
+         response[47]  = input_state(PIN_OUT[7])+ 48;
+         response[48]  = ',';
          
          response[49]  = '"';
          response[50]  = 'M';
          response[51]  = '"';
          response[52]  = ':';
-         response[53] = read_eeprom(0x00);
+         response[53]  = read_eeprom(0x00);
          
          response[54]  = '}';
-         
-         lenResponse = 55;
-         
+         lenResponse   = 55;
       } // Fin comando OS
       
       /***********************************
-      *** Cambia el Nombre de la salida **
+      *** Cambia el Nombre de Puerto    **
       *** lo almacena en la EEPROM      **
-      *** CMD:NO,0NombreChar[15]:       **
+      *** CMD:NO,0NombreChar[10]:       **
       ***********************************/
       if(COMMAND[0]=='N' &&
          COMMAND[1]=='O')
@@ -462,8 +385,8 @@ int run_command_wifi(void){
          }
          
          counter = 0;
-         //reset = 1;
-      } // Fin comando NC
+         //reset = 1; //Reinicia el Dispositivo
+      } // Fin comando NO
       
       /************************
       ***   FIN COMANDOS   ****
@@ -490,7 +413,6 @@ int run_command_wifi(void){
       COMMAND[1]       = 0x00;
       ID_CONNETION[0]  = 0x00;
       
-      // Reinicia el buffer
       flag_Resp_Ready  = 0x00;
       LEN_DATA_COMMAND = 0x00;
       
@@ -502,4 +424,4 @@ int run_command_wifi(void){
    } // Fin del if(flag_Resp_Ready)
    
    return reset;
-}
+} // Fin de la Funcion run_command_wifi()

@@ -13,9 +13,9 @@ Type=4
 [mru-list]
 1=main.c
 [Opened Files]
-1=main.c
+1=header\menu.h
 2=header\cmd_wifi.h
-3=header\menu.h
+3=
 4=header\esp8266.h
 5=
 6=

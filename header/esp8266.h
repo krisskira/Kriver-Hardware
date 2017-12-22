@@ -1,14 +1,29 @@
-/****************************************************************\
-* @NOTA:   Funcionamiento de las funciones de Busqueda y         *
-*         comparacion de String.                                 *
-*                                                                *
-* Cuenta el numero de aciertos de manera secuencial cuando       *
-* compara los caracteres que recibe por el usart vs una cadena   *
-* constante. Si el numero de aciertos es igual a la cadena       *
-* entonces las cadenas son iguales y almacena en una estructura  *
-* los siguientes caracteres recibidos hasta que encuentre el     *
-* caracter del fin de la cadena (":")                            *
-\****************************************************************/
+/*******************************************************
+
+   Company Name:  KRIVER DEVICE 
+   Product Name:  KRIVER SMART HOME
+   
+   Developer:     CRHISTIAN DAVID VERGARA
+   Date:          21 Diciembre de 2017
+   
+   FILE:          esp8266.H: Inicializa el Modulo esp8266 y
+                             maneja las interrupciones USART
+                             para procesar los comandos wifi.
+
+*******************************************************/
+
+/*
+     **  Funcionamiento de las funciones de Busqueda y comparacion 
+     **  de String.
+     **
+
+Cuenta el numero de aciertos de manera secuencial cuando compara los 
+caracteres que recibe por el usart vs una cadena constante. Si el 
+numero de aciertos es igual a la cadena entonces las cadenas son iguales
+y almacena en una estructura los siguientes caracteres recibidos hasta 
+que encuentre el caracter del fin de la cadena (":").
+
+*/
 
 #define  CMD_MODE                   1
 #define  CMD_DO_CONN                2
@@ -26,9 +41,7 @@ const int   Connected  = 3;
 const int   Fail       = 4;
 const int   Error      = 5;
 
-//#define  END_CMD_GET_IP       2
-
-/* Declaracion de Funciones de respuestas */
+/* Declaracion de Funciones */
 void getIP(int buffer);
 void getAPInfo(int buffer);
 void getSTAInfo(int buffer);
@@ -52,8 +65,8 @@ char buffer_Resp_CMD[5][16]   =
    {"0.0.0.0"},   // IP    AP
    {"0.0.0.0"},   // IP    STA
    {""},          // SSID  AP
-   {"KEY"},       // Key   AP
-   {"SSID"}       // SSID  STA
+   {""},          // Key   AP
+   {""}           // SSID  STA
 };
 
 int flag_Resp_Get_IP_CMD = 0;
@@ -65,7 +78,7 @@ int flag_Pos_Get_AP_Info_CMD  = 0;
 int flag_Resp_Get_STA_Info_CMD = 0;
 int flag_Pos_Get_STA_Info_CMD  = 0;
 
-/*Variables que se setean con la data de la EEPROM*/
+/* Variables que se setean con la data de la EEPROM */
 char  modeStar;
 char  SSIDAndKey[50];
 
@@ -75,8 +88,10 @@ void esp8266_init()
    int   resp;
   
    // @TODO: Usar este comando solo en produccion
-   //fprintf(ESP8266, "AT+RST\r\n");
-   //delay_ms(2000);
+   //        comentarlo durante etapa de desarrollo
+   //        Configurar el USART a 9600bps
+   fprintf(ESP8266, "AT+RST\r\n");
+   delay_ms(3000);
    
    // Lee de la EEPROM el modo de conexion
    // Si no ha sido configurado lo setea en '3'
@@ -96,8 +111,6 @@ void esp8266_init()
    // Lanza el comando para configurar el modo de conexion
    fprintf(ESP8266, "AT+CWMODE=%c\r\n",modeStar);
    CMD_RUN =  CMD_MODE; 
-   
-   // Espera por la respuesta OK del modulo
    delay_ms(50);
    
    // Lanza el comando para verificar si elmodulo ya se encuentra conectado
@@ -126,7 +139,7 @@ void esp8266_init()
       }
       // Lanza el comando para conectarce a la red
       if(resp!=5){
-         fprintf(ESP8266, "AT+CWJAP=%s",SSIDAndKey);     /** AT+CWJAP="UNE_C06E","00986344200771" **/
+         fprintf(ESP8266, "AT+CWJAP=%s",SSIDAndKey);
          CMD_RUN = CMD_CONN;
          resp    = waitResp();
       }
@@ -148,10 +161,10 @@ void esp8266_init()
    CMD_RUN = READY_RESPONSE_WIFI;
 }
 
-/********************************************************
-Funcion encangada de procesar las respuestas del modulo, 
-debe ser llamada durante la interrupcion del USART
-*********************************************************/
+/**********************************************************
+   Funcion encangada de procesar las respuestas del modulo, 
+   debe ser llamada durante la interrupcion del USART
+***********************************************************/
 void ESP8266_PROCCESS_RESPONSE(int buffer){
     // Seleciona la funcion de confirmacion de la respuesta
     switch(CMD_RUN){
@@ -160,8 +173,6 @@ void ESP8266_PROCCESS_RESPONSE(int buffer){
                   break;
 
             case CMD_DO_CONN:
-                  // Evalua si la respuesta del ESP8266 
-                  // es "No AP" o "CWJAP"  
                   waitRespMajor(buffer,NoAp);
                   waitRespMajor(buffer,CWJAP);
                   waitRespMajor(buffer,Valid);
@@ -261,8 +272,6 @@ void waitRespMajor(int buffer,int flag_resp)
       case Valid:
          strResp = "OK\r\n";
          lenResp = 4;
-         // Como esta funcion es el ultimo caracter recibido no es necesario mantener
-         // Activa la bandera flag_Resp_Valid
          restartFlag = 1;
          break;
 
