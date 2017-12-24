@@ -24,11 +24,11 @@ y almacena en una estructura los siguientes caracteres recibidos hasta
 que encuentre el caracter del fin de la cadena (":").
 
 */
-
+#define  CHPD_ESP8266               PIN_B3
 #define  CMD_MODE                   1
 #define  CMD_DO_CONN                2
 #define  CMD_CONN                   3
-#define  READY_RESPONSE_WIFI        4 
+#define  READY_RESPONSE_WIFI        4
 #define  CMD_GET_IP_FROM_MENU       5
 #define  CMD_GET_AP_INFO_FROM_MENU  6
 #define  CMD_GET_STA_INFO_FROM_MENU 7
@@ -64,9 +64,9 @@ char buffer_Resp_CMD[5][16]   =
 {
    {"0.0.0.0"},   // IP    AP
    {"0.0.0.0"},   // IP    STA
-   {""},          // SSID  AP
-   {""},          // Key   AP
-   {""}           // SSID  STA
+   {"               "},   // SSID  AP
+   {"               "},   // Key   AP
+   {"               "}    // SSID  STA
 };
 
 int flag_Resp_Get_IP_CMD = 0;
@@ -85,14 +85,8 @@ char  SSIDAndKey[50];
 /* Inicializa el modulo*/
 void esp8266_init()
 {
-   int   resp;
-  
-   // @TODO: Usar este comando solo en produccion
-   //        comentarlo durante etapa de desarrollo
-   //        Configurar el USART a 9600bps
-   fprintf(ESP8266, "AT+RST\r\n");
-   delay_ms(3000);
-   
+   int resp=0;
+
    // Lee de la EEPROM el modo de conexion
    // Si no ha sido configurado lo setea en '3'
    modeStar = read_eeprom(0x00);
@@ -113,11 +107,10 @@ void esp8266_init()
    CMD_RUN =  CMD_MODE; 
    delay_ms(50);
    
-   // Lanza el comando para verificar si elmodulo ya se encuentra conectado
+   // Lanza el comando para verificar si el modulo ya se encuentra conectado
    fprintf(ESP8266, "AT+CWJAP?\r\n");
-   CMD_RUN =  CMD_DO_CONN;
-
-   resp = waitResp();
+   CMD_RUN  =  CMD_DO_CONN;
+   resp     = waitResp();
 
    // Si el modulo no hizo una conexion automatica la realiza de forma manual
    // si no logra conectarse a una red entonces se autoconfigura en modo AP
@@ -141,11 +134,13 @@ void esp8266_init()
       if(resp!=5){
          fprintf(ESP8266, "AT+CWJAP=%s",SSIDAndKey);
          CMD_RUN = CMD_CONN;
+         fprintf(console,"Lanza comando Para conectarse a una red \r\n");
          resp    = waitResp();
       }
 
       // Si no se establece una conexion se configura en modo AP
       if(resp==4 || resp==5){
+         fprintf(console,"Sin red entonces activa Modo AP \r\n");
          fprintf(ESP8266, "AT+CWMODE=%c\r\n","3");
          CMD_RUN = CMD_MODE;
          waitResp();
@@ -166,6 +161,7 @@ void esp8266_init()
    debe ser llamada durante la interrupcion del USART
 ***********************************************************/
 void ESP8266_PROCCESS_RESPONSE(int buffer){
+
     // Seleciona la funcion de confirmacion de la respuesta
     switch(CMD_RUN){
             case CMD_MODE:
@@ -204,7 +200,6 @@ void ESP8266_PROCCESS_RESPONSE(int buffer){
                   ESP8266_Get_IPD(buffer);
                   ESP8266_Get_CMD(buffer);
                   ESP8266_Get_Data(buffer);
-            
                   CMD_RUN = 0x00;
                   break;
       } // Fin del switch (CMD_RUN)
@@ -226,7 +221,7 @@ int waitResp(void)
       if(buffer_flag_Resp[resp_Flag][idx]==1){
          buffer_flag_Resp[resp_Pos][idx]   = 0;
          buffer_flag_Resp[resp_Flag][idx]  = 0;
-        
+
          if(idx == Fail || idx == Error){
             buffer_flag_Resp[resp_Flag][Valid]  = 1;
          }
@@ -236,9 +231,7 @@ int waitResp(void)
       if(idx>=countResp){
          idx = 0;
       }
-      
    }; // Fin del loop
-   
    buffer_flag_Resp[resp_Flag][Valid] = 0;
    CMD_RUN = 0x00;
    delay_ms(10);
@@ -263,7 +256,6 @@ RESPUESTA ESPERADA:    ESP8266_RESP_OK[4] = {'O','K',0x0D,0x0A}
 *******************************************************************/
 void waitRespMajor(int buffer,int flag_resp)
 {
-   
    char  strResp[10];
    int   lenResp = 0,restartFlag = 0;
 
@@ -276,7 +268,7 @@ void waitRespMajor(int buffer,int flag_resp)
          break;
 
       case NoAp:
-         strResp = "No Ap";
+         strResp = "No AP";
          lenResp = 5;
          break;
 
@@ -312,7 +304,7 @@ void waitRespMajor(int buffer,int flag_resp)
          buffer_flag_Resp[resp_Flag][flag_resp]  = 1;
       }else if(flag_resp == Valid) {
          // Reinicia la bandera para indicar el final del comando
-          //buffer_flag_Resp[resp_Flag][flag_resp] = 0;
+         //buffer_flag_Resp[resp_Flag][flag_resp] = 0;
       }
        
    }else{

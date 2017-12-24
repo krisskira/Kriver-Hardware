@@ -40,33 +40,47 @@ void  RDA_isr(void)
 
    void main()
    {      
-         
-      // Estabiliza el inicio del programa para evitar_
-      // posibles errores al energizar el equipo
-      delay_ms(1000);
-      
-      
-      // Carga el nombre personalizado del puerto desde la eeprom
-      getNameMenusOutput();
-      
       // Activa las resistencias de Pull-Up y configura el puerto
       port_b_pullups(0b00110000);
       set_tris_b(0b00110010);
-      enable_interrupts(INT_RDA); 
-      enable_interrupts(GLOBAL); 
       
+      // Configura el Estado inicial de los Puertos
+      output_low(CHPD_ESP8266);
+      output_low(Speaker);
+      output_high(LCD_LIGHT_PIN);
+      
+      for(int idxOff=0;idxOff<8;idxOff++){
+         output_low(PIN_OUT[idxOff]);
+      }
+      
+      // Estabiliza el inicio del programa para evitar_
+      // posibles errores al energizar el equipo
+      clear_interrupt(INT_RDA); 
+      enable_interrupts(INT_RDA);
+      enable_interrupts(GLOBAL); 
+      delay_ms(1000);
+      
+      output_high(CHPD_ESP8266);
+      // @TODO: Usar este comando solo en produccion
+      //        comentarlo durante etapa de desarrollo
+      //        Configurar el USART a 9600bps
+      fprintf(ESP8266, "AT+RST\r\n");
+            
       // Inicializa la LCD
       lcd_init();
       printf(lcd_putc, "\fIniciando...");
 
-      // Enciende el backligh del display
-      output_high(LCD_LIGHT_PIN);
+      delay_ms(5000);
 
       // Inicializa el esp8266 y lo deja en modo lectura de comandos
       esp8266_init();
-                
+
+      // Carga el nombre personalizado del puerto desde la eeprom
+      getNameMenusOutput();
+      
       // Ciclo infinito para mantener el programa activo
-      while(1)
+      int loop=1;
+      while(loop==1)
       {
          switch(menuActive){
             // Menu principal

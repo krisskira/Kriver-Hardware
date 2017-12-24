@@ -36,6 +36,7 @@
     #define MODE_CLIENT     0
     #define MODE_AP         1
     #define MODE_CLIENT_AP  2
+    #define MODE_EXIT       3
 
 //Contiene las opciones del menu principal [pos][lenString]
 const char  optMenuStart[4][16]    =  { {"Encender Manual"},
@@ -68,7 +69,7 @@ const char  optMenuSetup[9][17]    =  { {"ESTACION IP     "},
                                       };
 
 //Contiene las opciones del subMenu CONF_ACCESS_RED [pos][lenString]
-const char  optMenuModo[5][14]    =   { {"Estación     "},
+const char  optMenuModo[5][14]    =   { {"Estacion     "},
                                         {"Access Point "},
                                         {"Estacion + AP"},
                                         {"SALIR        "}
@@ -90,7 +91,7 @@ int8 countOptMenuOn     = 8;
 int8 countOptMenuOff    = 8;
 int8 countOptMenuSetup  = 8;
 // Numero de opciones SubMenu Modo
-int8 countOptMenuModo = 3;
+int8 countOptMenuModo   = 3;
 
 
 /***************************************************
@@ -98,7 +99,7 @@ int8 countOptMenuModo = 3;
 ***************************************************/
 void getNameMenusOutput(){
    int posIni = 0;
-   
+   int hasData = 0xFF;
    posIni = read_eeprom(0x00);
    
    if(posIni!=0xFF){
@@ -106,10 +107,14 @@ void getNameMenusOutput(){
       for(int idx=0;idx<8;idx++){
          
          posIni =( 10 * idx ) + 40;
+         hasData = read_eeprom(posIni);
+         delay_ms(10);
          
-         for(int idxChar=0;idxChar<=9;idxChar++){
-            optMenuOn[idx][idxChar]=read_eeprom(posIni+idxChar);
-            delay_ms(10);
+         if(hasData!=0xFF){
+            for(int idxChar=0;idxChar<=9;idxChar++){
+               optMenuOn[idx][idxChar]=read_eeprom(posIni+idxChar);
+               delay_ms(10);
+            }
          }
       }
       
@@ -150,7 +155,7 @@ int getMenuStart(void){
          
          // Si la opcion seleccionada esta en el limite menos uno de las
          // opciones entonces regresa a la primera posicion del menu
-         if(optSelected > (countOptMenuStart)){
+         if(optSelected > countOptMenuStart){
             optSelected = 0;
          }
          
@@ -177,10 +182,11 @@ int getMenuStart(void){
 Pausa el programa hasta que se presione OK
 ***************************************************/
 void pressExit(void){
+  int exit=0;
   lcd_gotoxy(12,2);
   printf(lcd_putc, "SALIR");
   
-  while(1){
+  while(exit==0){
       /********************************************
       *  INVOCA LA FUNCION RUN_COMMAND_WIFI       *
       *********************************************/
@@ -190,7 +196,8 @@ void pressExit(void){
      if(input(KEY_OK)==0){
            // Elimina el rebote
            delay_ms(500);
-           break;
+           exit=1;
+           //break;
      }
   }
 } // Fin de la funcion pressExit
@@ -305,7 +312,7 @@ int getMenuOff(void){
          BEEP;
          
          // Si optSelected = countOptMenuOn entonces esta en la pos SALIR
-         if((optSelected) == countOptMenuOff){
+         if(optSelected == countOptMenuOff){
             exit = 1;
          }else{
             output_low(PIN_OUT[optSelected]);
@@ -350,7 +357,7 @@ int getMenuSetup(void){
          
          // Si la opcion seleccionada esta en el limite de las opciones
          // entonces regresa a la primera posicion del menu
-         if(optSelected > (countOptMenuSetup)){
+         if(optSelected > countOptMenuSetup){
             optSelected = 0;
          }
          
@@ -366,8 +373,8 @@ int getMenuSetup(void){
          delay_ms(500);
          BEEP;
          
-         // Si optSelected = countOptMenuOn entonces esta en la pos SALIR
-         if((optSelected) == countOptMenuSetup){
+         // Si optSelected = countOptMenuSetup entonces esta en la pos SALIR
+         if(optSelected == countOptMenuSetup){
             exit = 1;
          }else{
             executeSetup(optSelected);
@@ -465,7 +472,7 @@ void executeSetup(int optSelect){
     
      case OPT_MODE_AP:
         setMenuModo();
-        break;  
+        break;
         
      case OPT_BACKLIGH:
         output_toggle(LCD_LIGHT_PIN);
@@ -481,7 +488,7 @@ void executeSetup(int optSelect){
         
   }
   
-  if(optSelect!=OPT_EXIT){
+  if(optSelect!=OPT_EXIT && optSelect!=OPT_MODE_AP){
    pressExit();
   }
 }
@@ -497,7 +504,7 @@ void setMenuModo(void){
   printf(lcd_putc, "\f%s",optMenuModo[optSelected]);
   showBottonMenu();
   
-  while(!exit){
+  while(exit==0){
   
       /********************************************
       *  INVOCA LA FUNCION RUN_COMMAND_WIFI       *
@@ -531,7 +538,7 @@ void setMenuModo(void){
         BEEP;
         
         // Si optSelected = countOptMenuModo entonces esta en la pos SALIR
-        if(optSelected == countOptMenuModo){
+        if(optSelected == countOptMenuModo){         
            exit = 1;
         }else{
            switch(optSelected){
@@ -553,11 +560,20 @@ void setMenuModo(void){
                  delay_ms(10);
                  printf(lcd_putc, "\fConfig ClienteAP");
                  break;
+             case MODE_EXIT:
+                 break;
+                 
            }
-           pressExit();
-           // Muestra la ultima opcion del menu seleccionada
-           printf(lcd_putc, "\f%s",optMenuModo[optSelected]);
-           showBottonMenu();
+           
+           if(optSelected!=MODE_EXIT){
+              pressExit();
+              printf(lcd_putc, "\fReiniciando");
+              delay_ms(3000);
+              reset_cpu();
+              // Muestra la ultima opcion del menu seleccionada
+              //printf(lcd_putc, "\f%s",optMenuModo[optSelected]);
+              //showBottonMenu();
+           }
         }
      } // Fin KEY_OK
   } // FIN While Infinito

@@ -1,38 +1,39 @@
 
-ROM used:   10968/65536 (17%)
-            10968/65536 (17%) including unused fragments
+ROM used:   11456/65536 (17%)
+            11456/65536 (17%) including unused fragments
 
             1.6 Average locations per line
-            7.8 Average locations per statement
+            8.1 Average locations per statement
 
-RAM used:   361/3968 (9%) at main() level
-            458/3968 (12%) worst case
+RAM used:   362/3968 (9%) at main() level
+            461/3968 (12%) worst case
 
 Stack used: 14 worst case (10 in main + 4 for interrupts)
 Stack size: 31
 
 Lines Stmts  %   Files
 ----- ----- ---  -----
-   92    22   2  main.c
+  107    32   2  main.c
    49     0   0  header\config.h
   839     0   0  C:\Program Files (x86)\PICC\Devices\18F4620.h
   423     0   0  C:\Program Files (x86)\PICC\Drivers\string.h
    32     0   0  C:\Program Files (x86)\PICC\Drivers\stddef.h
    28     0   0  C:\Program Files (x86)\PICC\Drivers\ctype.h
- 1351   359  26  C:\Program Files (x86)\PICC\Drivers\stdlib.h
+ 1351   359  25  C:\Program Files (x86)\PICC\Drivers\stdlib.h
  2229   257  18  C:\Program Files (x86)\PICC\Drivers\math.h
   456   100   7  C:\Program Files (x86)\PICC\Drivers\lcd.c
   101    20   1  header\sound.h
-  428   220  16  header\cmd_wifi.h
-  450   184  13  header\esp8266.h
-  565   243  17  header\menu.h
+  428   220  15  header\cmd_wifi.h
+  442   184  13  header\esp8266.h
+  581   251  18  header\menu.h
 ----- -----
- 7043  1405 Total
+ 7066  1423 Total
 
 Page ROM  %  RAM   Vol Diff  Functions:
 ---- --- --- ---   --- ----  ----------
 0     40   0    1             @delay_ms1
 0     32   0    1             @delay_us1
+0     70   0    1             @PUTCHAR_2_
 0     42   0    0             @const653
 0     92   0   14             @MUL3232
 0     82   0    3   760  4.5  lcd_read_byte
@@ -49,7 +50,7 @@ Page ROM  %  RAM   Vol Diff  Functions:
 0     20   0    0             @const1127
 0    108   0    5   528  5.4  ESP8266_Get_CMD
 0     76   0    4   313  5.1  ESP8266_Get_Data
-0   2284  10   64  9995 10.4  run_command_wifi
+0   2300  10   64  9998 10.4  run_command_wifi
 0     20   0    0             @const1141
 0     42   0    3             @PSTRINGCN_115200_31766_31767
 0     44   0    3             @DIV88
@@ -68,100 +69,105 @@ Page ROM  %  RAM   Vol Diff  Functions:
 0     18   0    0             @const1169
 0     20   0    0             @const1172
 0     18   0    0             @const1174
-0    534   2    5  1513  8.8  esp8266_init
-0     10   0    0             @const1216
-0     16   0    0             @const1217
-0     12   0    0             @const1218
-0     12   0    0             @const1220
-0     16   0    0             @const1221
-0     14   0    0             @const1223
-0     20   0    0   489  4.6  @const1224
+0    532   2    5  1546  8.8  esp8266_init
+0     16   0    0             @const1216
+0     12   0    0             @const1217
+0     12   0    0             @const1219
+0     44   0    0             @const1220
+0     32   0    2             @PSTRINGC_650
+0     36   0    0             @const1222
+0     16   0    0             @const1223
+0     14   0    0             @const1225
+0     20   0    0             @const1226
 0    232   1    1   804  4.8  ESP8266_PROCCESS_RESPONSE
 0    240   1    6   611  6.2  waitResp
 0    498   2   16  1064  6.9  waitRespMajor
-0     22   0    0             @const1232
-0     22   0    0             @const1233
-0     24   0    0             @const1234
-0     26   0    0             @const1235
-0     22   0    0             @const1236
-0     36   0    0             @goto12862
+0     22   0    0             @const1234
+0     22   0    0             @const1235
+0     24   0    0             @const1236
+0     26   0    0             @const1237
+0     22   0    0             @const1238
+0     36   0    0             @goto12867
 0    172   1    3   876  6.9  getIP
-0     36   0    0   489  4.6  @goto12940
+0     36   0    0             @goto12945
 0    118   1    3   491  6.6  getAPInfo
-0     34   0    0   489  4.6  @goto12977
-0     66   0    3   295  3.3  getSTAInfo
-0     64   0    0             @const1242
-0    154   1    0             @const1248
-0     70   0    0   489  4.6  @const1252
-0    176   1    5   763  6.5  getNameMenusOutput
-0    242   1    3   631  6.7  getMenuStart
+0     34   0    0             @goto12982
+0     66   0    3   296  3.2  getSTAInfo
+0     64   0    0             @const1244
+0    154   1    0             @const1250
+0     70   0    0             @const1254
+0    220   1    6   917  6.6  getNameMenusOutput
+0    242   1    3   625  6.7  getMenuStart
 0     32   0    2             @PSTRINGC_1084
-0     72   0    1   167  3.3  pressExit
-0      6   0    0   489  4.6  @const1279
+0     84   0    2   223  3.5  pressExit
+0      6   0    0             @const1283
 0     26   0    0    57  1.4  showBottonMenu
-0     18   0    0   489  4.6  @const1280
-0    338   2    4   707  6.7  getMenuOn
-0     10   0    0             @const1283
+0     18   0    0             @const1284
+0    338   1    4   707  6.7  getMenuOn
+0     10   0    0             @const1287
 0     42   0    3             @PSTRINGCN_1084
 0     38   0    2             @PSTRINGR_1084
-0     10   0    0   489  4.6  @const1287
-0    336   2    4   713  6.7  getMenuOff
-0     10   0    0             @const1290
-0     10   0    0   489  4.6  @const1291
-0    310   1    3   799  6.8  getMenuSetup
-0    642   3    2  2732  8.4  executeSetup
-0     12   0    0             @const1297
-0     14   0    0             @const1298
-0     12   0    0             @const1300
-0     14   0    0             @const1301
-0     12   0    0             @const1303
-0     14   0    0             @const1304
-0     16   0    0             @const1306
+0     10   0    0             @const1291
+0    336   1    4   707  6.7  getMenuOff
+0     10   0    0             @const1294
+0     10   0    0             @const1295
+0    310   1    3   787  6.8  getMenuSetup
+0    648   3    2  2770  8.9  executeSetup
+0     12   0    0             @const1301
+0     14   0    0             @const1302
+0     12   0    0             @const1304
+0     14   0    0             @const1305
 0     12   0    0             @const1307
 0     14   0    0             @const1308
 0     16   0    0             @const1310
 0     12   0    0             @const1311
 0     14   0    0             @const1312
 0     16   0    0             @const1314
-0     18   0    0             @const1315
-0     14   0    0             @const1317
-0     12   0    0             @const1318
-0     10   0    0             @const1319
-0     52   0    0   489  4.6  @const1320
-0     14   0    0   489  4.6  @const1321
-0     16   0    0   489  4.6  @const1322
-0     54   0    0   489  4.6  @goto13333
-0    552   3    3  1415  8.3  setMenuModo
-0     18   0    0             @const1328
-0     16   0    0             @const1329
-0     18   0    0             @const1330
-0     12   0    0   489  4.6  @const1331
-0     18   0    0   489  4.6  @const1332
-0     18   0    0   489  4.6  @const1333
+0     12   0    0             @const1315
+0     14   0    0             @const1316
+0     16   0    0             @const1318
+0     18   0    0             @const1319
+0     14   0    0             @const1321
+0     12   0    0             @const1322
+0     10   0    0             @const1323
+0     52   0    0             @const1324
+0     14   0    0             @const1325
+0     16   0    0             @const1326
+0     54   0    0             @goto13343
+0    560   2    3  1507  8.3  setMenuModo
+0     18   0    0             @const1332
+0     16   0    0             @const1333
+0     18   0    0             @const1334
+0     12   0    0             @const1335
+0     18   0    0             @const1336
+0     18   0    0             @const1337
+0     44   0    0             @goto13408
+0     14   0    0   839  7.2  @const1339
 0     24   0    1    45  1.7  RDA_isr
-0    432   2    1   489  4.6  MAIN
-0     14   0    0             @const1341
-0     44   0    0             @goto13424
+0    596   3    2   884  7.3  MAIN
+0     10   0    0   839  7.2  @const1347
+0     14   0    0             @const1348
+0     44   0    0             @goto13457
  Inline         0             @cinit1
 
 Program metrics:
-    Functions               45
-    Statements              1405
-    Comments                1675
-    Volume (V)              64583
-    Difficulty (D)          236.9
-    Effort to implement (E) 15298851
-    Time to implement (T)   236 hours, 6 minutes
-    Est Delivered Bugs (B)  21
-    Cyclomatic Complexity   199
-    Maintainability (MI)    75
+    Functions               32
+    Statements              1423
+    Comments                1678
+    Volume (V)              52347
+    Difficulty (D)          183.6
+    Effort to implement (E) 9610112
+    Time to implement (T)   148 hours, 18 minutes
+    Est Delivered Bugs (B)  15
+    Cyclomatic Complexity   153
+    Maintainability (MI)    21
 
  Segment     Used  Free
 -----------  ----  ----
 00000-00002     4  0  
 00004-00006     0  4  
 00008-00094   142  0  
-00096-0FFFE  10822  54564  
+00096-0FFFE  11310  54076  
 
 
 
