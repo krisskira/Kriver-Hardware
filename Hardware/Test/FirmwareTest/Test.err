@@ -1,8 +1,0 @@
->>> Warning 216 "Test.c" Line 69(1,2): Interrupts disabled during call to prevent re-entrancy:  (@PUTCHAR_2_)
->>> Warning 202 "Test.c" Line 4(6,16): Variable never used:   END_CMD_OK
->>> Warning 202 "Test.c" Line 5(6,14): Variable never used:   response
->>> Warning 202 "Test.c" Line 6(5,8): Variable never used:   pos
->>> Warning 202 "Test.c" Line 6(11,21): Variable never used:   jpg_valido
-      Memory usage:   ROM=3%      RAM=8% - 10%
-      0 Errors,  5 Warnings.
-Build Successful.

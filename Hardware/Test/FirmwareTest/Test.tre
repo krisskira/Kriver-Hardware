@@ -1,8 +1,0 @@
-ÀÄTest
-   ÃÄMAIN  0/93  Ram=4
-   ³  ÃÄ@cinit1  (Inline)  Ram=0
-   ³  ÃÄ@PUTCHAR_2_  0/34  Ram=1
-   ³  ÃÄ@PSTRINGR_115200_62_63  0/25  Ram=2
-   ³  ÀÄ@delay_ms1  0/22  Ram=1
-   ÀÄRDA_isr  0/11  Ram=1
-      ÀÄ@PUTCHAR_2_  0/34  Ram=1
