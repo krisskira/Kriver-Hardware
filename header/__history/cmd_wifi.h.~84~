@@ -396,7 +396,13 @@ int run_command_wifi(void){
       ***   FIN COMANDOS   ****
       ************************/
       if(reset==0){
-        
+         // statusLine
+         delay_ms(30);
+         fprintf(ESP8266, "AT+CIPSEND=%c,%u\r\n",ID_CONNETION[0],status_line_len);
+         delay_ms(60);
+         fprintf(ESP8266, "%s\n\r",status_line);
+         delay_ms(120);
+
          // Body
          if(OS_CMD==0)
          {

@@ -1,8 +1,9 @@
-D G "MODE_EXIT" 12 39 "3"
-D G "__PCH__" 0 108 ""5.015""
-D G "__DEVICE__" 0 108 "4620"
-D G "__DATE__" 0 108 ""24-dic.-17""
-D G "__TIME__" 0 108 ""00:43:19"" "Company Name:  KRIVER DEVICE"
+C L "MAIN" 0 37 1 "FUNCTION"
+C L "MAIN" 0 37 1 "FUNCTION"
+D G "__PCH__" 0 107 ""5.015""
+D G "__DEVICE__" 0 107 "4620"
+D G "__DATE__" 0 107 ""14-ene.-18""
+D G "__TIME__" 0 107 ""01:34:53"" "Company Name:  KRIVER DEVICE"
 c L "set_tris_a" 2 1 6 "FUNCTION"
 v L "value" 2 43 "int8" `54 
 f B "set_tris_a" 2 43 "void(int8 value)" `53 
@@ -1611,57 +1612,62 @@ C L "ESP8266_Get_Data" 10 14 1 "FUNCTION"
 C L "run_command_wifi" 10 14 3 "FUNCTION"
 F G "run_command_wifi" 10 153 "int8()" `1134 
 V L "reset" 10 154 "int8" `1135 
-V L "optSelected" 10 154 "int8" `1136 
-V L "counter" 10 154 "int8" `1137 
-V L "idxRSTNC" 10 154 "int8" `1138 
-V L "lenResponse" 10 154 "int8" `1139 
-V L "response" 10 155 "int8[57]" `1140 
+V L "OS_CMD" 10 154 "int8" `1136 
+V L "optSelected" 10 154 "int8" `1137 
+V L "counter" 10 154 "int8" `1138 
+V L "idxRSTNC" 10 154 "int8" `1139 
+V L "lenResponse" 10 154 "int8" `1140 
+V L "response" 10 155 "int8[57]" `1141 
+V L "headers" 10 157 "int8[1]" `1142 
 C L "run_command_wifi" 10 14 1 "FUNCTION"
-C L "run_command_wifi" 10 160 1 "*"
-C L "run_command_wifi" 10 160 1 "*"
-C L "run_command_wifi" 10 160 1 "FUNCTION"
-C L "run_command_wifi" 10 160 1 "FUNCTION"
-C L "run_command_wifi" 10 179 1 "*"
-C L "run_command_wifi" 10 179 1 "*"
-C L "run_command_wifi" 10 179 1 "*"
-C L "run_command_wifi" 10 179 1 "FUNCTION"
-C L "run_command_wifi" 10 199 1 "*"
-C L "run_command_wifi" 10 199 1 "*"
-C L "run_command_wifi" 10 199 2 "FUNCTION"
-C L "run_command_wifi" 10 199 1 "FUNCTION"
-V L "idxNC" 10 214 "int8" `1157 
-C L "run_command_wifi" 10 199 1 "FUNCTION"
-C L "run_command_wifi" 10 199 1 "FUNCTION"
-C L "run_command_wifi" 10 199 1 "FUNCTION"
-C L "run_command_wifi" 10 199 1 "FUNCTION"
-C L "run_command_wifi" 10 241 1 "*"
-C L "run_command_wifi" 10 241 1 "*"
-C L "run_command_wifi" 10 241 1 "FUNCTION"
-C L "run_command_wifi" 10 241 1 "FUNCTION"
-C L "run_command_wifi" 10 262 1 "*"
-C L "run_command_wifi" 10 262 1 "*"
-C L "run_command_wifi" 10 262 1 "FUNCTION"
-C L "run_command_wifi" 10 262 1 "FUNCTION"
-C L "run_command_wifi" 10 262 1 "FUNCTION"
-C L "run_command_wifi" 10 284 1 "*"
-C L "run_command_wifi" 10 284 1 "*"
-C L "run_command_wifi" 10 284 1 "FUNCTION"
-C L "run_command_wifi" 10 284 1 "FUNCTION"
-C L "run_command_wifi" 10 360 1 "*"
-C L "run_command_wifi" 10 360 1 "*"
-C L "run_command_wifi" 10 360 1 "*"
-V L "posIni" 10 369 "int8" `1170 
-V L "posFin" 10 369 "int8" `1171 
-C L "run_command_wifi" 10 360 1 "FUNCTION"
-C L "run_command_wifi" 10 360 1 "FUNCTION"
-C L "run_command_wifi" 10 360 1 "FUNCTION"
-C L "run_command_wifi" 10 360 1 "FUNCTION"
-C L "run_command_wifi" 10 391 1 "*"
-C L "run_command_wifi" 10 391 1 "FUNCTION"
-C L "run_command_wifi" 10 391 1 "FUNCTION"
-V L "idxCb" 10 406 "int8" `1175 
-C L "run_command_wifi" 10 391 1 "FUNCTION"
-C L "run_command_wifi" 10 391 1 "FUNCTION"
+C L "run_command_wifi" 10 162 1 "*"
+C L "run_command_wifi" 10 162 1 "*"
+C L "run_command_wifi" 10 162 1 "FUNCTION"
+C L "run_command_wifi" 10 162 1 "FUNCTION"
+C L "run_command_wifi" 10 182 1 "*"
+C L "run_command_wifi" 10 182 1 "*"
+C L "run_command_wifi" 10 182 1 "*"
+C L "run_command_wifi" 10 182 1 "FUNCTION"
+C L "run_command_wifi" 10 202 1 "*"
+C L "run_command_wifi" 10 202 1 "*"
+C L "run_command_wifi" 10 202 2 "FUNCTION"
+C L "run_command_wifi" 10 202 1 "FUNCTION"
+V L "idxNC" 10 217 "int8" `1159 
+C L "run_command_wifi" 10 202 1 "FUNCTION"
+C L "run_command_wifi" 10 202 1 "FUNCTION"
+C L "run_command_wifi" 10 202 1 "FUNCTION"
+C L "run_command_wifi" 10 202 1 "FUNCTION"
+C L "run_command_wifi" 10 244 1 "*"
+C L "run_command_wifi" 10 244 1 "*"
+C L "run_command_wifi" 10 244 1 "FUNCTION"
+C L "run_command_wifi" 10 244 1 "FUNCTION"
+C L "run_command_wifi" 10 266 1 "*"
+C L "run_command_wifi" 10 266 1 "*"
+C L "run_command_wifi" 10 266 1 "FUNCTION"
+C L "run_command_wifi" 10 266 1 "FUNCTION"
+C L "run_command_wifi" 10 266 1 "FUNCTION"
+C L "run_command_wifi" 10 288 1 "*"
+C L "run_command_wifi" 10 288 1 "*"
+C L "run_command_wifi" 10 288 1 "FUNCTION"
+C L "run_command_wifi" 10 288 1 "FUNCTION"
+C L "run_command_wifi" 10 288 1 "FUNCTION"
+C L "run_command_wifi" 10 364 1 "*"
+C L "run_command_wifi" 10 364 1 "*"
+C L "run_command_wifi" 10 364 1 "*"
+V L "posIni" 10 373 "int8" `1172 
+V L "posFin" 10 373 "int8" `1173 
+C L "run_command_wifi" 10 364 1 "FUNCTION"
+C L "run_command_wifi" 10 364 1 "FUNCTION"
+C L "run_command_wifi" 10 364 1 "FUNCTION"
+C L "run_command_wifi" 10 364 1 "FUNCTION"
+C L "run_command_wifi" 10 395 1 "*"
+C L "run_command_wifi" 10 395 1 "FUNCTION"
+C L "run_command_wifi" 10 395 1 "FUNCTION"
+C L "run_command_wifi" 10 395 1 "FUNCTION"
+C L "run_command_wifi" 10 395 1 "FUNCTION"
+V L "idxCb" 10 422 "int8" `1179 
+C L "run_command_wifi" 10 395 1 "FUNCTION"
+C L "run_command_wifi" 10 395 1 "FUNCTION"
 C G "" 11 15 1 "*"
 D G "CHPD_ESP8266" 11 27 "PIN_B3"
 D G "CMD_MODE" 11 28 "1"
@@ -1671,80 +1677,80 @@ D G "READY_RESPONSE_WIFI" 11 31 "4"
 D G "CMD_GET_IP_FROM_MENU" 11 32 "5"
 D G "CMD_GET_AP_INFO_FROM_MENU" 11 33 "6"
 D G "CMD_GET_STA_INFO_FROM_MENU" 11 34 "7"
-V G "Valid" 11 37 "int8" `1176 
-V G "CWJAP" 11 38 "int8" `1178 
-V G "NoAp" 11 39 "int8" `1180 
-V G "Connected" 11 40 "int8" `1182 
-V G "Fail" 11 41 "int8" `1184 
-V G "Error" 11 42 "int8" `1186 
+V G "Valid" 11 37 "int8" `1180 
+V G "CWJAP" 11 38 "int8" `1182 
+V G "NoAp" 11 39 "int8" `1184 
+V G "Connected" 11 40 "int8" `1186 
+V G "Fail" 11 41 "int8" `1188 
+V G "Error" 11 42 "int8" `1190 
 C L "getIP" 11 15 1 "FUNCTION"
-V L "buffer" 11 45 "int8" `1189 
-f G "getIP" 11 45 "void(int8 buffer)" `1188 
-V L "buffer" 11 46 "int8" `1191 
-f G "getAPInfo" 11 46 "void(int8 buffer)" `1190 
-V L "buffer" 11 47 "int8" `1193 
-f G "getSTAInfo" 11 47 "void(int8 buffer)" `1192 
-f G "waitResp" 11 48 "int8()" `1194 
-V L "buffer" 11 49 "int8" `1196 
-V L "flag_resp" 11 49 "int8" `1197 
-f G "waitRespMajor" 11 49 "void(int8 buffer,int8 flag_resp)" `1195  "* BANDERAS MODOS DE FUNCIONAMIENTO **"
-V G "CMD_RUN" 11 52 "int8" `1198 
-V G "resp_Pos" 11 53 "int8" `1199 
-V G "resp_Flag" 11 54 "int8" `1200 
-V G "countResp" 11 55 "int8" `1201 
+V L "buffer" 11 45 "int8" `1193 
+f G "getIP" 11 45 "void(int8 buffer)" `1192 
+V L "buffer" 11 46 "int8" `1195 
+f G "getAPInfo" 11 46 "void(int8 buffer)" `1194 
+V L "buffer" 11 47 "int8" `1197 
+f G "getSTAInfo" 11 47 "void(int8 buffer)" `1196 
+f G "waitResp" 11 48 "int8(int8 buffer)" `1198 
+V L "buffer" 11 49 "int8" `1200 
+V L "flag_resp" 11 49 "int8" `1201 
+f G "waitRespMajor" 11 49 "void(int8 buffer,int8 flag_resp,int8 buffer,int8 flag_resp)" `1199  "* BANDERAS MODOS DE FUNCIONAMIENTO **"
+V G "CMD_RUN" 11 52 "int8" `1202 
+V G "resp_Pos" 11 53 "int8" `1203 
+V G "resp_Flag" 11 54 "int8" `1204 
+V G "countResp" 11 55 "int8" `1205 
 C L "waitRespMajor" 11 15 1 "FUNCTION"
-V G "buffer_flag_Resp" 11 57 "int8[2][6]" `1202 
-C L "waitRespMajor" 11 15 1 "FUNCTION"
-C L "waitRespMajor" 11 15 1 "FUNCTION"
-V G "buffer_Resp_CMD" 11 63 "int8[5][16]" `1204 
+V G "buffer_flag_Resp" 11 57 "int8[2][6]" `1206 
 C L "waitRespMajor" 11 15 1 "FUNCTION"
 C L "waitRespMajor" 11 15 1 "FUNCTION"
+V G "buffer_Resp_CMD" 11 63 "int8[5][16]" `1208 
 C L "waitRespMajor" 11 15 1 "FUNCTION"
 C L "waitRespMajor" 11 15 1 "FUNCTION"
 C L "waitRespMajor" 11 15 1 "FUNCTION"
-V G "flag_Resp_Get_IP_CMD" 11 72 "int8" `1206 
-V G "flag_Pos_Get_IP_CMD" 11 73 "int8" `1207 
-V G "flag_Resp_Get_AP_Info_CMD" 11 75 "int8" `1208 
-V G "flag_Pos_Get_AP_Info_CMD" 11 76 "int8" `1209 
-V G "flag_Resp_Get_STA_Info_CMD" 11 78 "int8" `1210 
-V G "flag_Pos_Get_STA_Info_CMD" 11 79 "int8" `1211 
 C L "waitRespMajor" 11 15 1 "FUNCTION"
-V G "modeStar" 11 82 "int8" `1212 
-V G "SSIDAndKey" 11 83 "int8[50]" `1213  "Inicializa el modulo*"
-F G "esp8266_init" 11 87 "void()" `1214 
-V L "resp" 11 88 "int8" `1215 
+C L "waitRespMajor" 11 15 1 "FUNCTION"
+V G "flag_Resp_Get_IP_CMD" 11 72 "int8" `1210 
+V G "flag_Pos_Get_IP_CMD" 11 73 "int8" `1211 
+V G "flag_Resp_Get_AP_Info_CMD" 11 75 "int8" `1212 
+V G "flag_Pos_Get_AP_Info_CMD" 11 76 "int8" `1213 
+V G "flag_Resp_Get_STA_Info_CMD" 11 78 "int8" `1214 
+V G "flag_Pos_Get_STA_Info_CMD" 11 79 "int8" `1215 
+C L "waitRespMajor" 11 15 1 "FUNCTION"
+V G "modeStar" 11 82 "int8" `1216 
+V G "SSIDAndKey" 11 83 "int8[50]" `1217  "Inicializa el modulo*"
+F G "esp8266_init" 11 87 "void()" `1218 
+V L "resp" 11 88 "int8" `1219 
 C L "esp8266_init" 11 15 2 "FUNCTION"
 C L "esp8266_init" 11 15 1 "FUNCTION"
 C L "esp8266_init" 11 15 1 "FUNCTION"
 C L "esp8266_init" 11 15 2 "FUNCTION"
 C L "esp8266_init" 11 15 1 "FUNCTION"
-V L "idxRE" 11 120 "int8" `1218 
+V L "idxRE" 11 120 "int8" `1222 
 C L "esp8266_init" 11 15 1 "FUNCTION"
 C L "esp8266_init" 11 15 1 "FUNCTION"
 C L "esp8266_init" 11 15 2 "FUNCTION"
 C L "ESP8266_PROCCESS_RESPONSE" 11 15 2 "FUNCTION"
-V L "buffer" 11 163 "int8" `1228 
-F G "ESP8266_PROCCESS_RESPONSE" 11 163 "void(int8 buffer)" `1227  "Seleciona la funcion de confirmacion de la respuesta"
+V L "buffer" 11 163 "int8" `1232 
+F G "ESP8266_PROCCESS_RESPONSE" 11 163 "void(int8 buffer)" `1231  "Seleciona la funcion de confirmacion de la respuesta"
 C L "ESP8266_PROCCESS_RESPONSE" 11 15 1 "FUNCTION"
 C L "waitResp" 11 15 1 "FUNCTION"
 C L "waitResp" 11 208 1 "*"
 C L "waitResp" 11 208 1 "*"
 C L "waitResp" 11 208 1 "*"
 C L "waitResp" 11 208 1 "*"
-F G "waitResp" 11 215 "int8()" `1194 
-V L "ret" 11 216 "int8" `1229 
-V L "idx" 11 216 "int8" `1230 
+F G "waitResp" 11 215 "int8()" `1198 
+V L "ret" 11 216 "int8" `1233 
+V L "idx" 11 216 "int8" `1234 
 C L "waitResp" 11 208 2 "FUNCTION"
 C L "waitResp" 11 208 1 "FUNCTION"
 C L "waitResp" 11 208 1 "FUNCTION"
 C L "waitRespMajor" 11 208 1 "FUNCTION"
 C L "waitRespMajor" 11 241 10 "*"
-V L "buffer" 11 257 "int8" `1196 
-V L "flag_resp" 11 257 "int8" `1233 
-F G "waitRespMajor" 11 258 "void(int8 buffer,int8 flag_resp)" `1195 
-V L "strResp" 11 259 "int8[10]" `1231 
-V L "lenResp" 11 260 "int8" `1232 
-V L "restartFlag" 11 260 "int8" `1233 
+V L "buffer" 11 257 "int8" `1200 
+V L "flag_resp" 11 257 "int8" `1237 
+F G "waitRespMajor" 11 258 "void(int8 buffer,int8 flag_resp)" `1199 
+V L "strResp" 11 259 "int8[10]" `1235 
+V L "lenResp" 11 260 "int8" `1236 
+V L "restartFlag" 11 260 "int8" `1237 
 C L "waitRespMajor" 11 241 3 "FUNCTION"
 C L "waitRespMajor" 11 241 2 "FUNCTION"
 C L "waitRespMajor" 11 241 1 "FUNCTION"
@@ -1752,9 +1758,9 @@ C L "waitRespMajor" 11 241 2 "FUNCTION"
 C L "waitRespMajor" 11 241 2 "FUNCTION"
 C L "waitRespMajor" 11 241 1 "FUNCTION"
 C L "getIP" 11 323 1 "*"
-V L "buffer" 11 327 "int8" `1241 
-F G "getIP" 11 328 "void(int8 buffer)" `1188 
-V L "END_GET_IP_CMD" 11 329 "int8" `1240 
+V L "buffer" 11 327 "int8" `1245 
+F G "getIP" 11 328 "void(int8 buffer)" `1192 
+V L "END_GET_IP_CMD" 11 329 "int8" `1244 
 C L "getIP" 11 323 1 "FUNCTION"
 C L "getIP" 11 323 1 "FUNCTION"
 C L "getIP" 11 323 1 "FUNCTION"
@@ -1767,13 +1773,13 @@ C L "getIP" 11 323 1 "FUNCTION"
 C L "getIP" 11 323 1 "FUNCTION"
 C L "getAPInfo" 11 323 1 "FUNCTION"
 C L "getAPInfo" 11 380 1 "*"
-V L "buffer" 11 384 "int8" `1244 
-F G "getAPInfo" 11 385 "void(int8 buffer)" `1190  "bandera de AP_First_Data esta habilitado"
+V L "buffer" 11 384 "int8" `1248 
+F G "getAPInfo" 11 385 "void(int8 buffer)" `1194  "bandera de AP_First_Data esta habilitado"
 C L "getAPInfo" 11 380 1 "FUNCTION"
 C L "getAPInfo" 11 380 1 "FUNCTION"
 C L "getSTAInfo" 11 417 1 "*"
-V L "buffer" 11 421 "int8" `1245 
-F G "getSTAInfo" 11 422 "void(int8 buffer)" `1192  "bandera de AP_First_Data esta habilitado"
+V L "buffer" 11 421 "int8" `1249 
+F G "getSTAInfo" 11 422 "void(int8 buffer)" `1196  "bandera de AP_First_Data esta habilitado"
 C L "getSTAInfo" 11 417 1 "FUNCTION"
 C L "getSTAInfo" 11 417 1 "FUNCTION"
 D G "BEEP" 12 16 "Sound(1209,20)"
@@ -1794,36 +1800,36 @@ D G "MODE_CLIENT" 12 36 "0"
 D G "MODE_AP" 12 37 "1"
 D G "MODE_CLIENT_AP" 12 38 "2"
 D G "MODE_EXIT" 12 39 "3"
-V G "optMenuStart" 12 42 "[4][16]" `1244 
-V G "optMenuOn" 12 48 "int8[10][11]" `1248 
-V G "optMenuSetup" 12 60 "[9][17]" `1250 
-V G "optMenuModo" 12 72 "[5][14]" `1254 
+V G "optMenuStart" 12 42 "[4][16]" `1248 
+V G "optMenuOn" 12 48 "int8[10][11]" `1252 
+V G "optMenuSetup" 12 60 "[9][17]" `1254 
+V G "optMenuModo" 12 72 "[5][14]" `1258 
 C L "getMenuStart" 12 35 1 "FUNCTION"
-f G "getMenuStart" 12 79 "int8()" `1258 
-f G "pressExit" 12 80 "void()" `1259 
-f G "showBottonMenu" 12 81 "void()" `1260 
-f G "getMenuOn" 12 82 "int8()" `1261 
-f G "getMenuOff" 12 83 "int8()" `1262 
-f G "getMenuSetup" 12 84 "int8()" `1263 
-V L "optSelect" 12 85 "int8" `1265 
-f G "executeSetup" 12 85 "void(int8 optSelect)" `1264 
-f G "setMenuModo" 12 86 "void()" `1266  "* VARIABLES GENERALS **"
-V G "countOptMenuStart" 12 89 "int8" `1267 
-V G "countOptMenuOn" 12 90 "int8" `1268 
-V G "countOptMenuOff" 12 91 "int8" `1269 
-V G "countOptMenuSetup" 12 92 "int8" `1270 
+f G "getMenuStart" 12 79 "int8()" `1262 
+f G "pressExit" 12 80 "void()" `1263 
+f G "showBottonMenu" 12 81 "void()" `1264 
+f G "getMenuOn" 12 82 "int8()" `1265 
+f G "getMenuOff" 12 83 "int8()" `1266 
+f G "getMenuSetup" 12 84 "int8()" `1267 
+V L "optSelect" 12 85 "int8" `1269 
+f G "executeSetup" 12 85 "void(int8 optSelect)" `1268 
+f G "setMenuModo" 12 86 "void(int8 optSelect)" `1270  "* VARIABLES GENERALS **"
+V G "countOptMenuStart" 12 89 "int8" `1271 
+V G "countOptMenuOn" 12 90 "int8" `1272 
+V G "countOptMenuOff" 12 91 "int8" `1273 
+V G "countOptMenuSetup" 12 92 "int8" `1274 
 C L "setMenuModo" 12 35 1 "FUNCTION"
-V G "countOptMenuModo" 12 94 "int8" `1271 
+V G "countOptMenuModo" 12 94 "int8" `1275 
 C L "setMenuModo" 12 35 1 "FUNCTION"
-F G "getNameMenusOutput" 12 100 "void()" `1272 
-V L "posIni" 12 101 "int8" `1273 
-V L "hasData" 12 102 "int8" `1274 
-V L "idx" 12 107 "int8" `1275 
-V L "idxChar" 12 114 "int8" `1276 
+F G "getNameMenusOutput" 12 100 "void()" `1276 
+V L "posIni" 12 101 "int8" `1277 
+V L "hasData" 12 102 "int8" `1278 
+V L "idx" 12 107 "int8" `1279 
+V L "idxChar" 12 114 "int8" `1280 
 C L "getMenuStart" 12 35 2 "FUNCTION"
-F G "getMenuStart" 12 133 "int8()" `1258 
-V L "optSelected" 12 134 "int8" `1277 
-V L "exit" 12 135 "int8" `1278 
+F G "getMenuStart" 12 133 "int8()" `1262 
+V L "optSelected" 12 134 "int8" `1281 
+V L "exit" 12 135 "int8" `1282 
 C L "getMenuStart" 12 141 1 "*"
 C L "getMenuStart" 12 141 1 "*"
 C L "getMenuStart" 12 141 1 "FUNCTION"
@@ -1836,17 +1842,17 @@ C L "getMenuStart" 12 141 1 "FUNCTION"
 C L "getMenuStart" 12 141 1 "FUNCTION"
 C L "getMenuStart" 12 141 1 "FUNCTION"
 C L "pressExit" 12 141 2 "FUNCTION"
-F G "pressExit" 12 184 "void()" `1259 
-V L "exit" 12 185 "int8" `1282 
+F G "pressExit" 12 184 "void()" `1263 
+V L "exit" 12 185 "int8" `1286 
 C L "pressExit" 12 190 1 "*"
 C L "pressExit" 12 190 1 "FUNCTION"
 C L "pressExit" 12 190 1 "FUNCTION"
 C L "showBottonMenu" 12 190 3 "FUNCTION"
-F G "showBottonMenu" 12 208 "void()" `1260 
+F G "showBottonMenu" 12 208 "void()" `1264 
 C L "getMenuOn" 12 190 1 "FUNCTION"
-F G "getMenuOn" 12 216 "int8()" `1261 
-V L "optSelected" 12 217 "int8" `1285 
-V L "exit" 12 218 "int8" `1286 
+F G "getMenuOn" 12 216 "int8()" `1265 
+V L "optSelected" 12 217 "int8" `1289 
+V L "exit" 12 218 "int8" `1290 
 C L "getMenuOn" 12 190 1 "FUNCTION"
 C L "getMenuOn" 12 226 1 "*"
 C L "getMenuOn" 12 226 1 "*"
@@ -1861,9 +1867,9 @@ C L "getMenuOn" 12 226 1 "FUNCTION"
 C L "getMenuOn" 12 226 1 "FUNCTION"
 C L "getMenuOn" 12 226 1 "FUNCTION"
 C L "getMenuOff" 12 226 2 "FUNCTION"
-F G "getMenuOff" 12 273 "int8()" `1262 
-V L "optSelected" 12 274 "int8" `1292 
-V L "exit" 12 275 "int8" `1293 
+F G "getMenuOff" 12 273 "int8()" `1266 
+V L "optSelected" 12 274 "int8" `1296 
+V L "exit" 12 275 "int8" `1297 
 C L "getMenuOff" 12 226 1 "FUNCTION"
 C L "getMenuOff" 12 283 1 "*"
 C L "getMenuOff" 12 283 1 "*"
@@ -1878,9 +1884,9 @@ C L "getMenuOff" 12 283 1 "FUNCTION"
 C L "getMenuOff" 12 283 1 "FUNCTION"
 C L "getMenuOff" 12 283 1 "FUNCTION"
 C L "getMenuSetup" 12 283 2 "FUNCTION"
-F G "getMenuSetup" 12 331 "int8()" `1263 
-V L "optSelected" 12 333 "int8" `1296 
-V L "exit" 12 334 "int8" `1297 
+F G "getMenuSetup" 12 331 "int8()" `1267 
+V L "optSelected" 12 333 "int8" `1300 
+V L "exit" 12 334 "int8" `1301 
 C L "getMenuSetup" 12 283 1 "FUNCTION"
 C L "getMenuSetup" 12 342 1 "*"
 C L "getMenuSetup" 12 342 1 "*"
@@ -1895,13 +1901,13 @@ C L "getMenuSetup" 12 342 1 "FUNCTION"
 C L "getMenuSetup" 12 342 1 "FUNCTION"
 C L "getMenuSetup" 12 342 1 "FUNCTION"
 C L "executeSetup" 12 342 2 "FUNCTION"
-V L "optSelect" 12 395 "int8" `1302 
-F G "executeSetup" 12 395 "void(int8 optSelect)" `1264 
-V L "idxNC" 12 459 "int8" `1320 
+V L "optSelect" 12 395 "int8" `1306 
+F G "executeSetup" 12 395 "void(int8 optSelect)" `1268 
+V L "idxNC" 12 459 "int8" `1324 
 C L "setMenuModo" 12 342 1 "FUNCTION"
-F G "setMenuModo" 12 499 "void()" `1266 
-V L "optSelected" 12 500 "int8" `1328 
-V L "exit" 12 501 "int8" `1329 
+F G "setMenuModo" 12 499 "void()" `1270 
+V L "optSelected" 12 500 "int8" `1332 
+V L "exit" 12 501 "int8" `1333 
 C L "setMenuModo" 12 342 1 "FUNCTION"
 C L "setMenuModo" 12 509 1 "*"
 C L "setMenuModo" 12 509 1 "*"
@@ -1915,21 +1921,21 @@ C L "setMenuModo" 12 509 1 "FUNCTION"
 C L "setMenuModo" 12 509 3 "FUNCTION"
 C L "setMenuModo" 12 509 1 "FUNCTION"
 C L "setMenuModo" 12 509 1 "FUNCTION"
-V G "menuActive" 0 24 "int8" `1340 
+V G "menuActive" 0 24 "int8" `1344 
 C L "RDA_isr" 0 26 3 "*"
-F G "RDA_isr" 0 33 "void()" `1341 
-V L "buffer" 0 34 "int8" `1342 
+F G "RDA_isr" 0 33 "void()" `1345 
+V L "buffer" 0 34 "int8" `1346 
 C L "MAIN" 0 37 1 "*"
-F G "MAIN" 0 42 "void()" `1343  "Activa las resistencias de Pull-Up y configura el puerto"
+F G "MAIN" 0 42 "void()" `1347  "Activa las resistencias de Pull-Up y configura el puerto"
 C L "MAIN" 0 37 1 "FUNCTION"
-V L "idxOff" 0 52 "int8" `1346 
+V L "idxOff" 0 52 "int8" `1350 
 C L "MAIN" 0 37 2 "FUNCTION"
 C L "MAIN" 0 37 3 "FUNCTION"
 C L "MAIN" 0 37 1 "FUNCTION"
 C L "MAIN" 0 37 1 "FUNCTION"
 C L "MAIN" 0 37 1 "FUNCTION"
 C L "MAIN" 0 37 1 "FUNCTION"
-V L "loop" 0 83 "int8" `1349 
+V L "loop" 0 82 "int8" `1353 
 C L "MAIN" 0 37 1 "FUNCTION"
 F B "reset_cpu" 0 0
 F B "abs" 1 0

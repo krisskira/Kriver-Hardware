@@ -1,3 +1,4 @@
-      Memory usage:   ROM=17%      RAM=9% - 12%
-      0 Errors,  0 Warnings.
+>>> Warning 202 "D:\DAVID\Documents\GitHub\Kriver-Hardware\header\cmd_wifi.h" Line 157(9,16): Variable never used:   headers
+      Memory usage:   ROM=18%      RAM=9% - 12%
+      0 Errors,  1 Warnings.
 Build Successful.

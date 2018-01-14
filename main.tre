@@ -60,7 +60,7 @@
    ³  ÃÄgetNameMenusOutput  0/220  Ram=6
    ³  ³  ÃÄ@delay_ms1  0/40  Ram=1
    ³  ³  ÀÄ@delay_ms1  0/40  Ram=1
-   ³  ÃÄ@goto13457  0/44  Ram=0
+   ³  ÃÄ@goto13485  0/44  Ram=0
    ³  ÃÄgetMenuStart  0/242  Ram=3
    ³  ³  ÃÄlcd_putc  0/108  Ram=1
    ³  ³  ³  ÀÄ*
@@ -71,8 +71,7 @@
    ³  ³  ³  ³  ÀÄ*
    ³  ³  ³  ÀÄ@PSTRINGC_1084  0/32  Ram=2
    ³  ³  ³     ÀÄ*
-   ³  ³  ÃÄrun_command_wifi  0/2300  Ram=64
-   ³  ³  ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ³  ÃÄrun_command_wifi  0/2648  Ram=89
    ³  ³  ³  ÃÄ@PSTRINGCN_115200_31766_31767  0/42  Ram=3
    ³  ³  ³  ÃÄ@PRINTF_U_115200_31766_31767  0/126  Ram=2
    ³  ³  ³  ³  ÃÄ@DIV88  0/44  Ram=3
@@ -81,6 +80,8 @@
    ³  ³  ³  ÃÄ@PSTRINGR_115200_31766_31767  0/38  Ram=2
    ³  ³  ³  ÃÄ@delay_ms1  0/40  Ram=1
    ³  ³  ³  ÃÄ@PSTRINGCN_115200_31766_31767  0/42  Ram=3
+   ³  ³  ³  ÃÄ@PRINTF_U_115200_31766_31767  0/126  Ram=2
+   ³  ³  ³  ³  ÀÄ*
    ³  ³  ³  ÃÄ@delay_ms1  0/40  Ram=1
    ³  ³  ³  ÃÄ@const653  0/42  Ram=0
    ³  ³  ³  ÃÄ@WRITEBITA  0/66  Ram=6
@@ -88,7 +89,6 @@
    ³  ³  ³  ÃÄ@const653  0/42  Ram=0
    ³  ³  ³  ÃÄ@WRITEBITA  0/66  Ram=6
    ³  ³  ³  ÃÄ@WRITEBITA  0/66  Ram=6
-   ³  ³  ³  ÃÄ@delay_ms1  0/40  Ram=1
    ³  ³  ³  ÃÄ@delay_ms1  0/40  Ram=1
    ³  ³  ³  ÃÄ@delay_ms1  0/40  Ram=1
    ³  ³  ³  ÃÄ@delay_ms1  0/40  Ram=1
@@ -103,7 +103,6 @@
    ³  ³  ³  ÃÄ@delay_ms1  0/40  Ram=1
    ³  ³  ³  ÃÄ@PSTRINGC_115200_31766_31767  0/34  Ram=2
    ³  ³  ³  ÃÄ@delay_ms1  0/40  Ram=1
-   ³  ³  ³  ÃÄ@delay_ms1  0/40  Ram=1
    ³  ³  ³  ÃÄ@PSTRINGCN_115200_31766_31767  0/42  Ram=3
    ³  ³  ³  ÃÄ@PRINTF_U_115200_31766_31767  0/126  Ram=2
    ³  ³  ³  ³  ÀÄ*
@@ -117,7 +116,6 @@
    ³  ³  ³  ÃÄ@PSTRINGCN_115200_31766_31767  0/42  Ram=3
    ³  ³  ³  ÃÄ@delay_ms1  0/40  Ram=1
    ³  ³  ³  ÃÄ@delay_ms1  0/40  Ram=1
-   ³  ³  ³  ÃÄ@delay_ms1  0/40  Ram=1
    ³  ³  ³  ÃÄ@PSTRINGCN_115200_31766_31767  0/42  Ram=3
    ³  ³  ³  ÃÄ@PRINTF_U_115200_31766_31767  0/126  Ram=2
    ³  ³  ³  ³  ÀÄ*
@@ -128,11 +126,16 @@
    ³  ³  ³  ÃÄ@delay_ms1  0/40  Ram=1
    ³  ³  ³  ÃÄ@delay_ms1  0/40  Ram=1
    ³  ³  ³  ÃÄ@delay_ms1  0/40  Ram=1
-   ³  ³  ³  ÃÄ@delay_ms1  0/40  Ram=1
    ³  ³  ³  ÃÄ@PSTRINGCN_115200_31766_31767  0/42  Ram=3
    ³  ³  ³  ÃÄ@PRINTF_U_115200_31766_31767  0/126  Ram=2
    ³  ³  ³  ³  ÀÄ*
    ³  ³  ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ³  ³  ÃÄ@PSTRINGR_115200_31766_31767  0/38  Ram=2
+   ³  ³  ³  ÃÄ@PSTRINGCN_115200_31766_31767  0/42  Ram=3
+   ³  ³  ³  ÃÄ@PRINTF_U_115200_31766_31767  0/126  Ram=2
+   ³  ³  ³  ³  ÀÄ*
+   ³  ³  ³  ÃÄ@delay_ms1  0/40  Ram=1
+   ³  ³  ³  ÃÄ@PSTRINGCN_115200_31766_31767  0/42  Ram=3
    ³  ³  ³  ÃÄ@PSTRINGR_115200_31766_31767  0/38  Ram=2
    ³  ³  ³  ÃÄ@delay_ms1  0/40  Ram=1
    ³  ³  ³  ÃÄ@PSTRINGCN_115200_31766_31767  0/42  Ram=3
@@ -163,7 +166,7 @@
    ³  ³  ³     ÀÄ*
    ³  ³  ÃÄshowBottonMenu  0/26  Ram=0
    ³  ³  ³  ÀÄ*
-   ³  ³  ÃÄrun_command_wifi  0/2300  Ram=64
+   ³  ³  ÃÄrun_command_wifi  0/2648  Ram=89
    ³  ³  ³  ÀÄ*
    ³  ³  ÃÄ@delay_ms1  0/40  Ram=1
    ³  ³  ÃÄSound  0/328  Ram=15
@@ -187,7 +190,7 @@
    ³  ³  ³  ÀÄ*
    ³  ³  ÃÄshowBottonMenu  0/26  Ram=0
    ³  ³  ³  ÀÄ*
-   ³  ³  ÃÄrun_command_wifi  0/2300  Ram=64
+   ³  ³  ÃÄrun_command_wifi  0/2648  Ram=89
    ³  ³  ³  ÀÄ*
    ³  ³  ÃÄ@delay_ms1  0/40  Ram=1
    ³  ³  ÃÄSound  0/328  Ram=15
@@ -211,7 +214,7 @@
    ³     ³  ÀÄ*
    ³     ÃÄshowBottonMenu  0/26  Ram=0
    ³     ³  ÀÄ*
-   ³     ÃÄrun_command_wifi  0/2300  Ram=64
+   ³     ÃÄrun_command_wifi  0/2648  Ram=89
    ³     ³  ÀÄ*
    ³     ÃÄ@delay_ms1  0/40  Ram=1
    ³     ÃÄSound  0/328  Ram=15
@@ -226,7 +229,7 @@
    ³     ÃÄSound  0/328  Ram=15
    ³     ³  ÀÄ*
    ³     ÃÄexecuteSetup  0/648  Ram=2
-   ³     ³  ÃÄ@goto13343  0/54  Ram=0
+   ³     ³  ÃÄ@goto13371  0/54  Ram=0
    ³     ³  ÃÄ@PSTRINGC_115200_31766_31767  0/34  Ram=2
    ³     ³  ÃÄ@PSTRINGC_1084  0/32  Ram=2
    ³     ³  ³  ÀÄ*
@@ -296,7 +299,7 @@
    ³     ³  ³  ³  ÀÄ*
    ³     ³  ³  ÃÄshowBottonMenu  0/26  Ram=0
    ³     ³  ³  ³  ÀÄ*
-   ³     ³  ³  ÃÄrun_command_wifi  0/2300  Ram=64
+   ³     ³  ³  ÃÄrun_command_wifi  0/2648  Ram=89
    ³     ³  ³  ³  ÀÄ*
    ³     ³  ³  ÃÄ@delay_ms1  0/40  Ram=1
    ³     ³  ³  ÃÄSound  0/328  Ram=15
@@ -310,7 +313,7 @@
    ³     ³  ³  ÃÄ@delay_ms1  0/40  Ram=1
    ³     ³  ³  ÃÄSound  0/328  Ram=15
    ³     ³  ³  ³  ÀÄ*
-   ³     ³  ³  ÃÄ@goto13408  0/44  Ram=0
+   ³     ³  ³  ÃÄ@goto13436  0/44  Ram=0
    ³     ³  ³  ÃÄ@PSTRINGC_115200_31766_31767  0/34  Ram=2
    ³     ³  ³  ÃÄ@delay_ms1  0/40  Ram=1
    ³     ³  ³  ÃÄ@PSTRINGC_1084  0/32  Ram=2
@@ -328,7 +331,7 @@
    ³     ³  ³  ³  ³  ÀÄ*
    ³     ³  ³  ³  ÃÄ@PSTRINGC_1084  0/32  Ram=2
    ³     ³  ³  ³  ³  ÀÄ*
-   ³     ³  ³  ³  ÃÄrun_command_wifi  0/2300  Ram=64
+   ³     ³  ³  ³  ÃÄrun_command_wifi  0/2648  Ram=89
    ³     ³  ³  ³  ³  ÀÄ*
    ³     ³  ³  ³  ÀÄ@delay_ms1  0/40  Ram=1
    ³     ³  ³  ÃÄ@PSTRINGC_1084  0/32  Ram=2
@@ -349,12 +352,12 @@
    ÀÄRDA_isr  0/24  Ram=1
       ÀÄESP8266_PROCCESS_RESPONSE  0/232  Ram=1
          ÃÄwaitRespMajor  0/498  Ram=16
-         ³  ÃÄ@goto12867  0/36  Ram=0
-         ³  ÃÄ@const1234  0/22  Ram=0
-         ³  ÃÄ@const1235  0/22  Ram=0
-         ³  ÃÄ@const1236  0/24  Ram=0
-         ³  ÃÄ@const1237  0/26  Ram=0
-         ³  ÀÄ@const1238  0/22  Ram=0
+         ³  ÃÄ@goto12895  0/36  Ram=0
+         ³  ÃÄ@const1238  0/22  Ram=0
+         ³  ÃÄ@const1239  0/22  Ram=0
+         ³  ÃÄ@const1240  0/24  Ram=0
+         ³  ÃÄ@const1241  0/26  Ram=0
+         ³  ÀÄ@const1242  0/22  Ram=0
          ÃÄwaitRespMajor  0/498  Ram=16
          ³  ÀÄ*
          ÃÄwaitRespMajor  0/498  Ram=16
@@ -368,11 +371,11 @@
          ÃÄwaitRespMajor  0/498  Ram=16
          ³  ÀÄ*
          ÃÄgetIP  0/172  Ram=3
-         ³  ÀÄ@goto12945  0/36  Ram=0
+         ³  ÀÄ@goto12973  0/36  Ram=0
          ÃÄwaitRespMajor  0/498  Ram=16
          ³  ÀÄ*
          ÃÄgetAPInfo  0/118  Ram=3
-         ³  ÀÄ@goto12982  0/34  Ram=0
+         ³  ÀÄ@goto13010  0/34  Ram=0
          ÃÄwaitRespMajor  0/498  Ram=16
          ³  ÀÄ*
          ÃÄgetSTAInfo  0/66  Ram=3

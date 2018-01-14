@@ -151,7 +151,7 @@ void ESP8266_Get_Data(char buffer[]){
    por WiFi y lo ejecuta. 
 *****************************************************/
 int run_command_wifi(void){
-   int8 reset = 0, OS_CMD = 0 ,optSelected  = 0,counter = 0, idxRSTNC = 0,lenResponse = 30;
+   int8 reset = 0, optSelected  = 0,counter = 0, idxRSTNC = 0,lenResponse = 30;
    char response[57]    = "HTTP/1.1 200 OK\n\n{\"cmd\":\"ok\"}\n";
    
    char headers[]       = "Content-Type: text/html";
@@ -293,7 +293,7 @@ int run_command_wifi(void){
          COMMAND[1]=='S')
       {
          //char  response[57];
-         OS_CMD = 1;
+         
          response[0]  = '{';
          response[1]  = '"';
          response[2]  = '0';
@@ -396,17 +396,22 @@ int run_command_wifi(void){
       ***   FIN COMANDOS   ****
       ************************/
       if(reset==0){
-        
-         // Body
-         if(OS_CMD==0)
+         // statusLine
+         delay_ms(30);
+         fprintf(ESP8266, "AT+CIPSEND=%c,%u\r\n",ID_CONNETION[0],status_line_len);
+         delay_ms(60);
+         fprintf(ESP8266, "%s\n\r",status_line);
+         delay_ms(120);
+
+         if()
          {
-            // Comandos que no tiene una respuesta personalizada
+            // Body
             fprintf(ESP8266, "AT+CIPSEND=%c,%u\r\n",ID_CONNETION[0],lenResponse);
             delay_ms(50);
             fprintf(ESP8266, "%s\n\r",response);
          }else
          {
-            // Si el comando es OS se agrega el statusLine
+            // Body
             fprintf(ESP8266, "AT+CIPSEND=%c,%u\r\n",ID_CONNETION[0],lenResponse);
             delay_ms(50);
             fprintf(ESP8266, "HTTP/1.1 200 OK\n\n%s\n\r",response);
